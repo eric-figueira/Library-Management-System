@@ -46,15 +46,16 @@
             this.tpCadastro = new System.Windows.Forms.TabPage();
             this.label9 = new System.Windows.Forms.Label();
             this.tpLista = new System.Windows.Forms.TabPage();
-            this.dgvLivro = new System.Windows.Forms.DataGridView();
-            this.IdLivro = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CodLivro = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TituloLivro = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AutorLivro = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvLeitor = new System.Windows.Forms.DataGridView();
+            this.IdLeitor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NomeLeitor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EmailLeitor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TelefoneLeitor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EnderecoLeitor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.tpCadastro.SuspendLayout();
             this.tpLista.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvLivro)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLeitor)).BeginInit();
             this.SuspendLayout();
             // 
             // btnProcurar
@@ -193,7 +194,7 @@
             this.tabControl1.Location = new System.Drawing.Point(12, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(679, 392);
+            this.tabControl1.Size = new System.Drawing.Size(871, 392);
             this.tabControl1.TabIndex = 27;
             // 
             // tpCadastro
@@ -216,7 +217,7 @@
             this.tpCadastro.Location = new System.Drawing.Point(4, 29);
             this.tpCadastro.Name = "tpCadastro";
             this.tpCadastro.Padding = new System.Windows.Forms.Padding(3);
-            this.tpCadastro.Size = new System.Drawing.Size(671, 359);
+            this.tpCadastro.Size = new System.Drawing.Size(863, 359);
             this.tpCadastro.TabIndex = 0;
             this.tpCadastro.Text = "Cadastro";
             this.tpCadastro.UseVisualStyleBackColor = true;
@@ -232,66 +233,74 @@
             // 
             // tpLista
             // 
-            this.tpLista.Controls.Add(this.dgvLivro);
+            this.tpLista.Controls.Add(this.dgvLeitor);
             this.tpLista.Location = new System.Drawing.Point(4, 29);
             this.tpLista.Name = "tpLista";
             this.tpLista.Padding = new System.Windows.Forms.Padding(3);
-            this.tpLista.Size = new System.Drawing.Size(671, 359);
+            this.tpLista.Size = new System.Drawing.Size(863, 359);
             this.tpLista.TabIndex = 1;
             this.tpLista.Text = "Lista";
             this.tpLista.UseVisualStyleBackColor = true;
             // 
-            // dgvLivro
+            // dgvLeitor
             // 
-            this.dgvLivro.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.dgvLeitor.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgvLivro.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvLivro.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.IdLivro,
-            this.CodLivro,
-            this.TituloLivro,
-            this.AutorLivro});
-            this.dgvLivro.Location = new System.Drawing.Point(0, 0);
-            this.dgvLivro.Name = "dgvLivro";
-            this.dgvLivro.Size = new System.Drawing.Size(671, 349);
-            this.dgvLivro.TabIndex = 0;
+            this.dgvLeitor.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvLeitor.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.IdLeitor,
+            this.NomeLeitor,
+            this.EmailLeitor,
+            this.TelefoneLeitor,
+            this.EnderecoLeitor});
+            this.dgvLeitor.Location = new System.Drawing.Point(0, 0);
+            this.dgvLeitor.Name = "dgvLeitor";
+            this.dgvLeitor.Size = new System.Drawing.Size(863, 342);
+            this.dgvLeitor.TabIndex = 0;
             // 
-            // IdLivro
+            // IdLeitor
             // 
-            this.IdLivro.HeaderText = "Identificação";
-            this.IdLivro.Name = "IdLivro";
-            this.IdLivro.ReadOnly = true;
-            this.IdLivro.Width = 110;
+            this.IdLeitor.HeaderText = "Identificação";
+            this.IdLeitor.Name = "IdLeitor";
+            this.IdLeitor.ReadOnly = true;
+            this.IdLeitor.Width = 110;
             // 
-            // CodLivro
+            // NomeLeitor
             // 
-            this.CodLivro.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.CodLivro.HeaderText = "Código";
-            this.CodLivro.MaxInputLength = 10;
-            this.CodLivro.Name = "CodLivro";
-            this.CodLivro.Width = 110;
+            this.NomeLeitor.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.NomeLeitor.HeaderText = "Nome";
+            this.NomeLeitor.MaxInputLength = 10;
+            this.NomeLeitor.Name = "NomeLeitor";
+            this.NomeLeitor.Width = 110;
             // 
-            // TituloLivro
+            // EmailLeitor
             // 
-            this.TituloLivro.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.TituloLivro.HeaderText = "Título";
-            this.TituloLivro.MaxInputLength = 50;
-            this.TituloLivro.Name = "TituloLivro";
-            this.TituloLivro.Width = 200;
+            this.EmailLeitor.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.EmailLeitor.HeaderText = "Email";
+            this.EmailLeitor.MaxInputLength = 50;
+            this.EmailLeitor.Name = "EmailLeitor";
+            this.EmailLeitor.Width = 200;
             // 
-            // AutorLivro
+            // TelefoneLeitor
             // 
-            this.AutorLivro.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.AutorLivro.HeaderText = "Autor(es)";
-            this.AutorLivro.MaxInputLength = 50;
-            this.AutorLivro.Name = "AutorLivro";
-            this.AutorLivro.Width = 200;
+            this.TelefoneLeitor.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.TelefoneLeitor.HeaderText = "Telefone";
+            this.TelefoneLeitor.MaxInputLength = 50;
+            this.TelefoneLeitor.Name = "TelefoneLeitor";
+            this.TelefoneLeitor.Width = 200;
+            // 
+            // EnderecoLeitor
+            // 
+            this.EnderecoLeitor.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.EnderecoLeitor.HeaderText = "Endereço";
+            this.EnderecoLeitor.Name = "EnderecoLeitor";
+            this.EnderecoLeitor.Width = 200;
             // 
             // FrmLeitor
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(709, 422);
+            this.ClientSize = new System.Drawing.Size(901, 422);
             this.Controls.Add(this.tabControl1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "FrmLeitor";
@@ -300,7 +309,7 @@
             this.tpCadastro.ResumeLayout(false);
             this.tpCadastro.PerformLayout();
             this.tpLista.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvLivro)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLeitor)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -325,10 +334,11 @@
         private System.Windows.Forms.TabPage tpCadastro;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TabPage tpLista;
-        private System.Windows.Forms.DataGridView dgvLivro;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IdLivro;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CodLivro;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TituloLivro;
-        private System.Windows.Forms.DataGridViewTextBoxColumn AutorLivro;
+        private System.Windows.Forms.DataGridView dgvLeitor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IdLeitor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NomeLeitor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EmailLeitor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TelefoneLeitor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EnderecoLeitor;
     }
 }
