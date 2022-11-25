@@ -233,7 +233,7 @@
             this.AutorLivro});
             this.dgvLivro.Location = new System.Drawing.Point(0, 0);
             this.dgvLivro.Name = "dgvLivro";
-            this.dgvLivro.Size = new System.Drawing.Size(666, 360);
+            this.dgvLivro.Size = new System.Drawing.Size(666, 353);
             this.dgvLivro.TabIndex = 0;
             // 
             // IdLivro

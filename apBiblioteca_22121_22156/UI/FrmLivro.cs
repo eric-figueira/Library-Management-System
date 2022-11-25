@@ -72,17 +72,15 @@ namespace apBiblioteca_22121_22156.UI
             {
                 LivroBLL bll = new LivroBLL(banco, usuario, senha);
                 livro = bll.SelecionarLivroPorCodigo(codigo);
-                txtIdLivro.Text = livro.IdLivro.ToString();
                 txtCodLivro.Text = livro.CodigoLivro;
                 txtTituloLivro.Text = livro.TituloLivro;
                 txtAutorLivro.Text = livro.AutorLivro;
             }
-            catch (Exception ex)
+            catch (Exception erro)
             {
-                MessageBox.Show(" Erro : " + ex.Message.ToString());
+                MessageBox.Show("Erro: " + erro.Message.ToString());
             }
             txtIdLivro.ReadOnly = true;
-
         }
 
         private void btnExibir_Click(object sender, EventArgs e)
