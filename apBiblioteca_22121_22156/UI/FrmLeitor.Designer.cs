@@ -194,7 +194,7 @@
             this.tabControl1.Location = new System.Drawing.Point(12, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(871, 392);
+            this.tabControl1.Size = new System.Drawing.Size(671, 392);
             this.tabControl1.TabIndex = 27;
             // 
             // tpCadastro
@@ -217,7 +217,7 @@
             this.tpCadastro.Location = new System.Drawing.Point(4, 29);
             this.tpCadastro.Name = "tpCadastro";
             this.tpCadastro.Padding = new System.Windows.Forms.Padding(3);
-            this.tpCadastro.Size = new System.Drawing.Size(863, 359);
+            this.tpCadastro.Size = new System.Drawing.Size(663, 359);
             this.tpCadastro.TabIndex = 0;
             this.tpCadastro.Text = "Cadastro";
             this.tpCadastro.UseVisualStyleBackColor = true;
@@ -237,7 +237,7 @@
             this.tpLista.Location = new System.Drawing.Point(4, 29);
             this.tpLista.Name = "tpLista";
             this.tpLista.Padding = new System.Windows.Forms.Padding(3);
-            this.tpLista.Size = new System.Drawing.Size(863, 359);
+            this.tpLista.Size = new System.Drawing.Size(663, 359);
             this.tpLista.TabIndex = 1;
             this.tpLista.Text = "Lista";
             this.tpLista.UseVisualStyleBackColor = true;
@@ -256,7 +256,7 @@
             this.EnderecoLeitor});
             this.dgvLeitor.Location = new System.Drawing.Point(0, 0);
             this.dgvLeitor.Name = "dgvLeitor";
-            this.dgvLeitor.Size = new System.Drawing.Size(863, 342);
+            this.dgvLeitor.Size = new System.Drawing.Size(663, 335);
             this.dgvLeitor.TabIndex = 0;
             // 
             // IdLeitor
@@ -280,7 +280,6 @@
             this.EmailLeitor.HeaderText = "Email";
             this.EmailLeitor.MaxInputLength = 50;
             this.EmailLeitor.Name = "EmailLeitor";
-            this.EmailLeitor.Width = 200;
             // 
             // TelefoneLeitor
             // 
@@ -288,7 +287,6 @@
             this.TelefoneLeitor.HeaderText = "Telefone";
             this.TelefoneLeitor.MaxInputLength = 50;
             this.TelefoneLeitor.Name = "TelefoneLeitor";
-            this.TelefoneLeitor.Width = 200;
             // 
             // EnderecoLeitor
             // 
@@ -300,7 +298,7 @@
             // FrmLeitor
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(901, 422);
+            this.ClientSize = new System.Drawing.Size(701, 422);
             this.Controls.Add(this.tabControl1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "FrmLeitor";

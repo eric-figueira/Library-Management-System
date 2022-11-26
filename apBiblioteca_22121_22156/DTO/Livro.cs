@@ -20,7 +20,7 @@ namespace DTO
             get => idLivro;
             set
             {
-                if (value < 0)
+                if (value < 0) // testa se o id do livro é negativo
                     throw new Exception("Id negativo é inválido!");
                 idLivro = value; // armazena o valor passado no atributo de destino
             }
@@ -40,9 +40,9 @@ namespace DTO
             get => tituloLivro;
             set
             {
-                value = value.Remove(tamanhoTitulo); // remove qualquer caracter além do tamanho máximo do campo
-                value = value.PadRight(tamanhoTitulo, ' '); // preenche título com espaços à direita até completar o tamanho mãximo
-                tituloLivro = value; // armazena o valor passado no atributo de destino
+                value = value.Remove(tamanhoTitulo);
+                value = value.PadRight(tamanhoTitulo, ' ');
+                tituloLivro = value; 
             }
         }
         public string AutorLivro
@@ -51,18 +51,18 @@ namespace DTO
             set
             {
 
-                value = value.Remove(tamanhoAutor); // remove qualquer caracter além do tamanho máximo do campo
-                value = value.PadRight(tamanhoAutor, ' '); // preenche título com espaços à direita até completar o tamanho mãximo
-                autorLivro = value; // armazena o valor passado no atributo de destino
+                value = value.Remove(tamanhoAutor);
+                value = value.PadRight(tamanhoAutor, ' ');
+                autorLivro = value;
             }
         }
 
         public Livro(int idLivro, string codLivro, string tituloLivro, string autorLivro)
         {
-            IdLivro = idLivro;
+            IdLivro     = idLivro;
             CodigoLivro = codLivro;
             TituloLivro = tituloLivro;
-            AutorLivro = autorLivro;
+            AutorLivro  = autorLivro;
         }
     }
 }

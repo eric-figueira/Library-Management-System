@@ -21,9 +21,9 @@ namespace DTO
             get => idLeitor;
             set
             {
-                if (value < 0)
+                if (value < 0) // testa se o id é negativo
                     throw new Exception("Id negativo é inválido");
-                idLeitor = value;
+                idLeitor = value; // armazena o valor passado no atributo de destino
             }
         }
 
@@ -32,9 +32,9 @@ namespace DTO
             get => nomeLeitor;
             set
             {
-                value = value.Remove(tamanhoNome);
-                value = value.PadLeft(tamanhoNome, ' ');
-                nomeLeitor = value;
+                value = value.Remove(tamanhoNome); // remove qualquer caracter além do tamanho máximo do campo
+                value = value.PadLeft(tamanhoNome, ' '); // preenche título com espaços à esquerda até completar o tamanho mãximo
+                nomeLeitor = value; 
             }
         }
 
@@ -43,9 +43,9 @@ namespace DTO
             get => telefoneLeitor;
             set
             {
-                value = value.Remove(tamanhoTelefone);
-                value = value.PadLeft(tamanhoTelefone, ' ');
-                telefoneLeitor = value;
+                value = value.Remove(tamanhoTelefone); 
+                value = value.PadLeft(tamanhoTelefone, ' '); 
+                telefoneLeitor = value; 
             }
         }
 
@@ -54,8 +54,8 @@ namespace DTO
             get => emailLeitor;
             set
             {
-                value = value.Remove(tamanhoEmail);
-                value = value.PadLeft(tamanhoEmail, ' ');
+                value = value.Remove(tamanhoEmail); 
+                value = value.PadLeft(tamanhoEmail, ' '); 
                 emailLeitor = value;
             }
         }
@@ -73,10 +73,10 @@ namespace DTO
 
         public Leitor(int id, string nome, string telefone, string email, string endereco)
         {
-            idLeitor = id;
-            nomeLeitor = nome;
+            idLeitor       = id;
+            nomeLeitor     = nome;
             telefoneLeitor = telefone;
-            emailLeitor = email;
+            emailLeitor    = email;
             enderecoLeitor = endereco;
         }
     }

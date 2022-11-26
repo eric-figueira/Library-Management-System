@@ -57,7 +57,7 @@ namespace BLL
             }
 
         }
-        public void ExcluirLivro(Livro livro) 
+        public void ExcluirLivro(Livro livro)  // Precisa se regra de negócio
         {
             try
             {

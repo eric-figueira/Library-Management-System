@@ -18,9 +18,9 @@ namespace DTO
             get => idEmprestimo;
             set
             {
-                if (value < 0)
+                if (value < 0) // testa se o id do emprestimo é negativo
                     throw new Exception("Id negativo é inválido!");
-                idEmprestimo = value;
+                idEmprestimo = value; // armazena o valor passado no atributo de destino
             }
         }
         public int IdLivro
@@ -28,9 +28,9 @@ namespace DTO
             get => idLivro;
             set
             {
-                if (value < 0)
+                if (value < 0) // testa se o id do livro é negativo
                     throw new Exception("Id negativo é inválido!");
-                idLivro = value;
+                idLivro = value; 
             }
         }
         public int IdLeitor
@@ -38,9 +38,9 @@ namespace DTO
             get => idLeitor;
             set
             {
-                if (value < 0)
+                if (value < 0) // testa se o id do leitor é negativo
                     throw new Exception("Id negativo é inválido!");
-                idLeitor = value;
+                idLeitor = value; 
             }
         }
         public DateTime DataDevolucaoEfetiva
@@ -51,7 +51,7 @@ namespace DTO
         public DateTime DataDevolucaoPrevista
         {
             get => dataDevolucaoPrevista;
-            set => dataDevolucaoPrevista = value;
+            set => dataDevolucaoPrevista = value; 
         }
         public DateTime DataEmprestimo
         {
@@ -62,11 +62,11 @@ namespace DTO
         public Emprestimo(int idLivro, int idLeitor, int idEmprestimo, DateTime dataEmprestimo,
             DateTime dataPrevista, DateTime dataEfetiva)
         {
-            IdLivro = idLivro;
-            IdLeitor = idLeitor;
-            IdEmprestimo = idEmprestimo;
-            DataEmprestimo = dataEmprestimo;
-            DataDevolucaoEfetiva = dataEfetiva;
+            IdLivro               = idLivro;
+            IdLeitor              = idLeitor;
+            IdEmprestimo          = idEmprestimo;
+            DataEmprestimo        = dataEmprestimo;
+            DataDevolucaoEfetiva  = dataEfetiva;
             DataDevolucaoPrevista = dataPrevista;
 
         }

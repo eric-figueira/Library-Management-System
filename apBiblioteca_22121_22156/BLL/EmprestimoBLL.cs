@@ -31,7 +31,7 @@ namespace BLL
             }
             return tb;
         }
-
+        // Nao precisa do criar emprestimo tbm? // Precisa de regra de negócio
         public void AlterarEmprestimo(Emprestimo emprestimo)
         { 
             try

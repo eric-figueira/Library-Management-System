@@ -59,7 +59,7 @@ namespace BLL
             }
         }
 
-        public void ExcluirLeitor(Leitor leitor) 
+        public void ExcluirLeitor(Leitor leitor) // Precisa de regra de negócio
         {
             try
             {
