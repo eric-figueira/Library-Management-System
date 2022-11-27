@@ -30,7 +30,10 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tbEmprestimo = new System.Windows.Forms.TabPage();
-            this.tpDevolucao = new System.Windows.Forms.TabPage();
+            this.dtpDataDevPrevista = new System.Windows.Forms.DateTimePicker();
+            this.dtpDataEmprestimo = new System.Windows.Forms.DateTimePicker();
+            this.txtIdLivro = new System.Windows.Forms.TextBox();
+            this.txtIdLeitor = new System.Windows.Forms.TextBox();
             this.btnExibir = new System.Windows.Forms.Button();
             this.btnExcluir = new System.Windows.Forms.Button();
             this.txtIdEmprestimo = new System.Windows.Forms.TextBox();
@@ -42,10 +45,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.txtIdLeitor = new System.Windows.Forms.TextBox();
-            this.txtIdLivro = new System.Windows.Forms.TextBox();
-            this.dtpDataEmprestimo = new System.Windows.Forms.DateTimePicker();
-            this.dtpDataDevPrevista = new System.Windows.Forms.DateTimePicker();
+            this.tpDevolucao = new System.Windows.Forms.TabPage();
             this.tabControl1.SuspendLayout();
             this.tbEmprestimo.SuspendLayout();
             this.SuspendLayout();
@@ -90,16 +90,39 @@
             this.tbEmprestimo.Text = "Empréstimos";
             this.tbEmprestimo.UseVisualStyleBackColor = true;
             // 
-            // tpDevolucao
+            // dtpDataDevPrevista
             // 
-            this.tpDevolucao.Location = new System.Drawing.Point(4, 29);
-            this.tpDevolucao.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.tpDevolucao.Name = "tpDevolucao";
-            this.tpDevolucao.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.tpDevolucao.Size = new System.Drawing.Size(555, 335);
-            this.tpDevolucao.TabIndex = 1;
-            this.tpDevolucao.Text = "Devoluções";
-            this.tpDevolucao.UseVisualStyleBackColor = true;
+            this.dtpDataDevPrevista.CustomFormat = "dd/MM/yyyy";
+            this.dtpDataDevPrevista.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpDataDevPrevista.Location = new System.Drawing.Point(233, 212);
+            this.dtpDataDevPrevista.Name = "dtpDataDevPrevista";
+            this.dtpDataDevPrevista.Size = new System.Drawing.Size(128, 26);
+            this.dtpDataDevPrevista.TabIndex = 45;
+            // 
+            // dtpDataEmprestimo
+            // 
+            this.dtpDataEmprestimo.CustomFormat = "dd/MMM/yyyy";
+            this.dtpDataEmprestimo.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpDataEmprestimo.Location = new System.Drawing.Point(233, 166);
+            this.dtpDataEmprestimo.Name = "dtpDataEmprestimo";
+            this.dtpDataEmprestimo.Size = new System.Drawing.Size(128, 26);
+            this.dtpDataEmprestimo.TabIndex = 44;
+            // 
+            // txtIdLivro
+            // 
+            this.txtIdLivro.Location = new System.Drawing.Point(168, 117);
+            this.txtIdLivro.Name = "txtIdLivro";
+            this.txtIdLivro.ReadOnly = true;
+            this.txtIdLivro.Size = new System.Drawing.Size(193, 26);
+            this.txtIdLivro.TabIndex = 43;
+            // 
+            // txtIdLeitor
+            // 
+            this.txtIdLeitor.Location = new System.Drawing.Point(169, 64);
+            this.txtIdLeitor.Name = "txtIdLeitor";
+            this.txtIdLeitor.ReadOnly = true;
+            this.txtIdLeitor.Size = new System.Drawing.Size(192, 26);
+            this.txtIdLeitor.TabIndex = 42;
             // 
             // btnExibir
             // 
@@ -109,6 +132,7 @@
             this.btnExibir.TabIndex = 37;
             this.btnExibir.Text = "Exibir";
             this.btnExibir.UseVisualStyleBackColor = true;
+            this.btnExibir.Click += new System.EventHandler(this.btnExibir_Click);
             // 
             // btnExcluir
             // 
@@ -118,6 +142,7 @@
             this.btnExcluir.TabIndex = 38;
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.UseVisualStyleBackColor = true;
+            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
             // txtIdEmprestimo
             // 
@@ -144,6 +169,7 @@
             this.btnAlterar.TabIndex = 36;
             this.btnAlterar.Text = "Alterar";
             this.btnAlterar.UseVisualStyleBackColor = true;
+            this.btnAlterar.Click += new System.EventHandler(this.btnAlterar_Click);
             // 
             // btnProcurar
             // 
@@ -163,6 +189,7 @@
             this.btnNovo.TabIndex = 35;
             this.btnNovo.Text = "Novo";
             this.btnNovo.UseVisualStyleBackColor = true;
+            this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
             // 
             // label9
             // 
@@ -200,39 +227,16 @@
             this.label3.TabIndex = 29;
             this.label3.Text = "Identificação Livro:";
             // 
-            // txtIdLeitor
+            // tpDevolucao
             // 
-            this.txtIdLeitor.Location = new System.Drawing.Point(169, 64);
-            this.txtIdLeitor.Name = "txtIdLeitor";
-            this.txtIdLeitor.ReadOnly = true;
-            this.txtIdLeitor.Size = new System.Drawing.Size(192, 26);
-            this.txtIdLeitor.TabIndex = 42;
-            // 
-            // txtIdLivro
-            // 
-            this.txtIdLivro.Location = new System.Drawing.Point(168, 117);
-            this.txtIdLivro.Name = "txtIdLivro";
-            this.txtIdLivro.ReadOnly = true;
-            this.txtIdLivro.Size = new System.Drawing.Size(193, 26);
-            this.txtIdLivro.TabIndex = 43;
-            // 
-            // dtpDataEmprestimo
-            // 
-            this.dtpDataEmprestimo.CustomFormat = "dd/MMM/yyyy";
-            this.dtpDataEmprestimo.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpDataEmprestimo.Location = new System.Drawing.Point(233, 166);
-            this.dtpDataEmprestimo.Name = "dtpDataEmprestimo";
-            this.dtpDataEmprestimo.Size = new System.Drawing.Size(128, 26);
-            this.dtpDataEmprestimo.TabIndex = 44;
-            // 
-            // dtpDataDevPrevista
-            // 
-            this.dtpDataDevPrevista.CustomFormat = "dd/MM/yyyy";
-            this.dtpDataDevPrevista.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpDataDevPrevista.Location = new System.Drawing.Point(233, 212);
-            this.dtpDataDevPrevista.Name = "dtpDataDevPrevista";
-            this.dtpDataDevPrevista.Size = new System.Drawing.Size(128, 26);
-            this.dtpDataDevPrevista.TabIndex = 45;
+            this.tpDevolucao.Location = new System.Drawing.Point(4, 29);
+            this.tpDevolucao.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tpDevolucao.Name = "tpDevolucao";
+            this.tpDevolucao.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tpDevolucao.Size = new System.Drawing.Size(555, 335);
+            this.tpDevolucao.TabIndex = 1;
+            this.tpDevolucao.Text = "Devoluções";
+            this.tpDevolucao.UseVisualStyleBackColor = true;
             // 
             // FrmOperacoes
             // 
