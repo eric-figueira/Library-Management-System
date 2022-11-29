@@ -75,6 +75,12 @@
     <Compile Include="UI\FrmLivro.Designer.cs">
       <DependentUpon>FrmLivro.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\FrmOperacoes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\FrmOperacoes.Designer.cs">
+      <DependentUpon>FrmOperacoes.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="UI\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -92,6 +98,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\FrmLivro.resx">
       <DependentUpon>FrmLivro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\FrmOperacoes.resx">
+      <DependentUpon>FrmOperacoes.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

@@ -65,7 +65,7 @@
             this.tabControl1.Location = new System.Drawing.Point(12, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(674, 396);
+            this.tabControl1.Size = new System.Drawing.Size(674, 353);
             this.tabControl1.TabIndex = 0;
             // 
             // tpCadastro
@@ -86,7 +86,7 @@
             this.tpCadastro.Location = new System.Drawing.Point(4, 29);
             this.tpCadastro.Name = "tpCadastro";
             this.tpCadastro.Padding = new System.Windows.Forms.Padding(3);
-            this.tpCadastro.Size = new System.Drawing.Size(666, 363);
+            this.tpCadastro.Size = new System.Drawing.Size(666, 320);
             this.tpCadastro.TabIndex = 0;
             this.tpCadastro.Text = "Cadastro";
             this.tpCadastro.UseVisualStyleBackColor = true;
@@ -215,7 +215,7 @@
             this.tpLista.Location = new System.Drawing.Point(4, 29);
             this.tpLista.Name = "tpLista";
             this.tpLista.Padding = new System.Windows.Forms.Padding(3);
-            this.tpLista.Size = new System.Drawing.Size(666, 363);
+            this.tpLista.Size = new System.Drawing.Size(666, 320);
             this.tpLista.TabIndex = 1;
             this.tpLista.Text = "Lista";
             this.tpLista.UseVisualStyleBackColor = true;
@@ -233,7 +233,7 @@
             this.AutorLivro});
             this.dgvLivro.Location = new System.Drawing.Point(0, 0);
             this.dgvLivro.Name = "dgvLivro";
-            this.dgvLivro.Size = new System.Drawing.Size(666, 346);
+            this.dgvLivro.Size = new System.Drawing.Size(666, 334);
             this.dgvLivro.TabIndex = 0;
             // 
             // IdLivro
@@ -271,7 +271,7 @@
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(698, 420);
+            this.ClientSize = new System.Drawing.Size(698, 377);
             this.Controls.Add(this.tabControl1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "FrmLivro";

@@ -44,7 +44,7 @@ namespace apBiblioteca_22121_22156.UI
 
         private void btnNovo_Click(object sender, EventArgs e)
         {
-            Emprestimo emprestimo = new Emprestimo(0,0,0,"","",""); //?
+            Emprestimo emprestimo = new Emprestimo(0,0,0, new DateTime(),new DateTime(), new DateTime()); //?
             emprestimo.IdEmprestimo = int.Parse(txtIdEmprestimo.Text);
             emprestimo.IdLeitor = int.Parse(txtIdLeitor.Text);
             emprestimo.IdLivro = int.Parse(txtIdLivro.Text);
@@ -67,7 +67,8 @@ namespace apBiblioteca_22121_22156.UI
                                                     int.Parse(txtIdLeitor.Text),
                                                     int.Parse(txtIdLivro.Text),
                                                     dtpDataEmprestimo.Value,
-                                                    dtpDataDevPrevista.Value); //?
+                                                    dtpDataDevPrevista.Value,
+                                                    dtpDataDevReal.Value); //?
             try
             {
                 EmprestimoBLL bll = new EmprestimoBLL(banco, usuario, senha);
@@ -80,10 +81,30 @@ namespace apBiblioteca_22121_22156.UI
 
         }
 
+        private void btnRegistarDevolucao_Click(object sender, EventArgs e)
+        {
+            Emprestimo emprestimo = new Emprestimo(int.Parse(txtIdEmprestimo.Text),
+                                                    int.Parse(txtIdLeitor.Text),
+                                                    int.Parse(txtIdLivro.Text),
+                                                    dtpDataEmprestimo.Value,
+                                                    dtpDataDevPrevista.Value,
+                                                    dtpDataDevReal.Value);
+
+            try
+            {
+                EmprestimoBLL bll = new EmprestimoBLL (banco, usuario, senha);
+                bll.AlterarEmprestimo (emprestimo);
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show("Erro: " + erro.Message.ToString());
+            }
+        }
+
         private void btnExcluir_Click(object sender, EventArgs e)
         {
             Emprestimo emprestimo = new Emprestimo(int.Parse(txtIdEmprestimo.Text), 0, 0,
-                                                   "", "", "");
+                                                   new DateTime(), new DateTime(), new DateTime());
             try
             {
                 EmprestimoBLL bll = new EmprestimoBLL(banco, usuario, senha);
@@ -100,7 +121,7 @@ namespace apBiblioteca_22121_22156.UI
             try
             {
                 EmprestimoBLL bll = new EmprestimoBLL(banco, usuario, senha);
-                dgvEmprestimo.DataSource = bll.SelecionarListEmprestimos();
+                dgvOperacoes.DataSource = bll.SelecionarListEmprestimos();
             }
             catch (Exception erro)
             {

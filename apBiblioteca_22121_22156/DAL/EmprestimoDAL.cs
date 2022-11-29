@@ -123,7 +123,7 @@ namespace DAL
             }
         }
 
-        public void InsertLivro(Emprestimo emprestimo)
+        public void InsertEmprestimo(Emprestimo emprestimo)
         {
             try
             {

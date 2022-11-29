@@ -32,6 +32,19 @@ namespace BLL
             return tb;
         }
         // Nao precisa do criar emprestimo tbm? // Precisa de regra de negócio
+
+        public void InserirEmprestimo(Emprestimo emprestimo)
+        {
+            try
+            {
+                dal = new DAL.EmprestimoDAL(bd, user, password);
+                dal.InsertEmprestimo(emprestimo);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         public void AlterarEmprestimo(Emprestimo emprestimo)
         { 
             try
