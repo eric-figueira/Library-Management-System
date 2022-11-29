@@ -59,8 +59,15 @@ namespace BLL
             }
         }
 
-        public void ExcluirLeitor(Leitor leitor) // Precisa de regra de negócio
+        public void ExcluirLeitor(Leitor leitor)
         {
+            /*
+                REGRA DE NEGÓCIO: Não da pra excluir um leitor se esta com livro emprestado
+
+                Nao sei se da certo :: 1. Criar um metodo em EmprestimoDAL chamado VerificarEmprestimoUsuario (int idUsuario), que seleciona
+                                            emprestimos com o id passado
+                                       2. Se retornar True, significa que ha um leitor com emprestimo pendente, logo nao podemos exclui-lo
+            */
             try
             {
                 dal = new DAL.LeitorDAL(banco, usuario, senha);

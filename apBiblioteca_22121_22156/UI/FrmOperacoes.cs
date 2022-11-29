@@ -52,8 +52,8 @@ namespace apBiblioteca_22121_22156.UI
             emprestimo.DataDevolucaoPrevista = dtpDataDevPrevista.Value;
             try
             {
-                EmprestimoBLL bll = new EmprestimoBLL(banco, usuario, senha);
-                bll.InserirEmprestimo(emprestimo); //???
+                EmprestimoBLL bll = new EmprestimoBLL(banco, usuario, senha); // As regras de negocio sao feitas aqui ou na classe BLL?
+                bll.InserirEmprestimo(emprestimo); 
             }
             catch (Exception erro)
             {
@@ -68,7 +68,7 @@ namespace apBiblioteca_22121_22156.UI
                                                     int.Parse(txtIdLivro.Text),
                                                     dtpDataEmprestimo.Value,
                                                     dtpDataDevPrevista.Value,
-                                                    dtpDataDevReal.Value); //?
+                                                    dtpDataDevReal.Value);
             try
             {
                 EmprestimoBLL bll = new EmprestimoBLL(banco, usuario, senha);
@@ -104,7 +104,7 @@ namespace apBiblioteca_22121_22156.UI
         private void btnExcluir_Click(object sender, EventArgs e)
         {
             Emprestimo emprestimo = new Emprestimo(int.Parse(txtIdEmprestimo.Text), 0, 0,
-                                                   new DateTime(), new DateTime(), new DateTime());
+                                                   new DateTime(), new DateTime(), new DateTime()); // Nossa, boa bia
             try
             {
                 EmprestimoBLL bll = new EmprestimoBLL(banco, usuario, senha);
