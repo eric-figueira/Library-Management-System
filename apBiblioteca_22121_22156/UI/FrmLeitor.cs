@@ -38,7 +38,7 @@ namespace apBiblioteca_22121_22156.UI
                 }
             }
             else
-                MessageBox.Show("Erro: Dados de leitor inválidos");
+                MessageBox.Show("Preencha todos os campos corretamente!");
         }
 
         private void btnAlterar_Click(object sender, EventArgs e)
@@ -58,7 +58,7 @@ namespace apBiblioteca_22121_22156.UI
                 }
             }
             else
-                MessageBox.Show("Erro: Dados de leitor inválidos");
+                MessageBox.Show("Preencha todos os campos corretamente para realizar as alterações!");
         }
 
         private void btnExcluir_Click(object sender, EventArgs e)
@@ -77,7 +77,7 @@ namespace apBiblioteca_22121_22156.UI
                 }
             }
             else
-                MessageBox.Show("Erro: Dados de leitor inválidos");
+                MessageBox.Show("Digite o código do livro que deseja excluir!");
         }
 
         private void btnExibir_Click(object sender, EventArgs e)
@@ -116,7 +116,7 @@ namespace apBiblioteca_22121_22156.UI
                 }
             }
             else
-                MessageBox.Show("Erro: Dados de leitor inválidos");
+                MessageBox.Show("Digite o código do livro que deseja procurar!");
         }
 
         public FrmLeitor()

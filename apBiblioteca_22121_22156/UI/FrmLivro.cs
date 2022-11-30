@@ -58,21 +58,26 @@ namespace apBiblioteca_22121_22156.UI
                 }
             }
             else
-                MessageBox.Show("Preencha os campos corretamente para realizar as alterações");                  
+                MessageBox.Show("Preencha os campos corretamente para realizar as alterações!");                  
         }
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
-            Livro livro = new Livro(Convert.ToInt32(txtIdLivro.Text), "", "", "");
-            try
+            if (txtCodLivro.Text != "")
             {
-                LivroBLL bll = new LivroBLL(banco, usuario, senha);
-                bll.ExcluirLivro(livro);
+                Livro livro = new Livro(Convert.ToInt32(txtIdLivro.Text), "", "", "");
+                try
+                {
+                    LivroBLL bll = new LivroBLL(banco, usuario, senha);
+                    bll.ExcluirLivro(livro);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Erro : " + ex.Message.ToString());
+                }
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(" Erro : " + ex.Message.ToString());
-            }
+            else
+                MessageBox.Show("Digite o código do livro que deseja excluir!");
         }
 
         private void btnProcurar_Click(object sender, EventArgs e)

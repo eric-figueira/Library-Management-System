@@ -32,7 +32,9 @@ namespace DTO
             get => nomeLeitor;
             set
             {
-                value = value.Remove(tamanhoNome); // remove qualquer caracter além do tamanho máximo do campo
+                if (value.Length != 0)
+                    value = value.Remove(tamanhoNome); // remove qualquer caracter além do tamanho máximo do campo
+
                 value = value.PadLeft(tamanhoNome, ' '); // preenche título com espaços à esquerda até completar o tamanho mãximo
                 nomeLeitor = value; 
             }
@@ -43,7 +45,9 @@ namespace DTO
             get => telefoneLeitor;
             set
             {
-                value = value.Remove(tamanhoTelefone); 
+                if (value.Length != 0)
+                    value = value.Remove(tamanhoTelefone); 
+
                 value = value.PadLeft(tamanhoTelefone, ' '); 
                 telefoneLeitor = value; 
             }
@@ -54,7 +58,9 @@ namespace DTO
             get => emailLeitor;
             set
             {
-                value = value.Remove(tamanhoEmail); 
+                if (value.Length != 0)
+                    value = value.Remove(tamanhoEmail); 
+
                 value = value.PadLeft(tamanhoEmail, ' '); 
                 emailLeitor = value;
             }
@@ -65,7 +71,9 @@ namespace DTO
             get => enderecoLeitor;
             set
             {
-                value = value.Remove(tamanhoEndereco);
+                if (value.Length != 0)
+                    value = value.Remove(tamanhoEndereco);
+
                 value = value.PadLeft(tamanhoEndereco, ' ');
                 enderecoLeitor = value;
             }
