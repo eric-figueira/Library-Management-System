@@ -23,3 +23,17 @@ C:\Users\u22121\Documents\GitHub\Library-Management-System\apBiblioteca_22121_22
 C:\Users\u22121\Documents\GitHub\Library-Management-System\apBiblioteca_22121_22156\bin\Debug\apBiblioteca_22121_22156.exe.config
 C:\Users\u22121\Documents\GitHub\Library-Management-System\apBiblioteca_22121_22156\bin\Debug\apBiblioteca_22121_22156.exe
 C:\Users\u22121\Documents\GitHub\Library-Management-System\apBiblioteca_22121_22156\bin\Debug\apBiblioteca_22121_22156.pdb
+Z:\GITHUB\trabalho chico 2\Library-Management-System\apBiblioteca_22121_22156\bin\Debug\apBiblioteca_22121_22156.exe.config
+Z:\GITHUB\trabalho chico 2\Library-Management-System\apBiblioteca_22121_22156\bin\Debug\apBiblioteca_22121_22156.exe
+Z:\GITHUB\trabalho chico 2\Library-Management-System\apBiblioteca_22121_22156\bin\Debug\apBiblioteca_22121_22156.pdb
+Z:\GITHUB\trabalho chico 2\Library-Management-System\apBiblioteca_22121_22156\obj\Debug\apBiblioteca_22121_22156.csproj.AssemblyReference.cache
+Z:\GITHUB\trabalho chico 2\Library-Management-System\apBiblioteca_22121_22156\obj\Debug\apBiblioteca_22121_22156.csproj.SuggestedBindingRedirects.cache
+Z:\GITHUB\trabalho chico 2\Library-Management-System\apBiblioteca_22121_22156\obj\Debug\apBiblioteca_22121_22156.FrmPrincipal.resources
+Z:\GITHUB\trabalho chico 2\Library-Management-System\apBiblioteca_22121_22156\obj\Debug\apBiblioteca_22121_22156.Properties.Resources.resources
+Z:\GITHUB\trabalho chico 2\Library-Management-System\apBiblioteca_22121_22156\obj\Debug\apBiblioteca_22121_22156.UI.FrmLeitor.resources
+Z:\GITHUB\trabalho chico 2\Library-Management-System\apBiblioteca_22121_22156\obj\Debug\apBiblioteca_22121_22156.UI.FrmLivro.resources
+Z:\GITHUB\trabalho chico 2\Library-Management-System\apBiblioteca_22121_22156\obj\Debug\apBiblioteca_22121_22156.UI.FrmOperacoes.resources
+Z:\GITHUB\trabalho chico 2\Library-Management-System\apBiblioteca_22121_22156\obj\Debug\apBiblioteca_22121_22156.csproj.GenerateResource.cache
+Z:\GITHUB\trabalho chico 2\Library-Management-System\apBiblioteca_22121_22156\obj\Debug\apBiblioteca_22121_22156.csproj.CoreCompileInputs.cache
+Z:\GITHUB\trabalho chico 2\Library-Management-System\apBiblioteca_22121_22156\obj\Debug\apBiblioteca_22121_22156.exe
+Z:\GITHUB\trabalho chico 2\Library-Management-System\apBiblioteca_22121_22156\obj\Debug\apBiblioteca_22121_22156.pdb

@@ -15,7 +15,7 @@ namespace apBiblioteca_22121_22156.UI
     public partial class FrmOperacoes : Form
     {
         public string banco, usuario, senha;
-        
+
 
         public FrmOperacoes()
         {
@@ -24,36 +24,41 @@ namespace apBiblioteca_22121_22156.UI
 
         private void btnProcurar_Click(object sender, EventArgs e)
         {
-            int id = int.Parse(txtIdEmprestimo.Text);
-            Emprestimo emprestimo = null;
-            try
+            if (txtIdEmprestimo.Text != "")
             {
-                EmprestimoBLL bll = new EmprestimoBLL(banco, usuario, senha);
-                emprestimo = bll.SelecionarEmprestimoPorId(id);
-                txtIdLeitor.Text = emprestimo.IdLeitor + "";
-                txtIdLivro.Text = emprestimo.IdLivro + "";
-                dtpDataEmprestimo.Value = emprestimo.DataEmprestimo;
-                dtpDataDevPrevista.Value = emprestimo.DataDevolucaoPrevista;
+                int id = int.Parse(txtIdEmprestimo.Text);
+                Emprestimo emprestimo = null;
+                try
+                {
+                    EmprestimoBLL bll = new EmprestimoBLL(banco, usuario, senha);
+                    emprestimo = bll.SelecionarEmprestimoPorId(id);
+                    txtIdLeitor.Text = emprestimo.IdLeitor + "";
+                    txtIdLivro.Text = emprestimo.IdLivro + "";
+                    dtpDataEmprestimo.Value = emprestimo.DataEmprestimo;
+                    dtpDataDevPrevista.Value = emprestimo.DataDevolucaoPrevista;
+                }
+                catch (Exception erro)
+                {
+                    MessageBox.Show("Erro: " + erro.Message.ToString());
+                }
+                txtIdEmprestimo.ReadOnly = true;
             }
-            catch (Exception erro)
-            {
-                MessageBox.Show("Erro: " + erro.Message.ToString());
-            }
-            txtIdEmprestimo.ReadOnly = true;
+            else
+                MessageBox.Show("Erro: Dados de emprestimo inválidos!");
         }
 
         private void btnNovo_Click(object sender, EventArgs e)
         {
-            Emprestimo emprestimo = new Emprestimo(0,0,0, new DateTime(),new DateTime(), new DateTime()); //?
-            emprestimo.IdEmprestimo = int.Parse(txtIdEmprestimo.Text);
-            emprestimo.IdLeitor = int.Parse(txtIdLeitor.Text);
-             
-            emprestimo.DataEmprestimo = dtpDataEmprestimo.Value;
-            emprestimo.DataDevolucaoPrevista = dtpDataDevPrevista.Value;
-            try
+            // Testamos se os valores nao sao vazios
+            if (txtIdEmprestimo.Text != "" || txtIdLeitor.Text != "" || txtIdLivro.Text != "" || dtpDataDevPrevista.Value != null || dtpDataEmprestimo.Value != null)
             {
-                // Testamos se os valores nao sao vazios
-                if (txtIdEmprestimo.Text != "" || txtIdLeitor.Text != "" || txtIdLivro.Text != "" || dtpDataDevPrevista.Value != null || dtpDataEmprestimo.Value != null)
+                Emprestimo emprestimo = new Emprestimo(0, 0, 0, new DateTime(), new DateTime(), new DateTime()); //?
+                emprestimo.IdEmprestimo = int.Parse(txtIdEmprestimo.Text);
+                emprestimo.IdLeitor = int.Parse(txtIdLeitor.Text);
+
+                emprestimo.DataEmprestimo = dtpDataEmprestimo.Value;
+                emprestimo.DataDevolucaoPrevista = dtpDataDevPrevista.Value;
+                try
                 {
                     EmprestimoBLL bll = new EmprestimoBLL(banco, usuario, senha);
                     List<Emprestimo> aux = bll.SelecionarListEmprestimos();
@@ -65,7 +70,7 @@ namespace apBiblioteca_22121_22156.UI
                         if (aux[i].IdLivro == emprestimo.IdLivro)
                             achouLivroJaEmprestado = true; // Achamos esse mesmo livro ja emprestado
 
-                        if (emprestimo.IdLeitor == aux[i].IdLeitor) // Se o leitor que esta querendo o emprestimo for achado em outro emprestimo
+                        if (emprestimo.IdLeitor == aux[i].IdLeitor && aux[i].DataDevolucaoEfetiva != null) // Se o leitor que esta querendo o emprestimo for achado em outro emprestimo e se a data de devolucao desse emprestimo é null (a pessoa ainda esta com o livro)
                             contLivrosLeitor++; // Incrementamos a quantidade de emprestimos que essa pessoa tem
                     }
 
@@ -78,74 +83,93 @@ namespace apBiblioteca_22121_22156.UI
                     else
                         bll.InserirEmprestimo(emprestimo); // Caso contrario, esse emprestimo sera criado
                 }
-                else
-                    MessageBox.Show("Erro: Dados de emprestimo inválidos!");
+                catch (Exception erro)
+                {
+                    MessageBox.Show("Erro: " + erro.Message.ToString());
+                }
             }
-            catch (Exception erro)
-            {
-                MessageBox.Show("Erro: " + erro.Message.ToString());
-            }
+            else
+                MessageBox.Show("Erro: Dados de emprestimo inválidos!");
         }
 
         private void btnAlterar_Click(object sender, EventArgs e)
         {
-            Emprestimo emprestimo = new Emprestimo(int.Parse(txtIdEmprestimo.Text),
+            // Testamos se os valores nao sao vazios
+            if (txtIdEmprestimo.Text != "" || txtIdLeitor.Text != "" || txtIdLivro.Text != "" || dtpDataDevPrevista.Value != null || dtpDataEmprestimo.Value != null)
+            {
+                Emprestimo emprestimo = new Emprestimo(int.Parse(txtIdEmprestimo.Text),
                                                     int.Parse(txtIdLeitor.Text),
                                                     int.Parse(txtIdLivro.Text),
                                                     dtpDataEmprestimo.Value,
                                                     dtpDataDevPrevista.Value,
                                                     new DateTime());
-            try
-            {
-                EmprestimoBLL bll = new EmprestimoBLL(banco, usuario, senha);
-                bll.AlterarEmprestimo(emprestimo);
+                try
+                {
+                    EmprestimoBLL bll = new EmprestimoBLL(banco, usuario, senha);
+                    bll.AlterarEmprestimo(emprestimo);
+                }
+                catch (Exception erro)
+                {
+                    MessageBox.Show("Erro: " + erro.Message.ToString());
+                }
             }
-            catch (Exception erro)
-            {
-                MessageBox.Show("Erro: " + erro.Message.ToString());
-            }
-
+            else
+                MessageBox.Show("Erro: Dados de emprestimo inválidos!");
         }
 
         private void btnRegistarDevolucao_Click(object sender, EventArgs e)
         {
-            /*
-                1. Procurar o emprestmo pelo Id
-                2. Criar um emprestimo a partir desse retornado
-                3. ???
-                4. Remover esse emprestimo da lista de emprestimos, ja que esse ja foi devolvido
-            */
-            Emprestimo emprestimo = new Emprestimo(int.Parse(txtIdEmprestimo.Text),
-                                                    int.Parse(txtIdLeitor.Text),
-                                                    int.Parse(txtIdLivro.Text),
-                                                    dtpDataEmprestimo.Value,
-                                                    dtpDataDevPrevista.Value,
-                                                    dtpDataDevReal.Value);
+            if (txtIdEmprestimo.Text != "")
+            {
+                try
+                {
+                    EmprestimoBLL bll = new EmprestimoBLL(banco, usuario, senha);
+                    List<Emprestimo> aux = bll.SelecionarListEmprestimos();
+                    for (int i = 0; i < aux.Count; i++)
+                    {
+                        if (aux[i].IdEmprestimo == int.Parse(txtIdEmprestimo.Text))
+                        {
+                            //if (aux[i].DataDevolucaoPrevista )
 
-            try
-            {
-                EmprestimoBLL bll = new EmprestimoBLL (banco, usuario, senha);
-                bll.AlterarEmprestimo (emprestimo);
+
+                            //Emprestimo emprestimo = new Emprestimo(aux[i].IdEmprestimo,
+                            //                       aux[i].IdLeitor,
+                            //                       aux[i].IdLivro,
+                            //                       aux[i].DataEmprestimo,
+                            //                       aux[i].DataDevolucaoPrevista,
+                            //                       dtpDataDevReal.Value);
+
+                            //bll.AlterarEmprestimo(emprestimo);
+                        }
+                    }
+                }
+                catch (Exception erro)
+                {
+                    MessageBox.Show("Erro: " + erro.Message.ToString());
+                }
             }
-            catch (Exception erro)
-            {
-                MessageBox.Show("Erro: " + erro.Message.ToString());
-            }
+            else
+                MessageBox.Show("Erro: Dados de emprestimo inválidos!");
         }
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
-            Emprestimo emprestimo = new Emprestimo(int.Parse(txtIdEmprestimo.Text), 0, 0,
-                                                   new DateTime(), new DateTime(), new DateTime()); // Nossa, boa bia
-            try
+            if (txtIdEmprestimo.Text != "")
             {
-                EmprestimoBLL bll = new EmprestimoBLL(banco, usuario, senha);
-                bll.ExcluirEmprestimo(emprestimo);
+                Emprestimo emprestimo = new Emprestimo(int.Parse(txtIdEmprestimo.Text), 0, 0,
+                                                   new DateTime(), new DateTime(), new DateTime());
+                try
+                {
+                    EmprestimoBLL bll = new EmprestimoBLL(banco, usuario, senha);
+                    bll.ExcluirEmprestimo(emprestimo);
+                }
+                catch (Exception erro)
+                {
+                    MessageBox.Show("Erro: " + erro.Message.ToString());
+                }
             }
-            catch (Exception erro)
-            {
-                MessageBox.Show("Erro: " + erro.Message.ToString());
-            }
+            else
+                MessageBox.Show("Erro: Dados de emprestimo inválidos!");
         }
 
         private void btnExibir_Click(object sender, EventArgs e)
@@ -154,6 +178,7 @@ namespace apBiblioteca_22121_22156.UI
             {
                 EmprestimoBLL bll = new EmprestimoBLL(banco, usuario, senha);
                 dgvOperacoes.DataSource = bll.SelecionarListEmprestimos();
+                tcOperacoes.SelectTab(tpLista);
             }
             catch (Exception erro)
             {

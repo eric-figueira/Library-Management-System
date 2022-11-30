@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data;
+using System.Data.SqlClient;
 
 namespace apBiblioteca_22121_22156
 {
@@ -15,7 +17,6 @@ namespace apBiblioteca_22121_22156
         UI.FrmLivro formLivros           = null;
         UI.FrmLeitor formLeitores        = null;
         UI.FrmOperacoes formOperacoes    = null;
-   
 
         public FrmPrincipal()
         {
@@ -32,12 +33,23 @@ namespace apBiblioteca_22121_22156
             if (txtBanco.Text == "" || txtUsuario.Text == "" || txtSenha.Text == "")
                 MessageBox.Show("Preencha os dados de conexão");
             else
-            {
+            {   
                 formLivros         = new UI.FrmLivro();
                 formLivros.banco   = txtBanco.Text;
                 formLivros.usuario = txtUsuario.Text;
                 formLivros.senha   = txtSenha.Text;
-                formLivros.Show();
+                try
+                {
+                    string _conexaoSQLServer = $"Data Source=regulus.cotuca.unicamp.br;Initial Catalog={txtBanco.Text}; " +
+                   $"User id={txtUsuario.Text}; Password={txtSenha.Text}";
+                    SqlConnection _conexao = new SqlConnection(_conexaoSQLServer);
+                    _conexao.Open();
+                    formLivros.Show();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Erro: " + ex.Message.ToString());
+                }
             }
         }
 
@@ -46,12 +58,23 @@ namespace apBiblioteca_22121_22156
             if (txtBanco.Text == "" || txtUsuario.Text == "" || txtSenha.Text == "")
                 MessageBox.Show("Preencha os dados de conexão");
             else
-            {
+            { 
                 formLeitores         = new UI.FrmLeitor();
                 formLeitores.banco   = txtBanco.Text;
                 formLeitores.usuario = txtUsuario.Text;
                 formLeitores.senha   = txtSenha.Text;
-                formLivros.Show();
+                try
+                {
+                    string _conexaoSQLServer = $"Data Source=regulus.cotuca.unicamp.br;Initial Catalog={txtBanco.Text}; " +
+                   $"User id={txtUsuario.Text}; Password={txtSenha.Text}";
+                    SqlConnection _conexao = new SqlConnection(_conexaoSQLServer);
+                    _conexao.Open();
+                    formLeitores.Show();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Erro: " + ex.Message.ToString());
+                }
             }
         }
 
@@ -65,8 +88,19 @@ namespace apBiblioteca_22121_22156
                 formOperacoes.banco = txtBanco.Text;
                 formOperacoes.usuario = txtUsuario.Text;
                 formOperacoes.senha = txtSenha.Text;
-                formOperacoes.Show();
-                formOperacoes.abrirPaginaEmprestimos(); // Vai diretamente para a pagina de emprestimos
+                try
+                {
+                    string _conexaoSQLServer = $"Data Source=regulus.cotuca.unicamp.br;Initial Catalog={txtBanco.Text}; " +
+                   $"User id={txtUsuario.Text}; Password={txtSenha.Text}";
+                    SqlConnection _conexao = new SqlConnection(_conexaoSQLServer);
+                    _conexao.Open();
+                    formOperacoes.Show();
+                    formOperacoes.abrirPaginaEmprestimos(); // Vai diretamente para a pagina de emprestimos
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Erro: " + ex.Message.ToString());
+                }
             }
         }
 
@@ -80,8 +114,19 @@ namespace apBiblioteca_22121_22156
                 formOperacoes.banco = txtBanco.Text;
                 formOperacoes.usuario = txtUsuario.Text;
                 formOperacoes.senha = txtSenha.Text;
-                formOperacoes.Show();
-                formOperacoes.abrirPaginaDevolucoes(); // Vai diretamente para a pagina de devolucoes
+                try
+                {
+                    string _conexaoSQLServer = $"Data Source=regulus.cotuca.unicamp.br;Initial Catalog={txtBanco.Text}; " +
+                   $"User id={txtUsuario.Text}; Password={txtSenha.Text}";
+                    SqlConnection _conexao = new SqlConnection(_conexaoSQLServer);
+                    _conexao.Open();
+                    formOperacoes.Show();
+                    formOperacoes.abrirPaginaDevolucoes(); // Vai diretamente para a pagina de devolucoes
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Erro: " + ex.Message.ToString());
+                }
             }
         }
     }
