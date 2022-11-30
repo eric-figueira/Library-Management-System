@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tbEmprestimo = new System.Windows.Forms.TabPage();
+            this.tcOperacoes = new System.Windows.Forms.TabControl();
+            this.tpEmprestimo = new System.Windows.Forms.TabPage();
             this.dtpDataDevPrevista = new System.Windows.Forms.DateTimePicker();
             this.dtpDataEmprestimo = new System.Windows.Forms.DateTimePicker();
             this.txtIdLivro = new System.Windows.Forms.TextBox();
@@ -46,7 +46,12 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.tpDevolucao = new System.Windows.Forms.TabPage();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.btnRegistarDevolucao = new System.Windows.Forms.Button();
+            this.dtpDataDevReal = new System.Windows.Forms.DateTimePicker();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtIdDevolucao = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.tpLista = new System.Windows.Forms.TabPage();
             this.dgvOperacoes = new System.Windows.Forms.DataGridView();
             this.IdEmprestimo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idLivro = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -54,58 +59,53 @@
             this.dataEmprestimo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataDevPrevista = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataDev = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txtIdDevolucao = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.dtpDataDevReal = new System.Windows.Forms.DateTimePicker();
-            this.btnRegistarDevolucao = new System.Windows.Forms.Button();
-            this.tabControl1.SuspendLayout();
-            this.tbEmprestimo.SuspendLayout();
+            this.tcOperacoes.SuspendLayout();
+            this.tpEmprestimo.SuspendLayout();
             this.tpDevolucao.SuspendLayout();
-            this.tabPage1.SuspendLayout();
+            this.tpLista.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOperacoes)).BeginInit();
             this.SuspendLayout();
             // 
-            // tabControl1
+            // tcOperacoes
             // 
-            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.tcOperacoes.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tabControl1.Controls.Add(this.tbEmprestimo);
-            this.tabControl1.Controls.Add(this.tpDevolucao);
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Location = new System.Drawing.Point(13, 14);
-            this.tabControl1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(683, 368);
-            this.tabControl1.TabIndex = 0;
+            this.tcOperacoes.Controls.Add(this.tpEmprestimo);
+            this.tcOperacoes.Controls.Add(this.tpDevolucao);
+            this.tcOperacoes.Controls.Add(this.tpLista);
+            this.tcOperacoes.Location = new System.Drawing.Point(13, 14);
+            this.tcOperacoes.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tcOperacoes.Name = "tcOperacoes";
+            this.tcOperacoes.SelectedIndex = 0;
+            this.tcOperacoes.Size = new System.Drawing.Size(683, 368);
+            this.tcOperacoes.TabIndex = 0;
             // 
-            // tbEmprestimo
+            // tpEmprestimo
             // 
-            this.tbEmprestimo.Controls.Add(this.dtpDataDevPrevista);
-            this.tbEmprestimo.Controls.Add(this.dtpDataEmprestimo);
-            this.tbEmprestimo.Controls.Add(this.txtIdLivro);
-            this.tbEmprestimo.Controls.Add(this.txtIdLeitor);
-            this.tbEmprestimo.Controls.Add(this.btnExibir);
-            this.tbEmprestimo.Controls.Add(this.btnExcluir);
-            this.tbEmprestimo.Controls.Add(this.txtIdEmprestimo);
-            this.tbEmprestimo.Controls.Add(this.label5);
-            this.tbEmprestimo.Controls.Add(this.btnAlterar);
-            this.tbEmprestimo.Controls.Add(this.btnProcurar);
-            this.tbEmprestimo.Controls.Add(this.btnNovo);
-            this.tbEmprestimo.Controls.Add(this.label9);
-            this.tbEmprestimo.Controls.Add(this.label4);
-            this.tbEmprestimo.Controls.Add(this.label2);
-            this.tbEmprestimo.Controls.Add(this.label3);
-            this.tbEmprestimo.Location = new System.Drawing.Point(4, 29);
-            this.tbEmprestimo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.tbEmprestimo.Name = "tbEmprestimo";
-            this.tbEmprestimo.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.tbEmprestimo.Size = new System.Drawing.Size(675, 335);
-            this.tbEmprestimo.TabIndex = 0;
-            this.tbEmprestimo.Text = "Empréstimos";
-            this.tbEmprestimo.UseVisualStyleBackColor = true;
+            this.tpEmprestimo.Controls.Add(this.dtpDataDevPrevista);
+            this.tpEmprestimo.Controls.Add(this.dtpDataEmprestimo);
+            this.tpEmprestimo.Controls.Add(this.txtIdLivro);
+            this.tpEmprestimo.Controls.Add(this.txtIdLeitor);
+            this.tpEmprestimo.Controls.Add(this.btnExibir);
+            this.tpEmprestimo.Controls.Add(this.btnExcluir);
+            this.tpEmprestimo.Controls.Add(this.txtIdEmprestimo);
+            this.tpEmprestimo.Controls.Add(this.label5);
+            this.tpEmprestimo.Controls.Add(this.btnAlterar);
+            this.tpEmprestimo.Controls.Add(this.btnProcurar);
+            this.tpEmprestimo.Controls.Add(this.btnNovo);
+            this.tpEmprestimo.Controls.Add(this.label9);
+            this.tpEmprestimo.Controls.Add(this.label4);
+            this.tpEmprestimo.Controls.Add(this.label2);
+            this.tpEmprestimo.Controls.Add(this.label3);
+            this.tpEmprestimo.Location = new System.Drawing.Point(4, 29);
+            this.tpEmprestimo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tpEmprestimo.Name = "tpEmprestimo";
+            this.tpEmprestimo.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tpEmprestimo.Size = new System.Drawing.Size(675, 335);
+            this.tpEmprestimo.TabIndex = 0;
+            this.tpEmprestimo.Text = "Empréstimos";
+            this.tpEmprestimo.UseVisualStyleBackColor = true;
             // 
             // dtpDataDevPrevista
             // 
@@ -258,16 +258,61 @@
             this.tpDevolucao.Text = "Devoluções";
             this.tpDevolucao.UseVisualStyleBackColor = true;
             // 
-            // tabPage1
+            // btnRegistarDevolucao
             // 
-            this.tabPage1.Controls.Add(this.dgvOperacoes);
-            this.tabPage1.Location = new System.Drawing.Point(4, 29);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(675, 335);
-            this.tabPage1.TabIndex = 2;
-            this.tabPage1.Text = "Lista";
-            this.tabPage1.UseVisualStyleBackColor = true;
+            this.btnRegistarDevolucao.Location = new System.Drawing.Point(24, 141);
+            this.btnRegistarDevolucao.Name = "btnRegistarDevolucao";
+            this.btnRegistarDevolucao.Size = new System.Drawing.Size(114, 38);
+            this.btnRegistarDevolucao.TabIndex = 46;
+            this.btnRegistarDevolucao.Text = "Registrar";
+            this.btnRegistarDevolucao.UseVisualStyleBackColor = true;
+            this.btnRegistarDevolucao.Click += new System.EventHandler(this.btnRegistarDevolucao_Click);
+            // 
+            // dtpDataDevReal
+            // 
+            this.dtpDataDevReal.CustomFormat = "dd/MMM/yyyy";
+            this.dtpDataDevReal.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpDataDevReal.Location = new System.Drawing.Point(241, 83);
+            this.dtpDataDevReal.Name = "dtpDataDevReal";
+            this.dtpDataDevReal.Size = new System.Drawing.Size(128, 26);
+            this.dtpDataDevReal.TabIndex = 45;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(20, 88);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(164, 20);
+            this.label6.TabIndex = 34;
+            this.label6.Text = "Data Devolução Real:";
+            // 
+            // txtIdDevolucao
+            // 
+            this.txtIdDevolucao.Location = new System.Drawing.Point(241, 28);
+            this.txtIdDevolucao.Name = "txtIdDevolucao";
+            this.txtIdDevolucao.ReadOnly = true;
+            this.txtIdDevolucao.Size = new System.Drawing.Size(251, 26);
+            this.txtIdDevolucao.TabIndex = 33;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(20, 31);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(215, 20);
+            this.label1.TabIndex = 32;
+            this.label1.Text = "Identificação do Empréstimo:";
+            // 
+            // tpLista
+            // 
+            this.tpLista.Controls.Add(this.dgvOperacoes);
+            this.tpLista.Location = new System.Drawing.Point(4, 29);
+            this.tpLista.Name = "tpLista";
+            this.tpLista.Padding = new System.Windows.Forms.Padding(3);
+            this.tpLista.Size = new System.Drawing.Size(675, 335);
+            this.tpLista.TabIndex = 2;
+            this.tpLista.Text = "Lista";
+            this.tpLista.UseVisualStyleBackColor = true;
             // 
             // dgvOperacoes
             // 
@@ -329,67 +374,22 @@
             this.dataDev.MaxInputLength = 10;
             this.dataDev.Name = "dataDev";
             // 
-            // txtIdDevolucao
-            // 
-            this.txtIdDevolucao.Location = new System.Drawing.Point(241, 28);
-            this.txtIdDevolucao.Name = "txtIdDevolucao";
-            this.txtIdDevolucao.ReadOnly = true;
-            this.txtIdDevolucao.Size = new System.Drawing.Size(251, 26);
-            this.txtIdDevolucao.TabIndex = 33;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(20, 31);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(215, 20);
-            this.label1.TabIndex = 32;
-            this.label1.Text = "Identificação do Empréstimo:";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(20, 88);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(164, 20);
-            this.label6.TabIndex = 34;
-            this.label6.Text = "Data Devolução Real:";
-            // 
-            // dtpDataDevReal
-            // 
-            this.dtpDataDevReal.CustomFormat = "dd/MMM/yyyy";
-            this.dtpDataDevReal.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpDataDevReal.Location = new System.Drawing.Point(241, 83);
-            this.dtpDataDevReal.Name = "dtpDataDevReal";
-            this.dtpDataDevReal.Size = new System.Drawing.Size(128, 26);
-            this.dtpDataDevReal.TabIndex = 45;
-            // 
-            // btnRegistarDevolucao
-            // 
-            this.btnRegistarDevolucao.Location = new System.Drawing.Point(24, 141);
-            this.btnRegistarDevolucao.Name = "btnRegistarDevolucao";
-            this.btnRegistarDevolucao.Size = new System.Drawing.Size(114, 38);
-            this.btnRegistarDevolucao.TabIndex = 46;
-            this.btnRegistarDevolucao.Text = "Registrar";
-            this.btnRegistarDevolucao.UseVisualStyleBackColor = true;
-            this.btnRegistarDevolucao.Click += new System.EventHandler(this.btnRegistarDevolucao_Click);
-            // 
             // FrmOperacoes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(704, 389);
-            this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.tcOperacoes);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "FrmOperacoes";
             this.Text = "FrmOperacoes";
-            this.tabControl1.ResumeLayout(false);
-            this.tbEmprestimo.ResumeLayout(false);
-            this.tbEmprestimo.PerformLayout();
+            this.tcOperacoes.ResumeLayout(false);
+            this.tpEmprestimo.ResumeLayout(false);
+            this.tpEmprestimo.PerformLayout();
             this.tpDevolucao.ResumeLayout(false);
             this.tpDevolucao.PerformLayout();
-            this.tabPage1.ResumeLayout(false);
+            this.tpLista.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvOperacoes)).EndInit();
             this.ResumeLayout(false);
 
@@ -397,8 +397,8 @@
 
         #endregion
 
-        private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tbEmprestimo;
+        private System.Windows.Forms.TabControl tcOperacoes;
+        private System.Windows.Forms.TabPage tpEmprestimo;
         private System.Windows.Forms.TabPage tpDevolucao;
         private System.Windows.Forms.Button btnExibir;
         private System.Windows.Forms.Button btnExcluir;
@@ -415,7 +415,7 @@
         private System.Windows.Forms.TextBox txtIdLivro;
         private System.Windows.Forms.TextBox txtIdLeitor;
         private System.Windows.Forms.DateTimePicker dtpDataDevPrevista;
-        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage tpLista;
         private System.Windows.Forms.DataGridView dgvOperacoes;
         private System.Windows.Forms.DataGridViewTextBoxColumn IdEmprestimo;
         private System.Windows.Forms.DataGridViewTextBoxColumn idLivro;

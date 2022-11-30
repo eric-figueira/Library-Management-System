@@ -66,6 +66,22 @@ namespace apBiblioteca_22121_22156
                 formOperacoes.usuario = txtUsuario.Text;
                 formOperacoes.senha = txtSenha.Text;
                 formOperacoes.Show();
+                formOperacoes.abrirPaginaEmprestimos(); // Vai diretamente para a pagina de emprestimos
+            }
+        }
+
+        private void devoluçõesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (txtBanco.Text == "" || txtUsuario.Text == "" || txtSenha.Text == "")
+                MessageBox.Show("Preencha os dados de conexão");
+            else
+            {
+                formOperacoes = new UI.FrmOperacoes();
+                formOperacoes.banco = txtBanco.Text;
+                formOperacoes.usuario = txtUsuario.Text;
+                formOperacoes.senha = txtSenha.Text;
+                formOperacoes.Show();
+                formOperacoes.abrirPaginaDevolucoes(); // Vai diretamente para a pagina de devolucoes
             }
         }
     }

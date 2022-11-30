@@ -14,7 +14,7 @@ namespace apBiblioteca_22121_22156.UI
 {
     public partial class FrmOperacoes : Form
     {
-        string banco, usuario, senha;
+        public string banco, usuario, senha;
         
 
         public FrmOperacoes()
@@ -128,5 +128,9 @@ namespace apBiblioteca_22121_22156.UI
                 MessageBox.Show("Erro: " + erro.Message.ToString());
             }
         }
+
+        public void abrirPaginaEmprestimos() { tcOperacoes.SelectTab(tpEmprestimo); } // Abre a aba de emprestimos
+        public void abrirPaginaDevolucoes() { tcOperacoes.SelectTab(tpDevolucao); } // Abre a aba de devolucoes
+
     }
 }

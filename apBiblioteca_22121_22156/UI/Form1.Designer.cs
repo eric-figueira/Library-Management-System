@@ -144,6 +144,7 @@
             this.devoluçõesToolStripMenuItem.Name = "devoluçõesToolStripMenuItem";
             this.devoluçõesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.devoluçõesToolStripMenuItem.Text = "Devoluções";
+            this.devoluçõesToolStripMenuItem.Click += new System.EventHandler(this.devoluçõesToolStripMenuItem_Click);
             // 
             // relatórioToolStripMenuItem
             // 
