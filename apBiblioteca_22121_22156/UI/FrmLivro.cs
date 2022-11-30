@@ -96,7 +96,6 @@ namespace apBiblioteca_22121_22156.UI
                 {
                     LivroBLL bll = new LivroBLL(banco, usuario, senha);
                     livro = bll.SelecionarLivroPorCodigo(codigo);
-                    MessageBox.Show(livro.ToString());
                     txtIdLivro.Text = livro.IdLivro + "";
                     txtCodLivro.Text = livro.CodigoLivro;
                     txtTituloLivro.Text = livro.TituloLivro;
@@ -118,11 +117,18 @@ namespace apBiblioteca_22121_22156.UI
                 LivroBLL bll        = new LivroBLL(banco, usuario, senha);
                 //dgvLivro.DataSource = bll.SelecionarLivros();
                 DataTable teste = bll.SelecionarLivros();
-                foreach (DataRow dr in teste.Rows)
-                {
-                    dgvLivro.Rows.Add(dr);
-                }
+                 
                 //dgvLivro.DataSource = teste;
+                for (int i = 0; i < teste.Rows.Count; i++)
+                {
+
+                    dgvLivro[0, i].Value = teste.Rows[i][0]; // Id
+                    dgvLivro[1, i].Value = teste.Rows[i][1]; // Cod
+                    dgvLivro[2, i].Value = teste.Rows[i][2]; // Titulo
+                    dgvLivro[3, i].Value = teste.Rows[i][3]; // Autor   
+                    dgvLivro.Rows.Add();
+                }
+                tcLivro.SelectTab(tpLista);
             }
             catch (Exception ex)
             {
