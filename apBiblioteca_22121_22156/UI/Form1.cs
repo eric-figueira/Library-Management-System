@@ -14,8 +14,8 @@ namespace apBiblioteca_22121_22156
     {
         UI.FrmLivro formLivros           = null;
         UI.FrmLeitor formLeitores        = null;
-        //UI.FrmEmprestimo frmEmprestimo   = null;
-        //UI.FrmDevolucao frmDevolucao     = null;
+        UI.FrmOperacoes formOperacoes    = null;
+   
 
         public FrmPrincipal()
         {
@@ -52,6 +52,20 @@ namespace apBiblioteca_22121_22156
                 formLeitores.usuario = txtUsuario.Text;
                 formLeitores.senha   = txtSenha.Text;
                 formLivros.Show();
+            }
+        }
+
+        private void empréstimosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (txtBanco.Text == "" || txtUsuario.Text == "" || txtSenha.Text == "")
+                MessageBox.Show("Preencha os dados de conexão");
+            else
+            {
+                formOperacoes = new UI.FrmOperacoes();
+                formOperacoes.banco = txtBanco.Text;
+                formOperacoes.usuario = txtUsuario.Text;
+                formOperacoes.senha = txtSenha.Text;
+                formOperacoes.Show();
             }
         }
     }
