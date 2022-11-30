@@ -47,33 +47,39 @@ namespace apBiblioteca_22121_22156.UI
             Emprestimo emprestimo = new Emprestimo(0,0,0, new DateTime(),new DateTime(), new DateTime()); //?
             emprestimo.IdEmprestimo = int.Parse(txtIdEmprestimo.Text);
             emprestimo.IdLeitor = int.Parse(txtIdLeitor.Text);
-            emprestimo.IdLivro = int.Parse(txtIdLivro.Text);
+             
             emprestimo.DataEmprestimo = dtpDataEmprestimo.Value;
             emprestimo.DataDevolucaoPrevista = dtpDataDevPrevista.Value;
             try
             {
-                EmprestimoBLL bll = new EmprestimoBLL(banco, usuario, senha);
-                List<Emprestimo> aux = bll.SelecionarListEmprestimos();
-
-                bool achouLivroJaEmprestado = false;
-                int contLivrosLeitor = 0;
-                for (int i = 0; i < aux.Count; i++) 
+                // Testamos se os valores nao sao vazios
+                if (txtIdEmprestimo.Text != "" || txtIdLeitor.Text != "" || txtIdLivro.Text != "" || dtpDataDevPrevista.Value != null || dtpDataEmprestimo.Value != null)
                 {
-                    if (aux[i].IdLivro == emprestimo.IdLivro)
-                        achouLivroJaEmprestado = true; // Achamos esse mesmo livro ja emprestado
+                    EmprestimoBLL bll = new EmprestimoBLL(banco, usuario, senha);
+                    List<Emprestimo> aux = bll.SelecionarListEmprestimos();
 
-                    if (emprestimo.IdLeitor == aux[i].IdLeitor) // Se o leitor que esta querendo o emprestimo for achado em outro emprestimo
-                        contLivrosLeitor++; // Incrementamos a quantidade de emprestimos que essa pessoa tem
+                    bool achouLivroJaEmprestado = false;
+                    int contLivrosLeitor = 0;
+                    for (int i = 0; i < aux.Count; i++)
+                    {
+                        if (aux[i].IdLivro == emprestimo.IdLivro)
+                            achouLivroJaEmprestado = true; // Achamos esse mesmo livro ja emprestado
+
+                        if (emprestimo.IdLeitor == aux[i].IdLeitor) // Se o leitor que esta querendo o emprestimo for achado em outro emprestimo
+                            contLivrosLeitor++; // Incrementamos a quantidade de emprestimos que essa pessoa tem
+                    }
+
+                    if (emprestimo.DataDevolucaoPrevista.CompareTo(emprestimo.DataEmprestimo) < 0) // Se a data de devolucao prevista for menor que a data de emprestimo
+                        MessageBox.Show("Erro: Data de devolução prevista inválida!"); // Nao se pode fazer o emprestimo, pois a data é inválida
+                    else if (achouLivroJaEmprestado) // Se esse livro ja esta emprestado
+                        MessageBox.Show("Erro: Este livro já está emprestado! Volte a tentar mais tarde"); // Nao se pode fazer o emprestimo
+                    else if (contLivrosLeitor >= 5) // Se o leitor ja tem 5 ou mais emprestimos
+                        MessageBox.Show("Erro: Este leitor já tem 5 livros emprestados, não pode mais fazer empréstimos!"); // Nao se pode fazer o emprestimo
+                    else
+                        bll.InserirEmprestimo(emprestimo); // Caso contrario, esse emprestimo sera criado
                 }
-                
-                if (emprestimo.DataDevolucaoPrevista.CompareTo(emprestimo.DataEmprestimo) < 0) // Se a data de devolucao prevista for menor que a data de emprestimo
-                    MessageBox.Show("Data de devolução prevista inválida!"); // Nao se pode fazer o emprestimo, pois a data é inválida
-                else if (achouLivroJaEmprestado) // Se esse livro ja esta emprestado
-                    MessageBox.Show("Este livro já está emprestado! Volte a tentar mais tarde"); // Nao se pode fazer o emprestimo
-                else if (contLivrosLeitor >= 5) // Se o leitor ja tem 5 ou mais emprestimos
-                    MessageBox.Show("Este leitor já tem 5 livros emprestados, não pode mais fazer empréstimos!"); // Nao se pode fazer o emprestimo
-                else 
-                    bll.InserirEmprestimo(emprestimo); // Caso contrario, esse emprestimo sera criado
+                else
+                    MessageBox.Show("Erro: Dados de emprestimo inválidos!");
             }
             catch (Exception erro)
             {
@@ -88,7 +94,7 @@ namespace apBiblioteca_22121_22156.UI
                                                     int.Parse(txtIdLivro.Text),
                                                     dtpDataEmprestimo.Value,
                                                     dtpDataDevPrevista.Value,
-                                                    dtpDataDevReal.Value);
+                                                    new DateTime());
             try
             {
                 EmprestimoBLL bll = new EmprestimoBLL(banco, usuario, senha);
@@ -103,6 +109,12 @@ namespace apBiblioteca_22121_22156.UI
 
         private void btnRegistarDevolucao_Click(object sender, EventArgs e)
         {
+            /*
+                1. Procurar o emprestmo pelo Id
+                2. Criar um emprestimo a partir desse retornado
+                3. ???
+                4. Remover esse emprestimo da lista de emprestimos, ja que esse ja foi devolvido
+            */
             Emprestimo emprestimo = new Emprestimo(int.Parse(txtIdEmprestimo.Text),
                                                     int.Parse(txtIdLeitor.Text),
                                                     int.Parse(txtIdLivro.Text),
