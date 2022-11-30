@@ -31,6 +31,9 @@ namespace apBiblioteca_22121_22156.UI
                 {
                     LeitorBLL bll = new LeitorBLL(banco, usuario, senha); // Instanciamos um bll
                     bll.IncluirLeitor(leitor); // E incluimos um novo leitor
+                    MessageBox.Show("Inclusão feita com sucesso!");
+                    Leitor aux = bll.SelecionarLeitorPorNome(leitor.NomeLeitor);
+                    txtIdLeitor.Text = aux.IdLeitor.ToString();
                 }
                 catch (Exception erro)
                 {
@@ -51,6 +54,7 @@ namespace apBiblioteca_22121_22156.UI
                 {
                     LeitorBLL bll = new LeitorBLL(banco, usuario, senha); // Instanciamos um bll
                     bll.AlterarLeitor(leitor); // Alteramos os dados de leitor
+                    MessageBox.Show("Alteração feita com sucesso!");
                 }
                 catch (Exception erro)
                 {
@@ -70,6 +74,7 @@ namespace apBiblioteca_22121_22156.UI
                 {
                     LeitorBLL bll = new LeitorBLL(banco, usuario, senha); // Instanciamos um bll
                     bll.ExcluirLeitor(leitor); // Exlucimos o leitor. O id passado na instancia que sera usado, nao sendo necessario, portanto, passar todos os dados de leitor
+                    LimparTela();
                 }
                 catch (Exception erro)
                 {
@@ -85,12 +90,25 @@ namespace apBiblioteca_22121_22156.UI
             try
             {
                 LeitorBLL bll = new LeitorBLL(banco, usuario, senha); // Instanciamos um bll
-                dgvLeitor.DataSource = bll.SelecionarListLeitores();  // Pegamos todos os leitores e os adicionamos como fonte de dados para o dgvLeitor
-                tcLeitor.SelectTab(tpLista); // Vai para o tapPage que exibe a lista de leitores
+                
+                DataTable teste = bll.SelecionarLeitores();
+
+                //dgvLivro.DataSource = teste;
+                for (int i = 0; i < teste.Rows.Count; i++)
+                {
+                    if (i != teste.Rows.Count - 1)
+                        dgvLeitor.Rows.Add();
+
+                    dgvLeitor[0, i].Value = teste.Rows[i][0]; // Id
+                    dgvLeitor[1, i].Value = teste.Rows[i][1]; // Cod
+                    dgvLeitor[2, i].Value = teste.Rows[i][2]; // Titulo
+                    dgvLeitor[3, i].Value = teste.Rows[i][3]; // Autor   
+                }
+                tcLeitor.SelectTab(tpLista);
             }
-            catch (Exception erro)
+            catch (Exception ex)
             {
-                MessageBox.Show("Erro: " + erro.Message.ToString()); // Caso haja algum erro, mostramos ao usuario
+                MessageBox.Show(" Erro : " + ex.Message.ToString());
             }
         }
 
@@ -117,6 +135,15 @@ namespace apBiblioteca_22121_22156.UI
             }
             else
                 MessageBox.Show("Digite o código do livro que deseja procurar!");
+        }
+
+        public void LimparTela()
+        {
+            txtIdLeitor.Text       = "";
+            txtNomeLeitor.Text     = "";
+            txtTelefoneLeitor.Text = "";
+            txtEmailLeitor.Text    = "";
+            txtEnderecoLeitor.Text = "";
         }
 
         public FrmLeitor()

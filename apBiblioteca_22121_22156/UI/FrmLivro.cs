@@ -65,7 +65,7 @@ namespace apBiblioteca_22121_22156.UI
                 MessageBox.Show("Preencha os campos corretamente para realizar as alterações!");                  
         }
 
-        private void btnExcluir_Click(object sender, EventArgs e)
+        private void btnExcluir_Click(object sender, EventArgs e)  // dando erro se nao passa o codigo
         {
             if (txtCodLivro.Text != "")
             {
@@ -121,12 +121,13 @@ namespace apBiblioteca_22121_22156.UI
                 //dgvLivro.DataSource = teste;
                 for (int i = 0; i < teste.Rows.Count; i++)
                 {
+                    if (i != teste.Rows.Count - 1)
+                        dgvLivro.Rows.Add();
 
                     dgvLivro[0, i].Value = teste.Rows[i][0]; // Id
                     dgvLivro[1, i].Value = teste.Rows[i][1]; // Cod
                     dgvLivro[2, i].Value = teste.Rows[i][2]; // Titulo
                     dgvLivro[3, i].Value = teste.Rows[i][3]; // Autor   
-                    dgvLivro.Rows.Add();
                 }
                 tcLivro.SelectTab(tpLista);
             }

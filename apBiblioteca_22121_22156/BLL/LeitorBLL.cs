@@ -105,5 +105,18 @@ namespace BLL
             }
         }
 
+        public Leitor SelecionarLeitorPorNome(string nome)
+        {
+            try
+            {
+                dal = new DAL.LeitorDAL(banco, usuario, senha);
+                return dal.SelectLeitorByNome(nome);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
     }
 }

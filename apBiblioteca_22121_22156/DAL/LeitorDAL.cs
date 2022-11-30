@@ -100,6 +100,36 @@ namespace DAL
                 throw ex;
             }
         }
+
+        public Leitor SelectLeitorByNome(string nome)
+        {
+            try
+            {
+                String sql = "SELECT idLeitor, nomeLeitor, telefoneLeitor, emailLeitor, enderecoLeitor" +
+                             " FROM bibLeitor WHERE nomeLeitor=@nome";
+                _conexao = new SqlConnection(_conexaoSQLServer);
+                SqlCommand cmd = new SqlCommand(sql, _conexao);
+                cmd.Parameters.AddWithValue("@nome", nome);
+                _conexao.Open();
+                SqlDataReader dr;
+                dr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+                Leitor leitor = null;
+                if (dr.Read())
+                {
+                    leitor = new Leitor(Convert.ToInt32(dr["idLeitor"]),
+                    dr["nomeLeitor"].ToString(),
+                    dr["telefoneLeitor"].ToString(),
+                    dr["emailLeitor"].ToString(),
+                    dr["enderecoLeitor"].ToString()
+                    );
+                }
+                return leitor;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         public void InsertLeitor(Leitor qualLeitor)
         {
             try
