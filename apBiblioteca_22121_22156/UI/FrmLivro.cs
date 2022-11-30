@@ -29,6 +29,9 @@ namespace apBiblioteca_22121_22156.UI
 
                     LivroBLL bll = new LivroBLL(banco, usuario, senha);
                     bll.IncluirLivro(livro);
+                    MessageBox.Show("Inclusão feita com sucesso!");
+                    Livro aux = bll.SelecionarLivroPorCodigo(livro.CodigoLivro);
+                    txtIdLivro.Text = aux.IdLivro.ToString();
                 }
                 catch (Exception ex)
                 {
@@ -51,6 +54,7 @@ namespace apBiblioteca_22121_22156.UI
                 {
                     LivroBLL bll = new LivroBLL(banco, usuario, senha);
                     bll.AlterarLivro(livro);
+                    MessageBox.Show("Alteração feita com sucesso!");
                 }
                 catch (Exception ex)
                 {
@@ -70,6 +74,8 @@ namespace apBiblioteca_22121_22156.UI
                 {
                     LivroBLL bll = new LivroBLL(banco, usuario, senha);
                     bll.ExcluirLivro(livro);
+                    MessageBox.Show("Exclusão feita com sucesso!");
+                    LimparTela();
                 }
                 catch (Exception ex)
                 {
@@ -90,6 +96,8 @@ namespace apBiblioteca_22121_22156.UI
                 {
                     LivroBLL bll = new LivroBLL(banco, usuario, senha);
                     livro = bll.SelecionarLivroPorCodigo(codigo);
+                    MessageBox.Show(livro.ToString());
+                    txtIdLivro.Text = livro.IdLivro + "";
                     txtCodLivro.Text = livro.CodigoLivro;
                     txtTituloLivro.Text = livro.TituloLivro;
                     txtAutorLivro.Text = livro.AutorLivro;
@@ -98,7 +106,6 @@ namespace apBiblioteca_22121_22156.UI
                 {
                     MessageBox.Show("Erro: " + erro.Message.ToString());
                 }
-                txtIdLivro.ReadOnly = true;
             }
             else
                 MessageBox.Show("Digite o código do livro que deseja procurar!");
@@ -109,7 +116,13 @@ namespace apBiblioteca_22121_22156.UI
             try
             {
                 LivroBLL bll        = new LivroBLL(banco, usuario, senha);
-                dgvLivro.DataSource = bll.SelecionarLivros();
+                //dgvLivro.DataSource = bll.SelecionarLivros();
+                DataTable teste = bll.SelecionarLivros();
+                foreach (DataRow dr in teste.Rows)
+                {
+                    dgvLivro.Rows.Add(dr);
+                }
+                //dgvLivro.DataSource = teste;
             }
             catch (Exception ex)
             {
@@ -117,9 +130,19 @@ namespace apBiblioteca_22121_22156.UI
             }
         }
 
+        public void LimparTela()
+        {
+            txtIdLivro.Text     = "";
+            txtTituloLivro.Text = "";
+            txtCodLivro.Text    = "";
+            txtAutorLivro.Text  = "";
+        }
+
         public FrmLivro()
         {
             InitializeComponent();
         }
+
+        
     }
 }

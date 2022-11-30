@@ -25,6 +25,7 @@ namespace DAL
                 String sql = "SELECT idLivro, codigoLivro, tituloLivro, autorLivro FROM bibLivro";
                 _conexao = new SqlConnection(_conexaoSQLServer);
                 SqlCommand cmd = new SqlCommand(sql, _conexao);
+                _conexao.Open();
                 SqlDataAdapter da = new SqlDataAdapter();
                 da.SelectCommand = cmd;
                 DataTable dt = new DataTable();
@@ -67,24 +68,29 @@ namespace DAL
         {
             try
             {
-                String sql = "SELECT idLivro, codigoLivro, tituloLivro, autorLivro " +
-                " FROM bibLivro" +
-               " WHERE codigoLivro = @codigo";
-                _conexao = new SqlConnection(_conexaoSQLServer);
-                SqlCommand cmd = new SqlCommand(sql, _conexao);
-                cmd.Parameters.AddWithValue("@codigo", codigo);
-                _conexao.Open();
-                SqlDataReader dr;
-                dr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
-                Livro livro = null;
-                if (dr.Read())
+                using (SqlConnection _conexao = new SqlConnection(_conexaoSQLServer))
                 {
-                    livro = new Livro(Convert.ToInt32(dr["idLivro"]),
-                    dr["codigoLivro"].ToString(),
-                    dr["tituloLivro"].ToString(),
-                    dr["autorLIvro"].ToString());
+                    using (SqlCommand cmd = new SqlCommand("SELECT idLivro, codigoLivro, tituloLivro, autorLivro " +
+                         " FROM bibLivro WHERE codigoLivro = @codigo", _conexao))
+                    {
+                        codigo = codigo.PadLeft(Livro.tamanhoCodigo, '0');
+                        cmd.Parameters.AddWithValue("@codigo", codigo);
+                        _conexao.Open();
+                        using (SqlDataReader dr = cmd.ExecuteReader())
+                        {
+                            Livro livro = null;
+                            if (dr.Read())
+                            {
+                                livro = new Livro(
+                                (int)dr["idLivro"],
+                                dr["codigoLivro"] + "",
+                                dr["tituloLivro"] + "",
+                                dr["autorLivro"] + "" );
+                            }
+                            return livro;
+                        }
+                    }
                 }
-                return livro;
             }
             catch (Exception ex)
             {
