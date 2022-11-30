@@ -42,7 +42,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.txtEmailLeitor = new System.Windows.Forms.TextBox();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tcLeitor = new System.Windows.Forms.TabControl();
             this.tpCadastro = new System.Windows.Forms.TabPage();
             this.label9 = new System.Windows.Forms.Label();
             this.tpLista = new System.Windows.Forms.TabPage();
@@ -52,7 +52,7 @@
             this.EmailLeitor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TelefoneLeitor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EnderecoLeitor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tabControl1.SuspendLayout();
+            this.tcLeitor.SuspendLayout();
             this.tpCadastro.SuspendLayout();
             this.tpLista.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLeitor)).BeginInit();
@@ -184,18 +184,18 @@
             this.txtEmailLeitor.Size = new System.Drawing.Size(398, 26);
             this.txtEmailLeitor.TabIndex = 26;
             // 
-            // tabControl1
+            // tcLeitor
             // 
-            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.tcLeitor.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tabControl1.Controls.Add(this.tpCadastro);
-            this.tabControl1.Controls.Add(this.tpLista);
-            this.tabControl1.Location = new System.Drawing.Point(12, 12);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(671, 392);
-            this.tabControl1.TabIndex = 27;
+            this.tcLeitor.Controls.Add(this.tpCadastro);
+            this.tcLeitor.Controls.Add(this.tpLista);
+            this.tcLeitor.Location = new System.Drawing.Point(12, 12);
+            this.tcLeitor.Name = "tcLeitor";
+            this.tcLeitor.SelectedIndex = 0;
+            this.tcLeitor.Size = new System.Drawing.Size(671, 392);
+            this.tcLeitor.TabIndex = 27;
             // 
             // tpCadastro
             // 
@@ -256,7 +256,7 @@
             this.EnderecoLeitor});
             this.dgvLeitor.Location = new System.Drawing.Point(0, 0);
             this.dgvLeitor.Name = "dgvLeitor";
-            this.dgvLeitor.Size = new System.Drawing.Size(663, 335);
+            this.dgvLeitor.Size = new System.Drawing.Size(663, 328);
             this.dgvLeitor.TabIndex = 0;
             // 
             // IdLeitor
@@ -299,11 +299,11 @@
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(701, 422);
-            this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.tcLeitor);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "FrmLeitor";
             this.Text = "Manutenção de Leitores da Biblioteca";
-            this.tabControl1.ResumeLayout(false);
+            this.tcLeitor.ResumeLayout(false);
             this.tpCadastro.ResumeLayout(false);
             this.tpCadastro.PerformLayout();
             this.tpLista.ResumeLayout(false);
@@ -328,7 +328,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtEmailLeitor;
-        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabControl tcLeitor;
         private System.Windows.Forms.TabPage tpCadastro;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TabPage tpLista;

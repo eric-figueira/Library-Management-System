@@ -36,7 +36,7 @@ namespace apBiblioteca_22121_22156.UI
                 }
             }
             else
-                MessageBox.Show("Preencha todos os dados corretamente!");
+                MessageBox.Show("Preencha todos os campos corretamente!");
         }
 
         private void btnAlterar_Click(object sender, EventArgs e)
