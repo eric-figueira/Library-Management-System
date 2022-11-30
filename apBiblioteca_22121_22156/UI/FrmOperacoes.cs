@@ -52,8 +52,28 @@ namespace apBiblioteca_22121_22156.UI
             emprestimo.DataDevolucaoPrevista = dtpDataDevPrevista.Value;
             try
             {
-                EmprestimoBLL bll = new EmprestimoBLL(banco, usuario, senha); // As regras de negocio sao feitas aqui ou na classe BLL?
-                bll.InserirEmprestimo(emprestimo); 
+                EmprestimoBLL bll = new EmprestimoBLL(banco, usuario, senha);
+                List<Emprestimo> aux = bll.SelecionarListEmprestimos();
+
+                bool achouLivroJaEmprestado = false;
+                int contLivrosLeitor = 0;
+                for (int i = 0; i < aux.Count; i++) 
+                {
+                    if (aux[i].IdLivro == emprestimo.IdLivro)
+                        achouLivroJaEmprestado = true; // Achamos esse mesmo livro ja emprestado
+
+                    if (emprestimo.IdLeitor == aux[i].IdLeitor) // Se o leitor que esta querendo o emprestimo for achado em outro emprestimo
+                        contLivrosLeitor++; // Incrementamos a quantidade de emprestimos que essa pessoa tem
+                }
+                
+                if (emprestimo.DataDevolucaoPrevista.CompareTo(emprestimo.DataEmprestimo) < 0) // Se a data de devolucao prevista for menor que a data de emprestimo
+                    MessageBox.Show("Data de devolução prevista inválida!"); // Nao se pode fazer o emprestimo, pois a data é inválida
+                else if (achouLivroJaEmprestado) // Se esse livro ja esta emprestado
+                    MessageBox.Show("Este livro já está emprestado! Volte a tentar mais tarde"); // Nao se pode fazer o emprestimo
+                else if (contLivrosLeitor >= 5) // Se o leitor ja tem 5 ou mais emprestimos
+                    MessageBox.Show("Este leitor já tem 5 livros emprestados, não pode mais fazer empréstimos!"); // Nao se pode fazer o emprestimo
+                else 
+                    bll.InserirEmprestimo(emprestimo); // Caso contrario, esse emprestimo sera criado
             }
             catch (Exception erro)
             {
