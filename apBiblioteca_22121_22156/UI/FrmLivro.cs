@@ -127,7 +127,7 @@ namespace apBiblioteca_22121_22156.UI
                 MessageBox.Show("Digite o código do livro que deseja procurar!");
         }
 
-        private void btnExibir_Click(object sender, EventArgs e)
+        private void btnExibir_Click(object sender, EventArgs e) // Mesmo evento para o Enter do tpLista
         {
             try
             {
@@ -135,7 +135,7 @@ namespace apBiblioteca_22121_22156.UI
 
                 DataTable aux = bll.SelecionarLivros(); // aux é um DataTable auxiliar
 
-                dgvLivro.Rows.Clear();
+                dgvLivro.Rows.Clear(); // Limpamos as linhas do dgvLivro para nao ficarem acumulando
                 for (int i = 0; i < aux.Rows.Count; i++) // Percorremos as linha de aux
                 {
                     if (i != aux.Rows.Count - 1) // Adicionamos uma linha ao final do dgvLivro caso nao seja o ultimo registro

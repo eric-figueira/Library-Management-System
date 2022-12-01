@@ -52,6 +52,7 @@
             this.EmailLeitor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TelefoneLeitor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EnderecoLeitor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label1 = new System.Windows.Forms.Label();
             this.tcLeitor.SuspendLayout();
             this.tpCadastro.SuspendLayout();
             this.tpLista.SuspendLayout();
@@ -233,6 +234,7 @@
             // 
             // tpLista
             // 
+            this.tpLista.Controls.Add(this.label1);
             this.tpLista.Controls.Add(this.dgvLeitor);
             this.tpLista.Location = new System.Drawing.Point(4, 29);
             this.tpLista.Name = "tpLista";
@@ -241,6 +243,7 @@
             this.tpLista.TabIndex = 1;
             this.tpLista.Text = "Lista";
             this.tpLista.UseVisualStyleBackColor = true;
+            this.tpLista.Enter += new System.EventHandler(this.btnExibir_Click);
             // 
             // dgvLeitor
             // 
@@ -256,8 +259,10 @@
             this.EnderecoLeitor});
             this.dgvLeitor.Location = new System.Drawing.Point(0, 0);
             this.dgvLeitor.Name = "dgvLeitor";
-            this.dgvLeitor.Size = new System.Drawing.Size(663, 328);
+            this.dgvLeitor.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvLeitor.Size = new System.Drawing.Size(663, 321);
             this.dgvLeitor.TabIndex = 0;
+            this.dgvLeitor.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLeitor_CellDoubleClick);
             // 
             // IdLeitor
             // 
@@ -295,6 +300,16 @@
             this.EnderecoLeitor.Name = "EnderecoLeitor";
             this.EnderecoLeitor.Width = 200;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(6, 326);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(521, 25);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Obs: Clique duas vezes em um registro para alterá-lo";
+            // 
             // FrmLeitor
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -307,6 +322,7 @@
             this.tpCadastro.ResumeLayout(false);
             this.tpCadastro.PerformLayout();
             this.tpLista.ResumeLayout(false);
+            this.tpLista.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLeitor)).EndInit();
             this.ResumeLayout(false);
 
@@ -338,5 +354,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn EmailLeitor;
         private System.Windows.Forms.DataGridViewTextBoxColumn TelefoneLeitor;
         private System.Windows.Forms.DataGridViewTextBoxColumn EnderecoLeitor;
+        private System.Windows.Forms.Label label1;
     }
 }

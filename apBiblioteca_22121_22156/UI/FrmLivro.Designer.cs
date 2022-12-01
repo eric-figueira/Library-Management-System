@@ -44,12 +44,12 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tpLista = new System.Windows.Forms.TabPage();
+            this.label5 = new System.Windows.Forms.Label();
             this.dgvLivro = new System.Windows.Forms.DataGridView();
             this.IdLivro = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CodLivro = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TituloLivro = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AutorLivro = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label5 = new System.Windows.Forms.Label();
             this.tcLivro.SuspendLayout();
             this.tpCadastro.SuspendLayout();
             this.tpLista.SuspendLayout();
@@ -223,6 +223,16 @@
             this.tpLista.UseVisualStyleBackColor = true;
             this.tpLista.Enter += new System.EventHandler(this.btnExibir_Click);
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(6, 301);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(521, 25);
+            this.label5.TabIndex = 1;
+            this.label5.Text = "Obs: Clique duas vezes em um registro para alterá-lo";
+            // 
             // dgvLivro
             // 
             this.dgvLivro.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -237,7 +247,7 @@
             this.dgvLivro.Location = new System.Drawing.Point(0, 0);
             this.dgvLivro.Name = "dgvLivro";
             this.dgvLivro.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvLivro.Size = new System.Drawing.Size(666, 294);
+            this.dgvLivro.Size = new System.Drawing.Size(666, 287);
             this.dgvLivro.TabIndex = 0;
             this.dgvLivro.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLivro_CellDoubleClick);
             // 
@@ -271,16 +281,6 @@
             this.AutorLivro.MaxInputLength = 50;
             this.AutorLivro.Name = "AutorLivro";
             this.AutorLivro.Width = 200;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(6, 301);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(521, 25);
-            this.label5.TabIndex = 1;
-            this.label5.Text = "Obs: Clique duas vezes em um registro para alterá-lo";
             // 
             // FrmLivro
             // 

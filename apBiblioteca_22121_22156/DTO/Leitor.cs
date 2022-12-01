@@ -32,7 +32,7 @@ namespace DTO
             get => nomeLeitor;
             set
             {
-                if (value.Length != 0)
+                if (value.Length > tamanhoNome)
                     value = value.Remove(tamanhoNome); // remove qualquer caracter além do tamanho máximo do campo
 
                 value = value.PadLeft(tamanhoNome, ' '); // preenche título com espaços à esquerda até completar o tamanho mãximo
@@ -45,7 +45,7 @@ namespace DTO
             get => telefoneLeitor;
             set
             {
-                if (value.Length != 0)
+                if (value.Length > tamanhoTelefone)
                     value = value.Remove(tamanhoTelefone); 
 
                 value = value.PadLeft(tamanhoTelefone, ' '); 
@@ -58,7 +58,7 @@ namespace DTO
             get => emailLeitor;
             set
             {
-                if (value.Length != 0)
+                if (value.Length > tamanhoEmail)
                     value = value.Remove(tamanhoEmail); 
 
                 value = value.PadLeft(tamanhoEmail, ' '); 
@@ -71,7 +71,7 @@ namespace DTO
             get => enderecoLeitor;
             set
             {
-                if (value.Length != 0)
+                if (value.Length > tamanhoEndereco)
                     value = value.Remove(tamanhoEndereco);
 
                 value = value.PadLeft(tamanhoEndereco, ' ');
