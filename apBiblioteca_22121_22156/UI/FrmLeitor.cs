@@ -91,18 +91,18 @@ namespace apBiblioteca_22121_22156.UI
             {
                 LeitorBLL bll = new LeitorBLL(banco, usuario, senha); // Instanciamos um bll
                 
-                DataTable teste = bll.SelecionarLeitores();
+                DataTable aux = bll.SelecionarLeitores();
 
-                //dgvLivro.DataSource = teste;
-                for (int i = 0; i < teste.Rows.Count; i++)
+
+                for (int i = 0; i < aux.Rows.Count; i++) // Percorremos as linha de aux
                 {
-                    if (i != teste.Rows.Count - 1)
+                    if (i != aux.Rows.Count - 1) // Adicionamos uma linha ao final caso nao seja o ultimo registro
                         dgvLeitor.Rows.Add();
 
-                    dgvLeitor[0, i].Value = teste.Rows[i][0]; // Id
-                    dgvLeitor[1, i].Value = teste.Rows[i][1]; // Cod
-                    dgvLeitor[2, i].Value = teste.Rows[i][2]; // Titulo
-                    dgvLeitor[3, i].Value = teste.Rows[i][3]; // Autor   
+                    dgvLeitor[0, i].Value = aux.Rows[i][0]; // Na coluna 0 da linha i do dgvLeitor adicionamos o valor que esta em aux na linha i coluna 0 (Id Livro)
+                    dgvLeitor[1, i].Value = aux.Rows[i][1]; // Codigo Livro
+                    dgvLeitor[2, i].Value = aux.Rows[i][2]; // Titulo Livro
+                    dgvLeitor[3, i].Value = aux.Rows[i][3]; // Autor  Livro
                 }
                 tcLeitor.SelectTab(tpLista);
             }

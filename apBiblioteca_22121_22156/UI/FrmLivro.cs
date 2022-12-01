@@ -96,10 +96,27 @@ namespace apBiblioteca_22121_22156.UI
                 {
                     LivroBLL bll = new LivroBLL(banco, usuario, senha);
                     livro = bll.SelecionarLivroPorCodigo(codigo);
-                    txtIdLivro.Text = livro.IdLivro + "";
-                    txtCodLivro.Text = livro.CodigoLivro;
-                    txtTituloLivro.Text = livro.TituloLivro;
-                    txtAutorLivro.Text = livro.AutorLivro;
+                    if (livro != null)
+                    {
+                        txtIdLivro.Text     = livro.IdLivro + "";
+                        txtCodLivro.Text    = livro.CodigoLivro;
+                        txtTituloLivro.Text = livro.TituloLivro;
+                        txtAutorLivro.Text  = livro.AutorLivro;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Erro: Livro não encontrado no banco de dados");
+                        LimparTela();
+                        /*
+                            ou pegar os dados do livro que ja esta ali? 
+                        
+                        Livro aux = bll.SelecionarLivroPorId(int.Parse(txtIdLivro.Text));
+                        txtIdLivro.Text     = aux.IdLivro + "";
+                        txtCodLivro.Text    = aux.CodigoLivro;
+                        txtTituloLivro.Text = aux.TituloLivro;
+                        txtAutorLivro.Text  = aux.AutorLivro;
+                        */
+                    }
                 }
                 catch (Exception erro)
                 {
@@ -115,26 +132,38 @@ namespace apBiblioteca_22121_22156.UI
             try
             {
                 LivroBLL bll        = new LivroBLL(banco, usuario, senha);
-                //dgvLivro.DataSource = bll.SelecionarLivros();
-                DataTable teste = bll.SelecionarLivros();
-                 
-                //dgvLivro.DataSource = teste;
-                for (int i = 0; i < teste.Rows.Count; i++)
+
+                DataTable aux = bll.SelecionarLivros(); // aux é um DataTable auxiliar
+
+                dgvLivro.Rows.Clear();
+                for (int i = 0; i < aux.Rows.Count; i++) // Percorremos as linha de aux
                 {
-                    if (i != teste.Rows.Count - 1)
+                    if (i != aux.Rows.Count - 1) // Adicionamos uma linha ao final do dgvLivro caso nao seja o ultimo registro
                         dgvLivro.Rows.Add();
 
-                    dgvLivro[0, i].Value = teste.Rows[i][0]; // Id
-                    dgvLivro[1, i].Value = teste.Rows[i][1]; // Cod
-                    dgvLivro[2, i].Value = teste.Rows[i][2]; // Titulo
-                    dgvLivro[3, i].Value = teste.Rows[i][3]; // Autor   
+                    dgvLivro[0, i].Value = aux.Rows[i][0]; // Na coluna 0 da linha i do dgvLeitor adicionamos o valor que esta em aux na linha i coluna 0 (Id Livro)
+                    dgvLivro[1, i].Value = aux.Rows[i][1]; // Codigo Livro
+                    dgvLivro[2, i].Value = aux.Rows[i][2]; // Titulo Livro
+                    dgvLivro[3, i].Value = aux.Rows[i][3]; // Autor  Livro
                 }
                 tcLivro.SelectTab(tpLista);
             }
             catch (Exception ex)
             {
-                MessageBox.Show(" Erro : " + ex.Message.ToString());
+                MessageBox.Show("Erro: " + ex.Message.ToString());
             }
+        }
+
+        private void dgvLivro_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            // Vamos pegar os dados das celulas da linha na qual o usuario clicou, redirecionar este para a aba de cadastro, e colocar
+            // os dados referentes ao livro nos textboxes
+            txtIdLivro.Text     = dgvLivro.CurrentRow.Cells[0].Value.ToString(); // 0 -> IdLivro
+            txtCodLivro.Text    = dgvLivro.CurrentRow.Cells[1].Value.ToString(); // 1 -> Codigo Livro
+            txtTituloLivro.Text = dgvLivro.CurrentRow.Cells[2].Value.ToString(); // 2 -> Titulo Livro
+            txtAutorLivro.Text  = dgvLivro.CurrentRow.Cells[3].Value.ToString(); // 3 -> Autor Livro
+
+            tcLivro.SelectTab(tpCadastro);
         }
 
         public void LimparTela()

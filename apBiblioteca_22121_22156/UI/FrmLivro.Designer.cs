@@ -49,6 +49,7 @@
             this.CodLivro = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TituloLivro = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AutorLivro = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label5 = new System.Windows.Forms.Label();
             this.tcLivro.SuspendLayout();
             this.tpCadastro.SuspendLayout();
             this.tpLista.SuspendLayout();
@@ -65,7 +66,7 @@
             this.tcLivro.Location = new System.Drawing.Point(12, 12);
             this.tcLivro.Name = "tcLivro";
             this.tcLivro.SelectedIndex = 0;
-            this.tcLivro.Size = new System.Drawing.Size(674, 353);
+            this.tcLivro.Size = new System.Drawing.Size(674, 367);
             this.tcLivro.TabIndex = 0;
             // 
             // tpCadastro
@@ -86,7 +87,7 @@
             this.tpCadastro.Location = new System.Drawing.Point(4, 29);
             this.tpCadastro.Name = "tpCadastro";
             this.tpCadastro.Padding = new System.Windows.Forms.Padding(3);
-            this.tpCadastro.Size = new System.Drawing.Size(666, 320);
+            this.tpCadastro.Size = new System.Drawing.Size(666, 334);
             this.tpCadastro.TabIndex = 0;
             this.tpCadastro.Text = "Cadastro";
             this.tpCadastro.UseVisualStyleBackColor = true;
@@ -211,14 +212,16 @@
             // 
             // tpLista
             // 
+            this.tpLista.Controls.Add(this.label5);
             this.tpLista.Controls.Add(this.dgvLivro);
             this.tpLista.Location = new System.Drawing.Point(4, 29);
             this.tpLista.Name = "tpLista";
             this.tpLista.Padding = new System.Windows.Forms.Padding(3);
-            this.tpLista.Size = new System.Drawing.Size(666, 320);
+            this.tpLista.Size = new System.Drawing.Size(666, 334);
             this.tpLista.TabIndex = 1;
             this.tpLista.Text = "Lista";
             this.tpLista.UseVisualStyleBackColor = true;
+            this.tpLista.Enter += new System.EventHandler(this.btnExibir_Click);
             // 
             // dgvLivro
             // 
@@ -233,8 +236,10 @@
             this.AutorLivro});
             this.dgvLivro.Location = new System.Drawing.Point(0, 0);
             this.dgvLivro.Name = "dgvLivro";
-            this.dgvLivro.Size = new System.Drawing.Size(666, 327);
+            this.dgvLivro.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvLivro.Size = new System.Drawing.Size(666, 294);
             this.dgvLivro.TabIndex = 0;
+            this.dgvLivro.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLivro_CellDoubleClick);
             // 
             // IdLivro
             // 
@@ -267,11 +272,21 @@
             this.AutorLivro.Name = "AutorLivro";
             this.AutorLivro.Width = 200;
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(6, 301);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(521, 25);
+            this.label5.TabIndex = 1;
+            this.label5.Text = "Obs: Clique duas vezes em um registro para alterá-lo";
+            // 
             // FrmLivro
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(698, 377);
+            this.ClientSize = new System.Drawing.Size(698, 391);
             this.Controls.Add(this.tcLivro);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "FrmLivro";
@@ -280,6 +295,7 @@
             this.tpCadastro.ResumeLayout(false);
             this.tpCadastro.PerformLayout();
             this.tpLista.ResumeLayout(false);
+            this.tpLista.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLivro)).EndInit();
             this.ResumeLayout(false);
 
@@ -308,5 +324,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn CodLivro;
         private System.Windows.Forms.DataGridViewTextBoxColumn TituloLivro;
         private System.Windows.Forms.DataGridViewTextBoxColumn AutorLivro;
+        private System.Windows.Forms.Label label5;
     }
 }

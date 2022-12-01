@@ -51,3 +51,17 @@ C:\Users\u22121\Documents\Library-Management-System\apBiblioteca_22121_22156\obj
 C:\Users\u22121\Documents\Library-Management-System\apBiblioteca_22121_22156\obj\Debug\apBiblioteca_22121_22156.csproj.CoreCompileInputs.cache
 C:\Users\u22121\Documents\Library-Management-System\apBiblioteca_22121_22156\obj\Debug\apBiblioteca_22121_22156.exe
 C:\Users\u22121\Documents\Library-Management-System\apBiblioteca_22121_22156\obj\Debug\apBiblioteca_22121_22156.pdb
+D:\downloads\GITHUB\Meus projetos\library-management\Library-Management-System\apBiblioteca_22121_22156\bin\Debug\apBiblioteca_22121_22156.exe.config
+D:\downloads\GITHUB\Meus projetos\library-management\Library-Management-System\apBiblioteca_22121_22156\bin\Debug\apBiblioteca_22121_22156.exe
+D:\downloads\GITHUB\Meus projetos\library-management\Library-Management-System\apBiblioteca_22121_22156\bin\Debug\apBiblioteca_22121_22156.pdb
+D:\downloads\GITHUB\Meus projetos\library-management\Library-Management-System\apBiblioteca_22121_22156\obj\Debug\apBiblioteca_22121_22156.csproj.AssemblyReference.cache
+D:\downloads\GITHUB\Meus projetos\library-management\Library-Management-System\apBiblioteca_22121_22156\obj\Debug\apBiblioteca_22121_22156.csproj.SuggestedBindingRedirects.cache
+D:\downloads\GITHUB\Meus projetos\library-management\Library-Management-System\apBiblioteca_22121_22156\obj\Debug\apBiblioteca_22121_22156.FrmPrincipal.resources
+D:\downloads\GITHUB\Meus projetos\library-management\Library-Management-System\apBiblioteca_22121_22156\obj\Debug\apBiblioteca_22121_22156.Properties.Resources.resources
+D:\downloads\GITHUB\Meus projetos\library-management\Library-Management-System\apBiblioteca_22121_22156\obj\Debug\apBiblioteca_22121_22156.UI.FrmLeitor.resources
+D:\downloads\GITHUB\Meus projetos\library-management\Library-Management-System\apBiblioteca_22121_22156\obj\Debug\apBiblioteca_22121_22156.UI.FrmLivro.resources
+D:\downloads\GITHUB\Meus projetos\library-management\Library-Management-System\apBiblioteca_22121_22156\obj\Debug\apBiblioteca_22121_22156.UI.FrmOperacoes.resources
+D:\downloads\GITHUB\Meus projetos\library-management\Library-Management-System\apBiblioteca_22121_22156\obj\Debug\apBiblioteca_22121_22156.csproj.GenerateResource.cache
+D:\downloads\GITHUB\Meus projetos\library-management\Library-Management-System\apBiblioteca_22121_22156\obj\Debug\apBiblioteca_22121_22156.csproj.CoreCompileInputs.cache
+D:\downloads\GITHUB\Meus projetos\library-management\Library-Management-System\apBiblioteca_22121_22156\obj\Debug\apBiblioteca_22121_22156.exe
+D:\downloads\GITHUB\Meus projetos\library-management\Library-Management-System\apBiblioteca_22121_22156\obj\Debug\apBiblioteca_22121_22156.pdb
