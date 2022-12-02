@@ -105,7 +105,7 @@ namespace BLL
             }
         }
 
-        public Leitor SelecionarLeitorPorNome(string nome)
+        public List<Leitor> SelecionarLeitorPorNome(string nome)
         {
             try
             {

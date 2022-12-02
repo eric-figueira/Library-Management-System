@@ -81,17 +81,15 @@ namespace DAL
                 SqlCommand cmd = new SqlCommand(sql, _conexao);
                 cmd.Parameters.AddWithValue("@id", id);
                 _conexao.Open();
-                SqlDataReader dr;
-                dr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+                SqlDataReader dr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
                 Leitor leitor = null;
-                if (dr.Read())
+                while (dr.Read())
                 {
                     leitor = new Leitor(Convert.ToInt32(dr["idLeitor"]),
-                    dr["nomeLeitor"].ToString(),
-                    dr["telefoneLeitor"].ToString(),
-                    dr["emailLeitor"].ToString(),
-                    dr["enderecoLeitor"].ToString()
-                    );
+                                            dr["nomeLeitor"].ToString(),
+                                            dr["telefoneLeitor"].ToString(),
+                                            dr["emailLeitor"].ToString(),
+                                            dr["enderecoLeitor"].ToString());
                 }
                 return leitor;
             }
@@ -101,29 +99,28 @@ namespace DAL
             }
         }
 
-        public Leitor SelectLeitorByNome(string nome)
+        public List<Leitor> SelectLeitorByNome(string nome)
         {
             try
             {
                 String sql = "SELECT idLeitor, nomeLeitor, telefoneLeitor, emailLeitor, enderecoLeitor" +
-                             " FROM bibLeitor WHERE nomeLeitor=@nome";
+                             " FROM bibLeitor WHERE nomeLeitor = @nome";
                 _conexao = new SqlConnection(_conexaoSQLServer);
                 SqlCommand cmd = new SqlCommand(sql, _conexao);
                 cmd.Parameters.AddWithValue("@nome", nome);
                 _conexao.Open();
-                SqlDataReader dr;
-                dr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
-                Leitor leitor = null;
-                if (dr.Read())
+                List<Leitor> listaLeitor = new List<Leitor>(); // Lista que guarda os leitores com esse nome. É uma lista pois pode haver leitores com o mesmo nome
+                SqlDataReader dr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+                while (dr.Read())
                 {
-                    leitor = new Leitor(Convert.ToInt32(dr["idLeitor"]),
-                    dr["nomeLeitor"].ToString(),
-                    dr["telefoneLeitor"].ToString(),
-                    dr["emailLeitor"].ToString(),
-                    dr["enderecoLeitor"].ToString()
-                    );
+                    Leitor leitor = new Leitor(Convert.ToInt32(dr["idLeitor"]),
+                                                dr["nomeLeitor"].ToString(),
+                                                dr["telefoneLeitor"].ToString(),
+                                                dr["emailLeitor"].ToString(),
+                                                dr["enderecoLeitor"].ToString());
+                    listaLeitor.Add(leitor);
                 }
-                return leitor;
+                return listaLeitor;
             }
             catch (Exception ex)
             {

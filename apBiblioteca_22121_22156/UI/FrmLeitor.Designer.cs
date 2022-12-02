@@ -46,13 +46,14 @@
             this.tpCadastro = new System.Windows.Forms.TabPage();
             this.label9 = new System.Windows.Forms.Label();
             this.tpLista = new System.Windows.Forms.TabPage();
+            this.label1 = new System.Windows.Forms.Label();
             this.dgvLeitor = new System.Windows.Forms.DataGridView();
             this.IdLeitor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NomeLeitor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EmailLeitor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TelefoneLeitor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EnderecoLeitor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label1 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.tcLeitor.SuspendLayout();
             this.tpCadastro.SuspendLayout();
             this.tpLista.SuspendLayout();
@@ -195,11 +196,12 @@
             this.tcLeitor.Location = new System.Drawing.Point(12, 12);
             this.tcLeitor.Name = "tcLeitor";
             this.tcLeitor.SelectedIndex = 0;
-            this.tcLeitor.Size = new System.Drawing.Size(671, 392);
+            this.tcLeitor.Size = new System.Drawing.Size(671, 412);
             this.tcLeitor.TabIndex = 27;
             // 
             // tpCadastro
             // 
+            this.tpCadastro.Controls.Add(this.label6);
             this.tpCadastro.Controls.Add(this.txtEmailLeitor);
             this.tpCadastro.Controls.Add(this.btnExibir);
             this.tpCadastro.Controls.Add(this.btnExcluir);
@@ -218,7 +220,7 @@
             this.tpCadastro.Location = new System.Drawing.Point(4, 29);
             this.tpCadastro.Name = "tpCadastro";
             this.tpCadastro.Padding = new System.Windows.Forms.Padding(3);
-            this.tpCadastro.Size = new System.Drawing.Size(663, 359);
+            this.tpCadastro.Size = new System.Drawing.Size(663, 379);
             this.tpCadastro.TabIndex = 0;
             this.tpCadastro.Text = "Cadastro";
             this.tpCadastro.UseVisualStyleBackColor = true;
@@ -236,14 +238,24 @@
             // 
             this.tpLista.Controls.Add(this.label1);
             this.tpLista.Controls.Add(this.dgvLeitor);
-            this.tpLista.Location = new System.Drawing.Point(4, 29);
+            this.tpLista.Location = new System.Drawing.Point(4, 22);
             this.tpLista.Name = "tpLista";
             this.tpLista.Padding = new System.Windows.Forms.Padding(3);
-            this.tpLista.Size = new System.Drawing.Size(663, 359);
+            this.tpLista.Size = new System.Drawing.Size(663, 366);
             this.tpLista.TabIndex = 1;
             this.tpLista.Text = "Lista";
             this.tpLista.UseVisualStyleBackColor = true;
             this.tpLista.Enter += new System.EventHandler(this.btnExibir_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(6, 326);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(521, 25);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Obs: Clique duas vezes em um registro para alterá-lo";
             // 
             // dgvLeitor
             // 
@@ -300,20 +312,21 @@
             this.EnderecoLeitor.Name = "EnderecoLeitor";
             this.EnderecoLeitor.Width = 200;
             // 
-            // label1
+            // label6
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(6, 326);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(521, 25);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Obs: Clique duas vezes em um registro para alterá-lo";
+            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(97, 346);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(474, 20);
+            this.label6.TabIndex = 27;
+            this.label6.Text = "Obs: Para procurar um leitor, digite seu nome e clique em Procurar";
             // 
             // FrmLeitor
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(701, 422);
+            this.ClientSize = new System.Drawing.Size(701, 442);
             this.Controls.Add(this.tcLeitor);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "FrmLeitor";
@@ -355,5 +368,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn TelefoneLeitor;
         private System.Windows.Forms.DataGridViewTextBoxColumn EnderecoLeitor;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label6;
     }
 }
