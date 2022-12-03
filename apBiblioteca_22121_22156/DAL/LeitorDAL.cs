@@ -104,7 +104,7 @@ namespace DAL
             try
             {
                 String sql = "SELECT idLeitor, nomeLeitor, telefoneLeitor, emailLeitor, enderecoLeitor" +
-                             " FROM bibLeitor WHERE nomeLeitor = @nome";
+                             " FROM bibLeitor WHERE nomeLeitor like '%@nome%'";
                 _conexao = new SqlConnection(_conexaoSQLServer);
                 SqlCommand cmd = new SqlCommand(sql, _conexao);
                 cmd.Parameters.AddWithValue("@nome", nome);

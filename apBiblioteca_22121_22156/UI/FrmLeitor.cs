@@ -32,8 +32,22 @@ namespace apBiblioteca_22121_22156.UI
                     LeitorBLL bll = new LeitorBLL(banco, usuario, senha); // Instanciamos um bll
                     bll.IncluirLeitor(leitor); // E incluimos um novo leitor
                     MessageBox.Show("Inclusão feita com sucesso!");
-                    Leitor aux = bll.SelecionarLeitorPorNome(leitor.NomeLeitor); // Instanciamos um leitor auxiliar e procuramos por nome
-                    txtIdLeitor.Text = aux.IdLeitor.ToString(); // para conseguir colocar seu Id no textbox
+                    List<Leitor> aux = bll.SelecionarLeitorPorNome(leitor.NomeLeitor); // Instanciamos um leitor auxiliar e procuramos por nome
+
+
+                    /*
+                        Como SelecionarLeitorPorNome retorna uma lista de leitores com aquele nome, precisamos verificar algumas coisas:
+                        1. Se temos apenas 1 leitor com o nome inserido, colocamos seu Id no textbox (caso em que há apenas aquela pessoa com aquele nome)
+                        
+                        2. Se por outro lado, aux tiver mais de 1 registro, significa que o nome é comum (João Silva, Maria Silva, por exemplo), com isso,
+                            pelo fato de o banco de dados registrar em ordem de insercao, sem fazer ordenacao, o ultimo registro é o que acabamos de inserir,
+                            isto é, o ultimo da lista, e pegamos, portanto, seu Id e o mostramos no textbox
+                    */
+                    if (aux.Count == 1) 
+                        txtIdLeitor.Text = aux[0].IdLeitor.ToString(); 
+                    else  
+                        txtIdLeitor.Text = aux[aux.Count - 1].IdLeitor.ToString(); 
+
                 }
                 catch (Exception erro)
                 {
@@ -119,32 +133,35 @@ namespace apBiblioteca_22121_22156.UI
             if (txtNomeLeitor.Text != "")
             {
                 string nome = txtNomeLeitor.Text; // Pegamos o nome para procurar o leitor
-                List<Leitor> leitor = null;
+                List<Leitor> leitores = null;
                 try
                 {
                     LeitorBLL bll = new LeitorBLL(banco, usuario, senha); // Instanciamos um bll
-                    leitor = bll.SelecionarLeitorPorNome(nome); // Selecionamos o(s) leitor(es) a partir do nome passado
+                    leitores = bll.SelecionarLeitorPorNome(nome); // Selecionamos o(s) leitor(es) a partir do nome passado
 
-                    if (leitor.Count == 1) // Se acharmos apenas um leitor com esse nome, inserimos seus dados nos textboxes 
+                    if (leitores.Count == 1) // Se acharmos apenas um leitor com esse nome, inserimos seus dados nos textboxes 
                     {
-                        txtNomeLeitor.Text     = leitor[0].NomeLeitor;
-                        txtEmailLeitor.Text    = leitor[0].EmailLeitor;
-                        txtTelefoneLeitor.Text = leitor[0].TelefoneLeitor;
-                        txtEnderecoLeitor.Text = leitor[0].EnderecoLeitor;
+                        txtNomeLeitor.Text     = leitores[0].NomeLeitor;
+                        txtEmailLeitor.Text    = leitores[0].EmailLeitor;
+                        txtTelefoneLeitor.Text = leitores[0].TelefoneLeitor;
+                        txtEnderecoLeitor.Text = leitores[0].EnderecoLeitor;
                     }
                     else // Vamos adicionar os dados dos leitores no dgvLeitor
                     {
-                        for (int i = 0; i < leitor.Count; i++) // Percorremos a lista de leitores que tem esse nome
+                        dgvLeitor.Rows.Clear(); // Limpamos as linhas do dgvLeitor para nao ficarem acumulando
+                        for (int i = 0; i < leitores.Count; i++) // Percorremos a lista de leitores que tem esse nome
                         { 
-                            if (i != leitor.Count - 1) // Adicionamos uma linha ao final caso nao seja o ultimo registro
+                            if (i != leitores.Count - 1) // Adicionamos uma linha ao final caso nao seja o ultimo registro
                                 dgvLeitor.Rows.Add();
 
-                            dgvLeitor[0, i].Value = leitor[i].IdLeitor; // Na coluna 0 da linha i do dgvLeitor adicionamos o valor que esta em aux na linha i coluna 0 (Id Leitor)
-                            dgvLeitor[1, i].Value = leitor[i].NomeLeitor; // Nome Leitor
-                            dgvLeitor[2, i].Value = leitor[i].EmailLeitor; // Email Leitor
-                            dgvLeitor[3, i].Value = leitor[i].TelefoneLeitor; // Telefone Leitor
-                            dgvLeitor[4, i].Value = leitor[i].EnderecoLeitor; // Endereco Leitor
+                            dgvLeitor[0, i].Value = leitores[i].IdLeitor; // Na coluna 0 da linha i do dgvLeitor adicionamos o valor que esta em aux na linha i coluna 0 (Id Leitor)
+                            dgvLeitor[1, i].Value = leitores[i].NomeLeitor; // Nome Leitor
+                            dgvLeitor[2, i].Value = leitores[i].EmailLeitor; // Email Leitor
+                            dgvLeitor[3, i].Value = leitores[i].TelefoneLeitor; // Telefone Leitor
+                            dgvLeitor[4, i].Value = leitores[i].EnderecoLeitor; // Endereco Leitor
                         }
+
+                        tcLeitor.SelectTab(tpLista); // Redirecionamos o usuario para a tpLista
                     }
                    
                     
