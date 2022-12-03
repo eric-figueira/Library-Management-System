@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using DAL;
 using DTO;
 
 namespace BLL
@@ -61,17 +62,17 @@ namespace BLL
 
         public void ExcluirLeitor(Leitor leitor)
         {
-            /*
-                REGRA DE NEGÓCIO: Não da pra excluir um leitor se esta com livro emprestado
-
-                Nao sei se da certo :: 1. Criar um metodo em EmprestimoDAL chamado VerificarEmprestimoUsuario (int idUsuario), que seleciona
-                                            emprestimos com o id passado
-                                       2. Se retornar True, significa que ha um leitor com emprestimo pendente, logo nao podemos exclui-lo
-            */
             try
             {
-                dal = new DAL.LeitorDAL(banco, usuario, senha);
-                dal.DeleteLeitor(leitor);
+                EmprestimoDAL aux = new EmprestimoDAL(banco, usuario, senha);
+                if (aux.VerificarEmprestimoUsuario(leitor.IdLeitor)) // Regra de negócio
+                    // Esse usuario tem emprestimos pendentes, nao podemos exlui-lo ate que ele devolva o(s) livro(s)
+                    throw new Exception("Usuário tem empréstimos pendentes. Para excluí-lo é necessário fazer a devolução dos livros emprestados");
+                else
+                {
+                    dal = new DAL.LeitorDAL(banco, usuario, senha);
+                    dal.DeleteLeitor(leitor);
+                }
             }
             catch (Exception ex)
             {

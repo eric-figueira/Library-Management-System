@@ -182,5 +182,27 @@ namespace DAL
                 throw erro;
             }
         }
+
+        public bool VerificarEmprestimoUsuario(int id)
+        {
+            try
+            {
+                String sql = "SELECT * FROM bibEmprestimo WHERE idLeitor = @idLeitor";
+                _conexao = new SqlConnection(_conexaoSQLServer);
+                SqlCommand cmd = new SqlCommand(sql, _conexao);
+                cmd.Parameters.AddWithValue("@idLeitor", id);
+                _conexao.Open();
+                SqlDataReader dr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+                if (dr.Read()) // Se conseguimos ler pelo menos 1 registro, significa que o leitor tem pelo menos 1 livro emprestado, nao precisamos criar uma lista para isso
+                    return true;
+
+                return false;
+            }
+            catch (Exception erro)
+            {
+                throw erro;
+            }
+            return true;
+        }
     }
 }

@@ -44,6 +44,7 @@
             this.txtEmailLeitor = new System.Windows.Forms.TextBox();
             this.tcLeitor = new System.Windows.Forms.TabControl();
             this.tpCadastro = new System.Windows.Forms.TabPage();
+            this.label6 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.tpLista = new System.Windows.Forms.TabPage();
             this.label1 = new System.Windows.Forms.Label();
@@ -53,7 +54,6 @@
             this.EmailLeitor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TelefoneLeitor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EnderecoLeitor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label6 = new System.Windows.Forms.Label();
             this.tcLeitor.SuspendLayout();
             this.tpCadastro.SuspendLayout();
             this.tpLista.SuspendLayout();
@@ -225,6 +225,17 @@
             this.tpCadastro.Text = "Cadastro";
             this.tpCadastro.UseVisualStyleBackColor = true;
             // 
+            // label6
+            // 
+            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(97, 346);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(474, 20);
+            this.label6.TabIndex = 27;
+            this.label6.Text = "Obs: Para procurar um leitor, digite seu nome e clique em Procurar";
+            // 
             // label9
             // 
             this.label9.AutoSize = true;
@@ -238,10 +249,10 @@
             // 
             this.tpLista.Controls.Add(this.label1);
             this.tpLista.Controls.Add(this.dgvLeitor);
-            this.tpLista.Location = new System.Drawing.Point(4, 22);
+            this.tpLista.Location = new System.Drawing.Point(4, 29);
             this.tpLista.Name = "tpLista";
             this.tpLista.Padding = new System.Windows.Forms.Padding(3);
-            this.tpLista.Size = new System.Drawing.Size(663, 366);
+            this.tpLista.Size = new System.Drawing.Size(663, 379);
             this.tpLista.TabIndex = 1;
             this.tpLista.Text = "Lista";
             this.tpLista.UseVisualStyleBackColor = true;
@@ -251,7 +262,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(6, 326);
+            this.label1.Location = new System.Drawing.Point(61, 347);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(521, 25);
             this.label1.TabIndex = 2;
@@ -272,7 +283,7 @@
             this.dgvLeitor.Location = new System.Drawing.Point(0, 0);
             this.dgvLeitor.Name = "dgvLeitor";
             this.dgvLeitor.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvLeitor.Size = new System.Drawing.Size(663, 321);
+            this.dgvLeitor.Size = new System.Drawing.Size(663, 340);
             this.dgvLeitor.TabIndex = 0;
             this.dgvLeitor.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLeitor_CellDoubleClick);
             // 
@@ -311,17 +322,6 @@
             this.EnderecoLeitor.HeaderText = "Endereço";
             this.EnderecoLeitor.Name = "EnderecoLeitor";
             this.EnderecoLeitor.Width = 200;
-            // 
-            // label6
-            // 
-            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(97, 346);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(474, 20);
-            this.label6.TabIndex = 27;
-            this.label6.Text = "Obs: Para procurar um leitor, digite seu nome e clique em Procurar";
             // 
             // FrmLeitor
             // 

@@ -34,7 +34,6 @@ namespace apBiblioteca_22121_22156.UI
                     MessageBox.Show("Inclusão feita com sucesso!");
                     List<Leitor> aux = bll.SelecionarLeitorPorNome(leitor.NomeLeitor); // Instanciamos um leitor auxiliar e procuramos por nome
 
-
                     /*
                         Como SelecionarLeitorPorNome retorna uma lista de leitores com aquele nome, precisamos verificar algumas coisas:
                         1. Se temos apenas 1 leitor com o nome inserido, colocamos seu Id no textbox (caso em que há apenas aquela pessoa com aquele nome)
@@ -43,10 +42,10 @@ namespace apBiblioteca_22121_22156.UI
                             pelo fato de o banco de dados registrar em ordem de insercao, sem fazer ordenacao, o ultimo registro é o que acabamos de inserir,
                             isto é, o ultimo da lista, e pegamos, portanto, seu Id e o mostramos no textbox
                     */
-                    if (aux.Count == 1) 
-                        txtIdLeitor.Text = aux[0].IdLeitor.ToString(); 
-                    else  
-                        txtIdLeitor.Text = aux[aux.Count - 1].IdLeitor.ToString(); 
+                    if (aux.Count == 1)
+                        txtIdLeitor.Text = aux[0].IdLeitor.ToString();
+                    else
+                        txtIdLeitor.Text = aux[aux.Count - 1].IdLeitor.ToString();
 
                 }
                 catch (Exception erro)
@@ -139,7 +138,9 @@ namespace apBiblioteca_22121_22156.UI
                     LeitorBLL bll = new LeitorBLL(banco, usuario, senha); // Instanciamos um bll
                     leitores = bll.SelecionarLeitorPorNome(nome); // Selecionamos o(s) leitor(es) a partir do nome passado
 
-                    if (leitores.Count == 1) // Se acharmos apenas um leitor com esse nome, inserimos seus dados nos textboxes 
+                    if (leitores.Count == 0)
+                        MessageBox.Show("Erro: Nenhum leitor com esse nome foi achado no banco de dados");
+                    else if (leitores.Count == 1) // Se acharmos apenas um leitor com esse nome, inserimos seus dados nos textboxes 
                     {
                         txtNomeLeitor.Text     = leitores[0].NomeLeitor;
                         txtEmailLeitor.Text    = leitores[0].EmailLeitor;
@@ -172,7 +173,7 @@ namespace apBiblioteca_22121_22156.UI
                 }
             }
             else
-                MessageBox.Show("Digite o código do livro que deseja procurar!");
+                MessageBox.Show("Digite nome do leitor que deseja procurar!");
         }
 
         private void dgvLeitor_CellDoubleClick(object sender, DataGridViewCellEventArgs e)

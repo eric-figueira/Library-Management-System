@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Xml.Linq;
 using DTO;
 
 
@@ -104,10 +105,11 @@ namespace DAL
             try
             {
                 String sql = "SELECT idLeitor, nomeLeitor, telefoneLeitor, emailLeitor, enderecoLeitor" +
-                             " FROM bibLeitor WHERE nomeLeitor like '%@nome%'";
+                             " FROM bibLeitor WHERE nomeLeitor like @nome";
+
                 _conexao = new SqlConnection(_conexaoSQLServer);
                 SqlCommand cmd = new SqlCommand(sql, _conexao);
-                cmd.Parameters.AddWithValue("@nome", nome);
+                cmd.Parameters.AddWithValue("@nome",nome);
                 _conexao.Open();
                 List<Leitor> listaLeitor = new List<Leitor>(); // Lista que guarda os leitores com esse nome. É uma lista pois pode haver leitores com o mesmo nome
                 SqlDataReader dr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
@@ -160,6 +162,8 @@ namespace DAL
                 _conexao = new SqlConnection(_conexaoSQLServer);
                 SqlCommand cmd = new SqlCommand(sql, _conexao);
                 cmd.Parameters.AddWithValue("@idLeitor", qualLeitor.IdLeitor);
+                _conexao.Open();
+                cmd.ExecuteNonQuery();
             }
             catch (Exception ex)
             {
