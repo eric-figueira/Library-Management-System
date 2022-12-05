@@ -202,7 +202,6 @@ namespace DAL
             {
                 throw erro;
             }
-            return true;
         }
     }
 }

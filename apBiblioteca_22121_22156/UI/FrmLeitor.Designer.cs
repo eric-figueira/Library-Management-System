@@ -256,7 +256,7 @@
             this.tpLista.TabIndex = 1;
             this.tpLista.Text = "Lista";
             this.tpLista.UseVisualStyleBackColor = true;
-            this.tpLista.Enter += new System.EventHandler(this.btnExibir_Click);
+            this.tpLista.Enter += new System.EventHandler(this.tpLista_Enter);
             // 
             // label1
             // 
@@ -283,7 +283,7 @@
             this.dgvLeitor.Location = new System.Drawing.Point(0, 0);
             this.dgvLeitor.Name = "dgvLeitor";
             this.dgvLeitor.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvLeitor.Size = new System.Drawing.Size(663, 340);
+            this.dgvLeitor.Size = new System.Drawing.Size(663, 326);
             this.dgvLeitor.TabIndex = 0;
             this.dgvLeitor.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLeitor_CellDoubleClick);
             // 

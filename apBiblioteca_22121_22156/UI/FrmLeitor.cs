@@ -88,7 +88,12 @@ namespace apBiblioteca_22121_22156.UI
                     LeitorBLL bll = new LeitorBLL(banco, usuario, senha); // Instanciamos um bll
                     bll.ExcluirLeitor(leitor); // Exlucimos o leitor. O id passado na instancia que sera usado, nao sendo necessario, portanto, passar todos os dados de leitor
                     MessageBox.Show("Exclusão feita com sucesso!");
-                    LimparTela();
+                    // Limpamos a tela
+                    txtIdLeitor.Text = "";
+                    txtNomeLeitor.Text = "";
+                    txtTelefoneLeitor.Text = "";
+                    txtEmailLeitor.Text = "";
+                    txtEnderecoLeitor.Text = "";
                 }
                 catch (Exception erro)
                 {
@@ -99,32 +104,10 @@ namespace apBiblioteca_22121_22156.UI
                 MessageBox.Show("Digite o código do livro que deseja excluir!");
         }
 
-        private void btnExibir_Click(object sender, EventArgs e) // Mesmo evento para o Enter do tpLista
+        private void btnExibir_Click(object sender, EventArgs e)
         {
-            try
-            {
-                LeitorBLL bll = new LeitorBLL(banco, usuario, senha); // Instanciamos um bll
-                
-                DataTable aux = bll.SelecionarLeitores();
-
-                dgvLeitor.Rows.Clear(); // Limpamos as linhas do dgvLeitor para nao ficarem acumulando
-                for (int i = 0; i < aux.Rows.Count; i++) // Percorremos as linha de aux
-                {
-                    if (i != aux.Rows.Count - 1) // Adicionamos uma linha ao final caso nao seja o ultimo registro
-                        dgvLeitor.Rows.Add();
-
-                    dgvLeitor[0, i].Value = aux.Rows[i][0]; // Na coluna 0 da linha i do dgvLeitor adicionamos o valor que esta em aux na linha i coluna 0 (Id Leitor)
-                    dgvLeitor[1, i].Value = aux.Rows[i][1]; // Nome Leitor
-                    dgvLeitor[2, i].Value = aux.Rows[i][2]; // Email Leitor
-                    dgvLeitor[3, i].Value = aux.Rows[i][3]; // Telefone  Leitor
-                    dgvLeitor[4, i].Value = aux.Rows[i][4]; // Endeco Leitor
-                }
-                tcLeitor.SelectTab(tpLista);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(" Erro : " + ex.Message.ToString());
-            }
+            fill_dgvLeitor_with_data(true, null); // Não precisamos passar a lista aqui, pois isso se dará no próprio método
+            tcLeitor.SelectTab(tpLista);
         }
 
         private void btnProcurar_Click(object sender, EventArgs e)
@@ -142,6 +125,7 @@ namespace apBiblioteca_22121_22156.UI
                         MessageBox.Show("Erro: Nenhum leitor com esse nome foi achado no banco de dados");
                     else if (leitores.Count == 1) // Se acharmos apenas um leitor com esse nome, inserimos seus dados nos textboxes 
                     {
+                        txtIdLeitor.Text       = leitores[0].IdLeitor.ToString();
                         txtNomeLeitor.Text     = leitores[0].NomeLeitor;
                         txtEmailLeitor.Text    = leitores[0].EmailLeitor;
                         txtTelefoneLeitor.Text = leitores[0].TelefoneLeitor;
@@ -149,23 +133,10 @@ namespace apBiblioteca_22121_22156.UI
                     }
                     else // Vamos adicionar os dados dos leitores no dgvLeitor
                     {
-                        dgvLeitor.Rows.Clear(); // Limpamos as linhas do dgvLeitor para nao ficarem acumulando
-                        for (int i = 0; i < leitores.Count; i++) // Percorremos a lista de leitores que tem esse nome
-                        { 
-                            if (i != leitores.Count - 1) // Adicionamos uma linha ao final caso nao seja o ultimo registro
-                                dgvLeitor.Rows.Add();
-
-                            dgvLeitor[0, i].Value = leitores[i].IdLeitor; // Na coluna 0 da linha i do dgvLeitor adicionamos o valor que esta em aux na linha i coluna 0 (Id Leitor)
-                            dgvLeitor[1, i].Value = leitores[i].NomeLeitor; // Nome Leitor
-                            dgvLeitor[2, i].Value = leitores[i].EmailLeitor; // Email Leitor
-                            dgvLeitor[3, i].Value = leitores[i].TelefoneLeitor; // Telefone Leitor
-                            dgvLeitor[4, i].Value = leitores[i].EnderecoLeitor; // Endereco Leitor
-                        }
-
+                        // Precisamos redirecionar primeiro para depois preencher o dgvLeitor, caso contrario, os dados do evento Enter da tpLista vao sobrescrever os leitores adicionados com o nome procurado
                         tcLeitor.SelectTab(tpLista); // Redirecionamos o usuario para a tpLista
-                    }
-                   
-                    
+                        fill_dgvLeitor_with_data(false, leitores); //Precisamos passar a lista aqui
+                    }  
                 }
                 catch (Exception erro)
                 {
@@ -180,7 +151,7 @@ namespace apBiblioteca_22121_22156.UI
         {
             // Vamos pegar os dados das celulas da linha na qual o usuario clicou, redirecionar este para a aba de cadastro, e colocar
             // os dados referentes ao leitor nos textboxes
-            txtIdLeitor.Text       = dgvLeitor.CurrentRow.Cells[0].Value.ToString(); // 0 -> IdLeitor
+            txtIdLeitor.Text       = dgvLeitor.CurrentRow.Cells[0].Value.ToString(); // 0 -> Id Leitor
             txtNomeLeitor.Text     = dgvLeitor.CurrentRow.Cells[1].Value.ToString(); // 1 -> Nome Leitor
             txtEmailLeitor.Text    = dgvLeitor.CurrentRow.Cells[2].Value.ToString(); // 2 -> Email Leitor
             txtTelefoneLeitor.Text = dgvLeitor.CurrentRow.Cells[3].Value.ToString(); // 3 -> Telefone Leitor
@@ -189,13 +160,64 @@ namespace apBiblioteca_22121_22156.UI
             tcLeitor.SelectTab(tpCadastro);
         }
 
-        public void LimparTela()
+        private void tpLista_Enter(object sender, EventArgs e)
         {
-            txtIdLeitor.Text       = "";
-            txtNomeLeitor.Text     = "";
-            txtTelefoneLeitor.Text = "";
-            txtEmailLeitor.Text    = "";
-            txtEnderecoLeitor.Text = "";
+            fill_dgvLeitor_with_data(true, null); // Não precisamos passar a lista aqui, pois isso se dará no próprio método
+        }
+
+        private void fill_dgvLeitor_with_data (bool complete_with_full_data, List<Leitor> leitores)
+        {
+            /*
+                Esse método é chamado nas seguintes situações:
+                1. Quando entramos na tpLista, chamamos esse método para que ele complete o dgvLeitor com todos os dados do banco de dados
+                   (complete_with_full_data = true)
+                2. Quando clicamos no botão Exibir, chamamos esse método pelo mesmo motivo anterior, com a diferença que no evento click 
+                   desse botão, redirecionamos o usuário para a tpLista (complete_with_full_data = true)
+                3. Quando, ao procurar por nome, tem-se mais de 1 leitor, preenchemos o dgvLeitor apenas com os dados dos leitores com 
+                   a cadeia de caracteres desejada em seus nomes (complete_with_full_data = false). Esses leitores estão na lista passada 
+                   por parâmetro e obtida no próprio evento do botão Procurar
+            */
+            if (complete_with_full_data)
+            {
+                try
+                {
+                    LeitorBLL bll = new LeitorBLL(banco, usuario, senha); // Instanciamos um bll
+
+                    DataTable aux = bll.SelecionarLeitores();
+
+                    dgvLeitor.Rows.Clear(); // Limpamos as linhas do dgvLeitor para nao ficarem acumulando
+                    for (int i = 0; i < aux.Rows.Count; i++) // Percorremos as linha de aux
+                    {
+                        if (i != aux.Rows.Count - 1) // Adicionamos uma linha ao final caso nao seja o ultimo registro
+                            dgvLeitor.Rows.Add();
+
+                        dgvLeitor[0, i].Value = aux.Rows[i][0]; // Na coluna 0 da linha i do dgvLeitor adicionamos o valor que esta em aux na linha i coluna 0 (Id Leitor)
+                        dgvLeitor[1, i].Value = aux.Rows[i][1]; // Nome Leitor
+                        dgvLeitor[2, i].Value = aux.Rows[i][2]; // Email Leitor
+                        dgvLeitor[3, i].Value = aux.Rows[i][3]; // Telefone  Leitor
+                        dgvLeitor[4, i].Value = aux.Rows[i][4]; // Endeco Leitor
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(" Erro : " + ex.Message.ToString());
+                }
+            }
+            else
+            {
+                dgvLeitor.Rows.Clear(); // Limpamos as linhas do dgvLeitor para nao ficarem acumulando
+                for (int i = 0; i < leitores.Count; i++) // Percorremos a lista de leitores que tem esse nome
+                {
+                    if (i != leitores.Count - 1) // Adicionamos uma linha ao final caso nao seja o ultimo registro
+                        dgvLeitor.Rows.Add();
+
+                    dgvLeitor[0, i].Value = leitores[i].IdLeitor; // Na coluna 0 da linha i do dgvLeitor adicionamos o valor que esta em aux na linha i coluna 0 (Id Leitor)
+                    dgvLeitor[1, i].Value = leitores[i].NomeLeitor; // Nome Leitor
+                    dgvLeitor[2, i].Value = leitores[i].EmailLeitor; // Email Leitor
+                    dgvLeitor[3, i].Value = leitores[i].TelefoneLeitor; // Telefone Leitor
+                    dgvLeitor[4, i].Value = leitores[i].EnderecoLeitor; // Endereco Leitor
+                }
+            }
         }
 
         public FrmLeitor()
