@@ -81,6 +81,12 @@
     <Compile Include="UI\FrmOperacoes.Designer.cs">
       <DependentUpon>FrmOperacoes.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\FrmRelatorio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\FrmRelatorio.Designer.cs">
+      <DependentUpon>FrmRelatorio.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="UI\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -101,6 +107,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\FrmOperacoes.resx">
       <DependentUpon>FrmOperacoes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\FrmRelatorio.resx">
+      <DependentUpon>FrmRelatorio.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

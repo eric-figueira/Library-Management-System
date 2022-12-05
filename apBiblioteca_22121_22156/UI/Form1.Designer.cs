@@ -151,6 +151,7 @@
             this.relatórioToolStripMenuItem.Name = "relatórioToolStripMenuItem";
             this.relatórioToolStripMenuItem.Size = new System.Drawing.Size(66, 20);
             this.relatórioToolStripMenuItem.Text = "&Relatório";
+            this.relatórioToolStripMenuItem.Click += new System.EventHandler(this.relatórioToolStripMenuItem_Click);
             // 
             // sairToolStripMenuItem
             // 
@@ -164,13 +165,13 @@
             // nãoToolStripMenuItem1
             // 
             this.nãoToolStripMenuItem1.Name = "nãoToolStripMenuItem1";
-            this.nãoToolStripMenuItem1.Size = new System.Drawing.Size(96, 22);
+            this.nãoToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.nãoToolStripMenuItem1.Text = "Não";
             // 
             // simToolStripMenuItem1
             // 
             this.simToolStripMenuItem1.Name = "simToolStripMenuItem1";
-            this.simToolStripMenuItem1.Size = new System.Drawing.Size(96, 22);
+            this.simToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.simToolStripMenuItem1.Text = "Sim";
             this.simToolStripMenuItem1.Click += new System.EventHandler(this.simToolStripMenuItem_Click);
             // 

@@ -17,6 +17,7 @@ namespace apBiblioteca_22121_22156
         UI.FrmLivro formLivros           = null;
         UI.FrmLeitor formLeitores        = null;
         UI.FrmOperacoes formOperacoes    = null;
+        UI.FrmRelatorio formRelatorio    = null;
 
         public FrmPrincipal()
         {
@@ -122,6 +123,31 @@ namespace apBiblioteca_22121_22156
                     _conexao.Open();
                     formOperacoes.Show();
                     formOperacoes.abrirPaginaDevolucoes(); // Vai diretamente para a pagina de devolucoes
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Erro: " + ex.Message.ToString());
+                }
+            }
+        }
+
+        private void relatórioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (txtBanco.Text == "" || txtSenha.Text == "" || txtUsuario.Text == "")
+                MessageBox.Show("Preencha os dados de conexão");
+            else
+            {
+                formRelatorio = new UI.FrmRelatorio();
+                formRelatorio.banco = txtBanco.Text;
+                formRelatorio.usuario = txtUsuario.Text;
+                formRelatorio.senha = txtSenha.Text;
+                try
+                {
+                    string _conexaoSQLServer = $"Data Source=regulus.cotuca.unicamp.br;Initial Catalog={txtBanco.Text}; " +
+                   $"User id={txtUsuario.Text}; Password={txtSenha.Text}";
+                    SqlConnection _conexao = new SqlConnection(_conexaoSQLServer);
+                    _conexao.Open();
+                    formRelatorio.Show();
                 }
                 catch (Exception ex)
                 {
