@@ -66,3 +66,4 @@ D:\downloads\GITHUB\Meus projetos\library-management\Library-Management-System\a
 D:\downloads\GITHUB\Meus projetos\library-management\Library-Management-System\apBiblioteca_22121_22156\obj\Debug\apBiblioteca_22121_22156.exe
 D:\downloads\GITHUB\Meus projetos\library-management\Library-Management-System\apBiblioteca_22121_22156\obj\Debug\apBiblioteca_22121_22156.pdb
 C:\Users\u22121\Documents\GitHub\Library-Management-System\apBiblioteca_22121_22156\obj\Debug\apBiblioteca_22121_22156.UI.FrmRelatorio.resources
+D:\downloads\GITHUB\Meus projetos\library-management\Library-Management-System\apBiblioteca_22121_22156\obj\Debug\apBiblioteca_22121_22156.UI.FrmRelatorio.resources

@@ -130,8 +130,8 @@ namespace DAL
         {
             try
             {
-                String sql = "INSERT INTO bibEmprestimo (idEmprestimo, idLivro, idLeitor, dataEmprestimo, dataDevolucaoPrevista, dataDevolucaoEfetiva) " +
-                    " VALUES (@idEmprestimo, @idLivro, @idLeitor, @dataEmprestimo, @dataDevolucaoPrevista, @dataDevolucaoEfetiva)";
+                String sql = "INSERT INTO bibEmprestimo (idLivro, idLeitor, dataEmprestimo, dataDevolucaoPrevista, dataDevolucaoEfetiva) " +
+                    " VALUES (@idLivro, @idLeitor, @dataEmprestimo, @dataDevolucaoPrevista, @dataDevolucaoEfetiva)";
                 _conexao = new SqlConnection(_conexaoSQLServer);
                 SqlCommand cmd = new SqlCommand(sql, _conexao);
                 cmd.Parameters.AddWithValue("@idEmprestimo", emprestimo.IdEmprestimo);

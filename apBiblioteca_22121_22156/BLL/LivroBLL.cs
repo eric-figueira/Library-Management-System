@@ -32,6 +32,21 @@ namespace BLL
             }
             return tb;
         }
+        public DataTable LivroOuterJoinEmprestimo()
+        {
+            DataTable tb = new DataTable();
+            try
+            {
+                dal = new DAL.LivroDAL(bd, user, password);
+                tb = dal.LivroOuterJoinEmprestimo();
+            }
+            catch (Exception erro)
+            {
+                throw erro;
+            }
+            return tb;
+        }
+
         public void IncluirLivro(Livro livro) 
         {
             try

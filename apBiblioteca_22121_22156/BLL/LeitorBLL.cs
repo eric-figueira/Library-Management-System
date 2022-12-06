@@ -20,18 +20,34 @@ namespace BLL
 
         public DataTable SelecionarLeitores() 
         { 
-            DataTable tb = new DataTable();
+            DataTable dt = new DataTable();
             try
             {
                 dal = new DAL.LeitorDAL(banco, usuario, senha);
-                tb = dal.SelectLeitores();
+                dt = dal.SelectLeitores();
             }
             catch (Exception ex)
             {
                 throw ex;
             }
 
-            return tb;
+            return dt;
+        }
+
+        public DataTable LeitorOuterJoinEmprestimo()
+        {
+            DataTable dt = new DataTable();
+            try
+            {
+                dal = new LeitorDAL(banco, usuario, senha);
+                dt = dal.LeitorOuterJoinEmprestimo();
+            }
+            catch (Exception erro)
+            {
+                throw erro;
+            }
+
+            return dt;
         }
 
         public void IncluirLeitor(Leitor leitor) 

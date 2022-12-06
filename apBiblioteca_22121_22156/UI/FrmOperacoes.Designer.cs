@@ -110,7 +110,7 @@
             // dtpDataDevPrevista
             // 
             this.dtpDataDevPrevista.CustomFormat = "dd/MM/yyyy";
-            this.dtpDataDevPrevista.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpDataDevPrevista.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpDataDevPrevista.Location = new System.Drawing.Point(233, 212);
             this.dtpDataDevPrevista.Name = "dtpDataDevPrevista";
             this.dtpDataDevPrevista.Size = new System.Drawing.Size(128, 26);
@@ -118,8 +118,8 @@
             // 
             // dtpDataEmprestimo
             // 
-            this.dtpDataEmprestimo.CustomFormat = "dd/MMM/yyyy";
-            this.dtpDataEmprestimo.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpDataEmprestimo.CustomFormat = "dd/MM/yyyy";
+            this.dtpDataEmprestimo.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpDataEmprestimo.Location = new System.Drawing.Point(233, 166);
             this.dtpDataEmprestimo.Name = "dtpDataEmprestimo";
             this.dtpDataEmprestimo.Size = new System.Drawing.Size(128, 26);

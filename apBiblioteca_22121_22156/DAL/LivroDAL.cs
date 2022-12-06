@@ -37,6 +37,29 @@ namespace DAL
                 throw ex;
             }
         }
+
+        public DataTable LivroOuterJoinEmprestimo()
+        {
+            try
+            {
+                String sql = "SELECT idLivro, codigoLivro, tituloLivro, autorLivro, idEmprestimo, " +
+                    "idLivro, idLeitor, dataEmprestimo, dataDevolucaoPrevista, dataDevolucaoEfetiva " +
+                    "FROM bibLivro L FULL OUTER JOIN bibEmprestimo E on L.idLivro = E.idLivro";
+                _conexao = new SqlConnection(_conexaoSQLServer);
+                SqlCommand cmd = new SqlCommand(sql, _conexao);
+                _conexao.Open();
+                SqlDataAdapter da = new SqlDataAdapter();
+                da.SelectCommand = cmd;
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                return dt;
+            }
+            catch (Exception erro)
+            {
+                throw erro;
+            }
+        }
+
         public Livro SelectLivroByID(int id)
         {
             try
