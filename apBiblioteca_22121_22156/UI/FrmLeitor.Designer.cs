@@ -249,10 +249,10 @@
             // 
             this.tpLista.Controls.Add(this.label1);
             this.tpLista.Controls.Add(this.dgvLeitor);
-            this.tpLista.Location = new System.Drawing.Point(4, 29);
+            this.tpLista.Location = new System.Drawing.Point(4, 22);
             this.tpLista.Name = "tpLista";
             this.tpLista.Padding = new System.Windows.Forms.Padding(3);
-            this.tpLista.Size = new System.Drawing.Size(663, 379);
+            this.tpLista.Size = new System.Drawing.Size(663, 386);
             this.tpLista.TabIndex = 1;
             this.tpLista.Text = "Lista";
             this.tpLista.UseVisualStyleBackColor = true;

@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using BLL;
+using BLL; 
 using DTO;
 
 namespace apBiblioteca_22121_22156.UI
@@ -22,7 +22,7 @@ namespace apBiblioteca_22121_22156.UI
             // Emprestimos atrasados
             // Percorreremos uma lista de emprestimos e compararemos se a data atual é maior que a data prevista do empréstimo
             EmprestimoBLL bll = new EmprestimoBLL(banco, usuario, senha);
-            List<Emprestimo> aux = bll.SelecionarListEmprestimos();
+            List<Emprestimo> aux = bll.SelecionarListEmprestimos();  
             for (int i = 0; i < aux.Count; i++)
             {
                 // Data atual:

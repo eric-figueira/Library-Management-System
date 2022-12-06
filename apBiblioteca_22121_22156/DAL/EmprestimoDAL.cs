@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Windows.Forms;
 using DTO;
 
 
@@ -44,7 +45,7 @@ namespace DAL
             {
                 using (SqlConnection conn = new SqlConnection(_conexaoSQLServer))
                 {
-                    using (SqlCommand command = new SqlCommand("Select * from bibEmprestimo"))
+                    using (SqlCommand command = new SqlCommand("Select * from bibEmprestimo", conn))
                     {
                         conn.Open();
                         List<Emprestimo> listaEmprestimos = new List<Emprestimo>();
