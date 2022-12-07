@@ -82,7 +82,7 @@ namespace DAL
                     " SET idLivro = @idLivro, idLeitor = @idLeitor," +
                     " dataEmprestimo = @dataEmprestimo, " +
                     " dataDevolucaoPrevista = @dataDevolucaoPrevista, " +
-                    " dataDevolucaoEfetiva  = @dataDevolucaoEfetiva " +
+                    " dataDevolucaoReal  = @dataDevolucaoReal " +
                     " WHERE idEmprestimo = @idEmprestimo";
                 _conexao = new SqlConnection(_conexaoSQLServer);
                 SqlCommand cmd = new SqlCommand(sql, _conexao);
@@ -90,7 +90,7 @@ namespace DAL
                 cmd.Parameters.AddWithValue("@idLeitor", emprestimo.IdLeitor);
                 cmd.Parameters.AddWithValue("@dataEmprestimo", emprestimo.DataEmprestimo);
                 cmd.Parameters.AddWithValue("@dataDevolucaoPrevista", emprestimo.DataDevolucaoPrevista);
-                cmd.Parameters.AddWithValue("@dataDevolucaoEfetiva", emprestimo.DataDevolucaoEfetiva);
+                cmd.Parameters.AddWithValue("@dataDevolucaoReal", emprestimo.DataDevolucaoEfetiva);
                 cmd.Parameters.AddWithValue("@idEmprestimo", emprestimo.IdEmprestimo);
                 _conexao.Open();
                 cmd.ExecuteNonQuery();
@@ -173,7 +173,7 @@ namespace DAL
                     (int)dr["idLeitor"],
                     (DateTime)dr["dataEmprestimo"],
                     (DateTime)dr["dataDevolucaoPrevista"],
-                    (DateTime)dr["dataDevolucaoEfetiva"]
+                    (DateTime)dr["dataDevolucaoReal"]
                     );
                 }
                 return emprestimo;

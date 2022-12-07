@@ -127,6 +127,7 @@ namespace apBiblioteca_22121_22156.UI
                 {
                     EmprestimoBLL bll = new EmprestimoBLL(banco, usuario, senha);
                     bll.AlterarEmprestimo(emprestimo);
+                    MessageBox.Show("Empréstimo alterado com sucesso!");
                 }
                 catch (Exception erro)
                 {
@@ -139,29 +140,28 @@ namespace apBiblioteca_22121_22156.UI
 
         private void btnRegistarDevolucao_Click(object sender, EventArgs e)
         {
-            if (txtIdEmprestimo.Text != "")
+            if (txtIdDevolucao.Text != "")
             {
                 try
                 {
                     EmprestimoBLL bll = new EmprestimoBLL(banco, usuario, senha);
                     List<Emprestimo> aux = bll.SelecionarListEmprestimos();
+                    Emprestimo emprestimo = null;
                     for (int i = 0; i < aux.Count; i++)
                     {
-                        if (aux[i].IdEmprestimo == int.Parse(txtIdEmprestimo.Text))
-                        {
-                            //if (aux[i].DataDevolucaoPrevista )
-
-
-                            //Emprestimo emprestimo = new Emprestimo(aux[i].IdEmprestimo,
-                            //                       aux[i].IdLeitor,
-                            //                       aux[i].IdLivro,
-                            //                       aux[i].DataEmprestimo,
-                            //                       aux[i].DataDevolucaoPrevista,
-                            //                       dtpDataDevReal.Value);
-
-                            //bll.AlterarEmprestimo(emprestimo);
+                        int j = aux[i].IdEmprestimo;
+                        if (aux[i].IdEmprestimo == int.Parse(txtIdDevolucao.Text))
+                        { 
+                             emprestimo= new Emprestimo(aux[i].IdEmprestimo,
+                                                   aux[i].IdLeitor,
+                                                   aux[i].IdLivro,
+                                                   aux[i].DataEmprestimo,
+                                                   aux[i].DataDevolucaoPrevista,
+                                                   dtpDataDevReal.Value);
                         }
                     }
+                    bll.AlterarEmprestimo(emprestimo);
+                    MessageBox.Show("Devolução feita com sucesso!");
                 }
                 catch (Exception erro)
                 {
@@ -182,6 +182,7 @@ namespace apBiblioteca_22121_22156.UI
                 {
                     EmprestimoBLL bll = new EmprestimoBLL(banco, usuario, senha);
                     bll.ExcluirEmprestimo(emprestimo);
+                    MessageBox.Show("Exclusão feita com sucesso!");
                 }
                 catch (Exception erro)
                 {

@@ -290,7 +290,6 @@
             // 
             this.txtIdDevolucao.Location = new System.Drawing.Point(241, 28);
             this.txtIdDevolucao.Name = "txtIdDevolucao";
-            this.txtIdDevolucao.ReadOnly = true;
             this.txtIdDevolucao.Size = new System.Drawing.Size(251, 26);
             this.txtIdDevolucao.TabIndex = 33;
             // 
