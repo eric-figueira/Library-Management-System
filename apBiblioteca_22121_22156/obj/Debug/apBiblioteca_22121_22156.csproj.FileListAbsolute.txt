@@ -68,3 +68,18 @@ D:\downloads\GITHUB\Meus projetos\library-management\Library-Management-System\a
 C:\Users\u22121\Documents\GitHub\Library-Management-System\apBiblioteca_22121_22156\obj\Debug\apBiblioteca_22121_22156.UI.FrmRelatorio.resources
 D:\downloads\GITHUB\Meus projetos\library-management\Library-Management-System\apBiblioteca_22121_22156\obj\Debug\apBiblioteca_22121_22156.UI.FrmRelatorio.resources
 C:\Users\u22121\Documents\Library-Management-System\apBiblioteca_22121_22156\obj\Debug\apBiblioteca_22121_22156.UI.FrmRelatorio.resources
+Z:\GITHUB\chico 3\Library-Management-System\apBiblioteca_22121_22156\bin\Debug\apBiblioteca_22121_22156.exe.config
+Z:\GITHUB\chico 3\Library-Management-System\apBiblioteca_22121_22156\bin\Debug\apBiblioteca_22121_22156.exe
+Z:\GITHUB\chico 3\Library-Management-System\apBiblioteca_22121_22156\bin\Debug\apBiblioteca_22121_22156.pdb
+Z:\GITHUB\chico 3\Library-Management-System\apBiblioteca_22121_22156\obj\Debug\apBiblioteca_22121_22156.csproj.AssemblyReference.cache
+Z:\GITHUB\chico 3\Library-Management-System\apBiblioteca_22121_22156\obj\Debug\apBiblioteca_22121_22156.csproj.SuggestedBindingRedirects.cache
+Z:\GITHUB\chico 3\Library-Management-System\apBiblioteca_22121_22156\obj\Debug\apBiblioteca_22121_22156.FrmPrincipal.resources
+Z:\GITHUB\chico 3\Library-Management-System\apBiblioteca_22121_22156\obj\Debug\apBiblioteca_22121_22156.Properties.Resources.resources
+Z:\GITHUB\chico 3\Library-Management-System\apBiblioteca_22121_22156\obj\Debug\apBiblioteca_22121_22156.UI.FrmLeitor.resources
+Z:\GITHUB\chico 3\Library-Management-System\apBiblioteca_22121_22156\obj\Debug\apBiblioteca_22121_22156.UI.FrmLivro.resources
+Z:\GITHUB\chico 3\Library-Management-System\apBiblioteca_22121_22156\obj\Debug\apBiblioteca_22121_22156.UI.FrmOperacoes.resources
+Z:\GITHUB\chico 3\Library-Management-System\apBiblioteca_22121_22156\obj\Debug\apBiblioteca_22121_22156.UI.FrmRelatorio.resources
+Z:\GITHUB\chico 3\Library-Management-System\apBiblioteca_22121_22156\obj\Debug\apBiblioteca_22121_22156.csproj.GenerateResource.cache
+Z:\GITHUB\chico 3\Library-Management-System\apBiblioteca_22121_22156\obj\Debug\apBiblioteca_22121_22156.csproj.CoreCompileInputs.cache
+Z:\GITHUB\chico 3\Library-Management-System\apBiblioteca_22121_22156\obj\Debug\apBiblioteca_22121_22156.exe
+Z:\GITHUB\chico 3\Library-Management-System\apBiblioteca_22121_22156\obj\Debug\apBiblioteca_22121_22156.pdb
