@@ -216,13 +216,77 @@ namespace apBiblioteca_22121_22156.UI
         {
             try
             {
-                EmprestimoBLL bll = new EmprestimoBLL(banco, usuario, senha);
-                dgvOperacoes.DataSource = bll.SelecionarListEmprestimos();
+                fill_dgvEmprestimo_with_full_data(true, null);
                 tcOperacoes.SelectTab(tpLista);
             }
             catch (Exception erro)
             {
                 MessageBox.Show("Erro: " + erro.Message.ToString());
+            }
+        }
+
+        private void tcOperacoes_Enter(object sender, EventArgs e)
+        {
+            fill_dgvEmprestimo_with_full_data(true, null);
+        }
+
+        private void fill_dgvEmprestimo_with_full_data(bool complete_with_full_data, List<Emprestimo> emprestimos)
+        {
+            /*
+                Esse método é chamado nas seguintes situações:
+                1. Quando entramos na tpLista, chamamos esse método para que ele complete o dgvEmprestimo com todos os dados do banco de dados
+                   (complete_with_full_data = true)
+                2. Quando clicamos no botão Exibir, chamamos esse método pelo mesmo motivo anterior, com a diferença que no evento click 
+                   desse botão, redirecionamos o usuário para a tpLista (complete_with_full_data = true)
+                3. Quando, ao procurar por idLivro ou idLeitor, tem-se mais de 1 registro, preenchemos o dgvOperacoes apenas com os dados do emprestimo
+                   com aquele leitor ou com aquele livro (complete_with_full_data = false). Esses registros estão na lista passada 
+                   por parâmetro e obtida no próprio evento do botão Procurar
+            */
+            if (complete_with_full_data)
+            {
+                try
+                {
+                    EmprestimoBLL bll = new EmprestimoBLL(banco, usuario, senha);
+
+                    DataTable aux = bll.SelecionarEmprestimos();
+
+                    dgvOperacoes.Rows.Clear(); // Limpamos as linhas do dgvLeitor para nao ficarem acumulando
+                    for (int i = 0; i < aux.Rows.Count; i++) // Percorremos as linha de aux
+                    {
+                        if (i != aux.Rows.Count - 1) // Adicionamos uma linha ao final caso nao seja o ultimo registro
+                            dgvOperacoes.Rows.Add();
+
+                        dgvOperacoes[0, i].Value = aux.Rows[i][0]; // Id Emprestimo
+                        dgvOperacoes[1, i].Value = aux.Rows[i][1]; // Id Livro
+                        dgvOperacoes[2, i].Value = aux.Rows[i][2]; // Id Leitor
+                        dgvOperacoes[3, i].Value = aux.Rows[i][3]; // Data do emprestimo
+                        dgvOperacoes[4, i].Value = aux.Rows[i][4]; // Data devolucao prevista
+                        if (((DateTime)aux.Rows[i][5]).Year == 9999) // Para devolucao real, verificamos se o ano é 9999 (data 'nula'), se for, colocamos riscos ao inves de uma data nao existente
+                            dgvOperacoes[5, i].Value = "---";
+                        else
+                            dgvOperacoes[5, i].Value = aux.Rows[i][5];
+                    }
+                }
+                catch (Exception erro)
+                {
+                    MessageBox.Show("Erro: " + erro.Message.ToString());
+                }
+            }
+            else
+            {
+                dgvOperacoes.Rows.Clear(); // Limpamos as linhas do dgvLeitor para nao ficarem acumulando
+                for (int i = 0; i < emprestimos.Count; i++) // Percorremos as linha de aux
+                {
+                    if (i != emprestimos.Count - 1) // Adicionamos uma linha ao final caso nao seja o ultimo registro
+                        dgvOperacoes.Rows.Add();
+
+                    dgvOperacoes[0, i].Value = emprestimos[i]; // Id Emprestimo
+                    dgvOperacoes[1, i].Value = emprestimos[i]; // Id Livro
+                    dgvOperacoes[2, i].Value = emprestimos[i]; // Id Leitor
+                    dgvOperacoes[3, i].Value = emprestimos[i]; // Data do emprestimo
+                    dgvOperacoes[4, i].Value = emprestimos[i]; // Data devolucao prevista
+                    dgvOperacoes[5, i].Value = emprestimos[i]; // Data devolucao real
+                }
             }
         }
 

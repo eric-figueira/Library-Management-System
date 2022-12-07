@@ -195,7 +195,7 @@ namespace apBiblioteca_22121_22156.UI
                         dgvLeitor[1, i].Value = aux.Rows[i][1]; // Nome Leitor
                         dgvLeitor[2, i].Value = aux.Rows[i][2]; // Email Leitor
                         dgvLeitor[3, i].Value = aux.Rows[i][3]; // Telefone  Leitor
-                        dgvLeitor[4, i].Value = aux.Rows[i][4]; // Endeco Leitor
+                        dgvLeitor[4, i].Value = aux.Rows[i][4]; // Endereco Leitor
                     }
                 }
                 catch (Exception ex)

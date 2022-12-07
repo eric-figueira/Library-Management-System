@@ -42,8 +42,8 @@ namespace DAL
         {
             try
             {
-                String sql = "SELECT idLivro, codigoLivro, tituloLivro, autorLivro, idEmprestimo, " +
-                    "idLivro, idLeitor, dataEmprestimo, dataDevolucaoPrevista, dataDevolucaoEfetiva " +
+                String sql = "SELECT L.idLivro, L.codigoLivro, L.tituloLivro, L.autorLivro, E.idEmprestimo, " +
+                    "E.idLivro, E.idLeitor, E.dataEmprestimo, E.dataDevolucaoPrevista, E.dataDevolucaoEfetiva " +
                     "FROM bibLivro L FULL OUTER JOIN bibEmprestimo E on L.idLivro = E.idLivro";
                 _conexao = new SqlConnection(_conexaoSQLServer);
                 SqlCommand cmd = new SqlCommand(sql, _conexao);

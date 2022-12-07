@@ -78,8 +78,9 @@
             this.tcOperacoes.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tcOperacoes.Name = "tcOperacoes";
             this.tcOperacoes.SelectedIndex = 0;
-            this.tcOperacoes.Size = new System.Drawing.Size(683, 368);
+            this.tcOperacoes.Size = new System.Drawing.Size(689, 368);
             this.tcOperacoes.TabIndex = 0;
+            this.tcOperacoes.Enter += new System.EventHandler(this.tcOperacoes_Enter);
             // 
             // tpEmprestimo
             // 
@@ -308,7 +309,7 @@
             this.tpLista.Location = new System.Drawing.Point(4, 29);
             this.tpLista.Name = "tpLista";
             this.tpLista.Padding = new System.Windows.Forms.Padding(3);
-            this.tpLista.Size = new System.Drawing.Size(675, 335);
+            this.tpLista.Size = new System.Drawing.Size(681, 335);
             this.tpLista.TabIndex = 2;
             this.tpLista.Text = "Lista";
             this.tpLista.UseVisualStyleBackColor = true;
@@ -328,12 +329,12 @@
             this.dataDev});
             this.dgvOperacoes.Location = new System.Drawing.Point(1, 0);
             this.dgvOperacoes.Name = "dgvOperacoes";
-            this.dgvOperacoes.Size = new System.Drawing.Size(674, 339);
+            this.dgvOperacoes.Size = new System.Drawing.Size(680, 335);
             this.dgvOperacoes.TabIndex = 1;
             // 
             // IdEmprestimo
             // 
-            this.IdEmprestimo.HeaderText = "Identificação";
+            this.IdEmprestimo.HeaderText = "Identificação Empréstimo";
             this.IdEmprestimo.Name = "IdEmprestimo";
             this.IdEmprestimo.ReadOnly = true;
             this.IdEmprestimo.Width = 110;
@@ -341,7 +342,7 @@
             // idLivro
             // 
             this.idLivro.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.idLivro.HeaderText = "Código Livro";
+            this.idLivro.HeaderText = "Identificação Livro";
             this.idLivro.MaxInputLength = 10;
             this.idLivro.Name = "idLivro";
             this.idLivro.Width = 110;
@@ -349,7 +350,7 @@
             // idLeitor
             // 
             this.idLeitor.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.idLeitor.HeaderText = "Código Leitor";
+            this.idLeitor.HeaderText = "Identificação Leitor";
             this.idLeitor.MaxInputLength = 10;
             this.idLeitor.Name = "idLeitor";
             this.idLeitor.Width = 110;
@@ -416,16 +417,16 @@
         private System.Windows.Forms.DateTimePicker dtpDataDevPrevista;
         private System.Windows.Forms.TabPage tpLista;
         private System.Windows.Forms.DataGridView dgvOperacoes;
+        private System.Windows.Forms.DateTimePicker dtpDataDevReal;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox txtIdDevolucao;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnRegistarDevolucao;
         private System.Windows.Forms.DataGridViewTextBoxColumn IdEmprestimo;
         private System.Windows.Forms.DataGridViewTextBoxColumn idLivro;
         private System.Windows.Forms.DataGridViewTextBoxColumn idLeitor;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataEmprestimo;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataDevPrevista;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataDev;
-        private System.Windows.Forms.DateTimePicker dtpDataDevReal;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox txtIdDevolucao;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btnRegistarDevolucao;
     }
 }
