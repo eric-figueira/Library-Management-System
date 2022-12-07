@@ -59,7 +59,7 @@ namespace DTO
             set => dataEmprestimo = value;
         }
 
-        public Emprestimo(int idLivro, int idLeitor, int idEmprestimo, DateTime dataEmprestimo,
+        public Emprestimo(int idEmprestimo, int idLivro, int idLeitor, DateTime dataEmprestimo,
             DateTime dataPrevista, DateTime dataEfetiva)
         {
             IdLivro               = idLivro;
@@ -69,6 +69,11 @@ namespace DTO
             DataDevolucaoEfetiva  = dataEfetiva;
             DataDevolucaoPrevista = dataPrevista;
 
+        }
+
+        public override string ToString()
+        {
+            return "IdEmprestimo.... " + IdEmprestimo + "\nIdLivro:... " + idLivro + "\nIdLeitor... " + idLeitor;
         }
     }
 }

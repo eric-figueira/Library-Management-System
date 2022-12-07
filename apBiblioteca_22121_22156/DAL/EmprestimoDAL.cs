@@ -184,6 +184,68 @@ namespace DAL
             }
         }
 
+        public Emprestimo SelectEmprestimoByIdLeitor(int id)
+        {
+            try
+            {
+                String sql = "SELECT * FROM bibEmprestimo WHERE idLeitor = @idLeitor";
+                _conexao = new SqlConnection(_conexaoSQLServer);
+                SqlCommand cmd = new SqlCommand(sql, _conexao);
+                cmd.Parameters.AddWithValue("@idLeitor", id);
+                _conexao.Open();
+                SqlDataReader dr;
+                dr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+                Emprestimo emprestimo = null;
+                if (dr.Read())
+                {
+                    emprestimo = new Emprestimo(
+                    (int)dr["idEmprestimo"],
+                    (int)dr["idLivro"],
+                    (int)dr["idLeitor"],
+                    (DateTime)dr["dataEmprestimo"],
+                    (DateTime)dr["dataDevolucaoPrevista"],
+                    (DateTime)dr["dataDevolucaoReal"]
+                    );
+                }
+                return emprestimo;
+            }
+            catch (Exception erro)
+            {
+                throw erro;
+            }
+        }
+
+        public Emprestimo SelectEmprestimoByIdLivro(int id)
+        {
+            try
+            {
+                String sql = "SELECT * FROM bibEmprestimo WHERE idLivro = @idLivro";
+                _conexao = new SqlConnection(_conexaoSQLServer);
+                SqlCommand cmd = new SqlCommand(sql, _conexao);
+                cmd.Parameters.AddWithValue("@idLivro", id);
+                _conexao.Open();
+                SqlDataReader dr;
+                dr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+                Emprestimo emprestimo = null;
+                if (dr.Read())
+                {
+                    emprestimo = new Emprestimo(
+                    (int)dr["idEmprestimo"],
+                    (int)dr["idLivro"],
+                    (int)dr["idLeitor"],
+                    (DateTime)dr["dataEmprestimo"],
+                    (DateTime)dr["dataDevolucaoPrevista"],
+                    (DateTime)dr["dataDevolucaoReal"]
+                    );
+                }
+                return emprestimo;
+            }
+            catch (Exception erro)
+            {
+                throw erro;
+            }
+        }
+
         public bool VerificarEmprestimoUsuario(int id)
         {
             try

@@ -247,7 +247,7 @@
             this.dgvLivro.Location = new System.Drawing.Point(0, 0);
             this.dgvLivro.Name = "dgvLivro";
             this.dgvLivro.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvLivro.Size = new System.Drawing.Size(666, 287);
+            this.dgvLivro.Size = new System.Drawing.Size(666, 280);
             this.dgvLivro.TabIndex = 0;
             this.dgvLivro.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLivro_CellDoubleClick);
             // 
