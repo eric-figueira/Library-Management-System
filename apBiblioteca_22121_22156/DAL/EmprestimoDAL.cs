@@ -56,10 +56,10 @@ namespace DAL
                                 Emprestimo emprestimo = new Emprestimo(
                                 (int)dr["idEmprestimo"],
                                 (int)dr["idLivro"],
-                                (int)dr["Leitor"],
+                                (int)dr["idLeitor"],
                                 (DateTime)dr["DataEmprestimo"],
                                 (DateTime)dr["DataDevolucaoPrevista"],
-                                (DateTime)dr["DataDevelucaoEfetiva"]
+                                (DateTime)dr["DataDevolucaoReal"]
                                 );
                                 listaEmprestimos.Add(emprestimo);
                             }
@@ -130,8 +130,8 @@ namespace DAL
         {
             try
             {
-                String sql = "INSERT INTO bibEmprestimo (idLivro, idLeitor, dataEmprestimo, dataDevolucaoPrevista, dataDevolucaoEfetiva) " +
-                    " VALUES (@idLivro, @idLeitor, @dataEmprestimo, @dataDevolucaoPrevista, @dataDevolucaoEfetiva)";
+                String sql = "INSERT INTO bibEmprestimo (idLivro, idLeitor, dataEmprestimo, dataDevolucaoPrevista, dataDevolucaoReal) " +
+                    " VALUES (@idLivro, @idLeitor, @dataEmprestimo, @dataDevolucaoPrevista, @dataDevolucaoReal)";
                 _conexao = new SqlConnection(_conexaoSQLServer);
                 SqlCommand cmd = new SqlCommand(sql, _conexao);
                 cmd.Parameters.AddWithValue("@idEmprestimo", emprestimo.IdEmprestimo);
@@ -139,7 +139,7 @@ namespace DAL
                 cmd.Parameters.AddWithValue("@idLeitor", emprestimo.IdLeitor);
                 cmd.Parameters.AddWithValue("@dataEmprestimo", emprestimo.DataEmprestimo);
                 cmd.Parameters.AddWithValue("@dataDevolucaoPrevista", emprestimo.DataDevolucaoPrevista);
-                cmd.Parameters.AddWithValue("@dataDevolucaoEfetiva", emprestimo.DataDevolucaoEfetiva);
+                cmd.Parameters.AddWithValue("@dataDevolucaoReal", "01/01/9999 08:30:52 AM");
                 _conexao.Open();
                 cmd.ExecuteNonQuery();
             }

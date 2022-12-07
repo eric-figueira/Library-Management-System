@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Windows.Forms;
 using DTO;
 
 namespace BLL
@@ -38,6 +39,7 @@ namespace BLL
             {
                 dal = new DAL.EmprestimoDAL(bd, user, password);
                 dal.InsertEmprestimo(emprestimo);
+                MessageBox.Show("chegou");
             }
             catch (Exception ex)
             {

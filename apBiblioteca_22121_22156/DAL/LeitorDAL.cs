@@ -46,7 +46,7 @@ namespace DAL
                     "FROM bibLeitor L FULL OUTER JOIN bibEmprestimo E on L.idLeitor = E.idLeitor";
                 _conexao = new SqlConnection(_conexaoSQLServer);
                 SqlCommand cmd = new SqlCommand(sql, _conexao);
-                SqlDataAdapter da = new SqlDataAdapter;
+                SqlDataAdapter da = new SqlDataAdapter();
                 da.SelectCommand = cmd;
                 DataTable dt = new DataTable();
                 da.Fill(dt);

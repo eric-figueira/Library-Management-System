@@ -71,6 +71,7 @@ namespace apBiblioteca_22121_22156.UI
                     emprestimo.IdLeitor = int.Parse(txtIdLeitor.Text);
                     emprestimo.DataEmprestimo = dtpDataEmprestimo.Value;
                     emprestimo.DataDevolucaoPrevista = dtpDataDevPrevista.Value;
+                    emprestimo.DataDevolucaoEfetiva = new DateTime();
 
                     try
                     {
