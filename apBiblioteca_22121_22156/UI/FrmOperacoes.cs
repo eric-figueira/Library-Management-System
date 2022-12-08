@@ -63,6 +63,50 @@ namespace apBiblioteca_22121_22156.UI
             }
             else
                 MessageBox.Show("Erro: Dados de emprestimo inválidos!");
+
+            /*
+                Podemos dividir a procura em 3 casos:
+                1 - Quer procurar por IdLivro
+                2 - Quer procurar por IdLeitor
+                3 - Quer procurar por IdLeitor e por IdLivro
+            */
+            if (txtIdLivro.Text != "" && txtIdLeitor.Text == "") // 1
+            {
+                int idLivro = int.Parse(txtIdLivro.Text);
+                List<Emprestimo> emprestimos = null;
+                try
+                {
+                    EmprestimoBLL bll = new EmprestimoBLL(banco, usuario, senha);
+                    emprestimos = bll.SelecionarEmprestimosPorIdLivro(idLivro);
+                    if (emprestimos.Count == 0)
+                        MessageBox.Show("Erro: Nenhum empréstimo com o IdLivro informado foi encontrado no banco de dados");
+                    else if (emprestimos.Count == 1)
+                    {
+                        txtIdEmprestimo.Text = emprestimos[0].IdEmprestimo.ToString();
+                        txtIdLeitor.Text     = emprestimos[0].IdLeitor.ToString();
+                        txtIdLivro.Text      = emprestimos[0].IdLivro.ToString();
+                        dtpDataEmprestimo.Value  = emprestimos[0].DataEmprestimo;
+                        dtpDataDevPrevista.Value = emprestimos[0].DataDevolucaoPrevista;
+                    }
+                    else
+                    {
+
+                    }
+                }
+                catch (Exception erro)
+                {
+                    MessageBox.Show("Erro: " + erro.Message);
+                }
+            }
+            else if (txtIdLivro.Text == "" || txtIdLeitor.Text != "") // 2
+            {
+            
+            }
+            else // 3
+            {
+
+            }
+
         }
 
         private void btnNovo_Click(object sender, EventArgs e)
