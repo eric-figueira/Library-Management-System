@@ -89,33 +89,27 @@ namespace apBiblioteca_22121_22156.UI
                     emprestimo.IdLeitor = int.Parse(txtIdLeitor.Text);
                     emprestimo.DataEmprestimo = dtpDataEmprestimo.Value;
                     emprestimo.DataDevolucaoPrevista = dtpDataDevPrevista.Value;
-                    emprestimo.DataDevolucaoEfetiva = new DateTime();
+                    emprestimo.DataDevolucaoReal = new DateTime();
 
                     try
                     {
                         EmprestimoBLL bll = new EmprestimoBLL(banco, usuario, senha);
                         List<Emprestimo> aux = bll.SelecionarListEmprestimos();
 
-                        bool achouLivroJaEmprestado = false;
                         int contLivrosLeitor = 0;
                         for (int i = 0; i < aux.Count; i++)
                         {
-                            if (aux[i].IdLivro == emprestimo.IdLivro)
-                                achouLivroJaEmprestado = true; // Achamos esse mesmo livro ja emprestado
-
-                            if (emprestimo.IdLeitor == aux[i].IdLeitor && aux[i].DataDevolucaoEfetiva != null) // Se o leitor que esta querendo o emprestimo for achado em outro emprestimo e se a data de devolucao desse emprestimo é null (a pessoa ainda esta com o livro)
+                            if (emprestimo.IdLeitor == aux[i].IdLeitor && aux[i].DataDevolucaoReal != null) // Se o leitor que esta querendo o emprestimo for achado em outro emprestimo e se a data de devolucao desse emprestimo é null (a pessoa ainda esta com o livro)
                                 contLivrosLeitor++; // Incrementamos a quantidade de emprestimos que essa pessoa tem
                         }
 
                         if (emprestimo.DataDevolucaoPrevista.CompareTo(emprestimo.DataEmprestimo) < 0) // Se a data de devolucao prevista for menor que a data de emprestimo
                             MessageBox.Show("Erro: Data de devolução prevista inválida!"); // Nao se pode fazer o emprestimo, pois a data é inválida
-                        else if (achouLivroJaEmprestado) // Se esse livro ja esta emprestado nao se pode fazer o emprestimo
-                            MessageBox.Show("Erro: Este livro já está emprestado! Volte a tentar mais tarde");
                         else if (contLivrosLeitor >= 5) // Se o leitor ja tem 5 ou mais emprestimos nao se pode fazer o emprestimo
                             MessageBox.Show("Erro: Este leitor já tem 5 livros emprestados, não pode mais fazer empréstimos!");
                         else
                         {
-                            emprestimo.DataDevolucaoEfetiva = DateTime.MinValue;
+                            emprestimo.DataDevolucaoReal = DateTime.MinValue;
                             bll.InserirEmprestimo(emprestimo);
                             MessageBox.Show("Empréstimo criado com sucesso!");
                             Emprestimo auxiliar = bll.SelecionarEmprestimoPorIdLivro(emprestimo.IdLivro);
@@ -202,6 +196,11 @@ namespace apBiblioteca_22121_22156.UI
                     EmprestimoBLL bll = new EmprestimoBLL(banco, usuario, senha);
                     bll.ExcluirEmprestimo(emprestimo);
                     MessageBox.Show("Exclusão feita com sucesso!");
+                    // Limpando a tela
+                    txtIdDevolucao.Text  = "";
+                    txtIdEmprestimo.Text = "";
+                    txtIdLeitor.Text     = "";
+                    txtIdLivro.Text      = "";
                 }
                 catch (Exception erro)
                 {

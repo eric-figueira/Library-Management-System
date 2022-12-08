@@ -58,7 +58,7 @@ namespace BLL
             }
         }
 
-        public void ExcluirEmprestimo(Emprestimo emprestimo) // Por que isso existe?
+        public void ExcluirEmprestimo(Emprestimo emprestimo)
         {
             try
             {

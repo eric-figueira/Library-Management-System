@@ -103,7 +103,7 @@
             this.tpEmprestimo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tpEmprestimo.Name = "tpEmprestimo";
             this.tpEmprestimo.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.tpEmprestimo.Size = new System.Drawing.Size(675, 335);
+            this.tpEmprestimo.Size = new System.Drawing.Size(681, 335);
             this.tpEmprestimo.TabIndex = 0;
             this.tpEmprestimo.Text = "Empréstimos";
             this.tpEmprestimo.UseVisualStyleBackColor = true;
@@ -254,7 +254,7 @@
             this.tpDevolucao.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tpDevolucao.Name = "tpDevolucao";
             this.tpDevolucao.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.tpDevolucao.Size = new System.Drawing.Size(675, 335);
+            this.tpDevolucao.Size = new System.Drawing.Size(681, 335);
             this.tpDevolucao.TabIndex = 1;
             this.tpDevolucao.Text = "Devoluções";
             this.tpDevolucao.UseVisualStyleBackColor = true;
@@ -329,7 +329,7 @@
             this.dataDev});
             this.dgvOperacoes.Location = new System.Drawing.Point(1, 0);
             this.dgvOperacoes.Name = "dgvOperacoes";
-            this.dgvOperacoes.Size = new System.Drawing.Size(680, 335);
+            this.dgvOperacoes.Size = new System.Drawing.Size(680, 334);
             this.dgvOperacoes.TabIndex = 1;
             // 
             // IdEmprestimo
@@ -370,7 +370,7 @@
             // 
             // dataDev
             // 
-            this.dataDev.HeaderText = "Data Devolução";
+            this.dataDev.HeaderText = "Data Devolução Real";
             this.dataDev.MaxInputLength = 10;
             this.dataDev.Name = "dataDev";
             // 

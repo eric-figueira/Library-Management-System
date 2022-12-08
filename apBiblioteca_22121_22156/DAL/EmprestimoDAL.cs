@@ -23,7 +23,7 @@ namespace DAL
         {
             try
             {
-                String sql = "SELECT idEmprestimo, idLivro, idLeitor, dataEmprestimo, dataDevolucaoPrevista, dataDevolucaoEfetiva FROM bibEmprestimo";
+                String sql = "SELECT idEmprestimo, idLivro, idLeitor, dataEmprestimo, dataDevolucaoPrevista, dataDevolucaoReal FROM bibEmprestimo";
                 _conexao = new SqlConnection(_conexaoSQLServer);
                 SqlCommand cmd = new SqlCommand(sql, _conexao);
                 SqlDataAdapter da = new SqlDataAdapter();
@@ -90,7 +90,7 @@ namespace DAL
                 cmd.Parameters.AddWithValue("@idLeitor", emprestimo.IdLeitor);
                 cmd.Parameters.AddWithValue("@dataEmprestimo", emprestimo.DataEmprestimo);
                 cmd.Parameters.AddWithValue("@dataDevolucaoPrevista", emprestimo.DataDevolucaoPrevista);
-                cmd.Parameters.AddWithValue("@dataDevolucaoReal", emprestimo.DataDevolucaoEfetiva);
+                cmd.Parameters.AddWithValue("@dataDevolucaoReal", emprestimo.DataDevolucaoReal);
                 cmd.Parameters.AddWithValue("@idEmprestimo", emprestimo.IdEmprestimo);
                 _conexao.Open();
                 cmd.ExecuteNonQuery();

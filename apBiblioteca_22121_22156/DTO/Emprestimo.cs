@@ -11,7 +11,7 @@ namespace DTO
 
         DateTime dataEmprestimo,
                  dataDevolucaoPrevista,
-                 dataDevolucaoEfetiva;
+                 dataDevolucaoReal;
 
         public int IdEmprestimo
         {
@@ -43,10 +43,10 @@ namespace DTO
                 idLeitor = value; 
             }
         }
-        public DateTime DataDevolucaoEfetiva
+        public DateTime DataDevolucaoReal
         {
-            get => dataDevolucaoEfetiva;
-            set => dataDevolucaoEfetiva = value;
+            get => dataDevolucaoReal;
+            set => dataDevolucaoReal = value;
         }
         public DateTime DataDevolucaoPrevista
         {
@@ -60,20 +60,15 @@ namespace DTO
         }
 
         public Emprestimo(int idEmprestimo, int idLivro, int idLeitor, DateTime dataEmprestimo,
-            DateTime dataPrevista, DateTime dataEfetiva)
+            DateTime dataPrevista, DateTime dataDevReal)
         {
             IdLivro               = idLivro;
             IdLeitor              = idLeitor;
             IdEmprestimo          = idEmprestimo;
             DataEmprestimo        = dataEmprestimo;
-            DataDevolucaoEfetiva  = dataEfetiva;
+            DataDevolucaoReal     = dataDevReal;
             DataDevolucaoPrevista = dataPrevista;
 
-        }
-
-        public override string ToString()
-        {
-            return "IdEmprestimo.... " + IdEmprestimo + "\nIdLivro:... " + idLivro + "\nIdLeitor... " + idLeitor;
         }
     }
 }
