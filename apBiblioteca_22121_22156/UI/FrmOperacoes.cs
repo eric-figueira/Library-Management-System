@@ -32,7 +32,7 @@ namespace apBiblioteca_22121_22156.UI
                 try
                 {
                     EmprestimoBLL bll = new EmprestimoBLL(banco, usuario, senha);
-                    emprestimo = bll.SelecionarEmprestimoPorIdLeitor(idLeitor);
+                    //emprestimo = bll.SelecionarEmprestimoPorIdLeitor(idLeitor);
                     txtIdEmprestimo.Text = emprestimo.IdEmprestimo + "";
                     txtIdLivro.Text = emprestimo.IdLivro + "";
                     dtpDataEmprestimo.Value = emprestimo.DataEmprestimo;
@@ -50,7 +50,7 @@ namespace apBiblioteca_22121_22156.UI
                 try
                 {
                     EmprestimoBLL bll = new EmprestimoBLL(banco, usuario, senha);
-                    emprestimo = bll.SelecionarEmprestimoPorIdLivro(idLivro);
+                    //emprestimo = bll.SelecionarEmprestimoPorIdLivro(idLivro);
                     txtIdEmprestimo.Text = emprestimo.IdEmprestimo + "";
                     txtIdLeitor.Text = emprestimo.IdLeitor + "";
                     dtpDataEmprestimo.Value = emprestimo.DataEmprestimo;
@@ -109,11 +109,16 @@ namespace apBiblioteca_22121_22156.UI
                             MessageBox.Show("Erro: Este leitor já tem 5 livros emprestados, não pode mais fazer empréstimos!");
                         else
                         {
-                            emprestimo.DataDevolucaoReal = DateTime.MinValue;
+                            emprestimo.DataDevolucaoReal = DateTime.MaxValue;
                             bll.InserirEmprestimo(emprestimo);
                             MessageBox.Show("Empréstimo criado com sucesso!");
-                            Emprestimo auxiliar = bll.SelecionarEmprestimoPorIdLivro(emprestimo.IdLivro);
-                            txtIdEmprestimo.Text = auxiliar.IdEmprestimo.ToString();
+                            /*
+                                Como diferentes emprestimos podem ter o mesmo livro emprestado, precisamos de uma lista que tem
+                                esses emprestimos com esse livro, e como no sql, ao inserir um novo registro em uma tabela, este vai
+                                para o final da mesma, selecionamos o ultimo registro da lista (aux.Count - 1) 
+                            */
+                            List<Emprestimo> auxiliar = bll.SelecionarEmprestimosPorIdLivro(emprestimo.IdLivro);
+                            txtIdEmprestimo.Text = auxiliar[auxiliar.Count - 1].IdEmprestimo.ToString();
                         }
                     }
                     catch (Exception erro)
@@ -224,7 +229,7 @@ namespace apBiblioteca_22121_22156.UI
             }
         }
 
-        private void tcOperacoes_Enter(object sender, EventArgs e)
+        private void tpLista_Enter(object sender, EventArgs e)
         {
             fill_dgvEmprestimo_with_full_data(true, null);
         }
@@ -287,6 +292,31 @@ namespace apBiblioteca_22121_22156.UI
                     dgvOperacoes[5, i].Value = emprestimos[i]; // Data devolucao real
                 }
             }
+        }
+
+        private void dgvOperacoes_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            // Vamos pegar os dados das celulas da linha na qual o usuario clicou, redirecionar este para a aba de emprestimos, e colocar
+            // os dados referentes ao emprestimo nos textboxes (e tambem na aba de devolucao)
+            txtIdEmprestimo.Text = dgvOperacoes.CurrentRow.Cells[0].Value.ToString();
+            txtIdDevolucao.Text  = dgvOperacoes.CurrentRow.Cells[0].Value.ToString();
+            txtIdLeitor.Text     = dgvOperacoes.CurrentRow.Cells[1].Value.ToString();
+            txtIdLivro.Text      = dgvOperacoes.CurrentRow.Cells[2].Value.ToString();
+            dtpDataEmprestimo.Value  = (DateTime) dgvOperacoes.CurrentRow.Cells[3].Value;
+            dtpDataDevPrevista.Value = (DateTime) dgvOperacoes.CurrentRow.Cells[4].Value;
+
+            
+            if (dgvOperacoes.CurrentRow.Cells[5].Value == "---")
+            {
+                dtpDataDevReal.Value = DateTime.Today;
+                lbDevolucaoObs.Visible = true;
+            }
+            else {
+                dtpDataDevReal.Value = (DateTime) dgvOperacoes.CurrentRow.Cells[5].Value;
+                lbDevolucaoObs.Visible = false;
+            }
+
+            tcOperacoes.SelectTab(tpEmprestimo);
         }
 
         public void abrirPaginaEmprestimos() { tcOperacoes.SelectTab(tpEmprestimo); } // Abre a aba de emprestimos

@@ -225,9 +225,11 @@
             // 
             // label5
             // 
+            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(6, 301);
+            this.label5.Location = new System.Drawing.Point(6, 303);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(521, 25);
             this.label5.TabIndex = 1;
@@ -247,7 +249,7 @@
             this.dgvLivro.Location = new System.Drawing.Point(0, 0);
             this.dgvLivro.Name = "dgvLivro";
             this.dgvLivro.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvLivro.Size = new System.Drawing.Size(666, 280);
+            this.dgvLivro.Size = new System.Drawing.Size(666, 298);
             this.dgvLivro.TabIndex = 0;
             this.dgvLivro.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLivro_CellDoubleClick);
             // 

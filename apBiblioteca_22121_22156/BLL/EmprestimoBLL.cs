@@ -97,12 +97,12 @@ namespace BLL
             }
         }
 
-        public Emprestimo SelecionarEmprestimoPorIdLeitor(int idLeitor)
+        public List<Emprestimo> SelecionarEmprestimosPorIdLeitor(int idLeitor)
         {
             try
             {
                 dal = new DAL.EmprestimoDAL(bd, user, password);
-                return dal.SelectEmprestimoByIdLeitor(idLeitor);
+                return dal.SelectEmprestimosByIdLeitor(idLeitor);
             }
             catch(Exception ex)
             {
@@ -110,12 +110,12 @@ namespace BLL
             }
         }
 
-        public Emprestimo SelecionarEmprestimoPorIdLivro(int idLivro)
+        public List<Emprestimo> SelecionarEmprestimosPorIdLivro(int idLivro)
         {
             try
             {
                 dal = new DAL.EmprestimoDAL(bd, user, password);
-                return dal.SelectEmprestimoByIdLivro(idLivro);
+                return dal.SelectEmprestimosByIdLivro(idLivro);
             }
             catch (Exception ex)
             {

@@ -184,7 +184,7 @@ namespace DAL
             }
         }
 
-        public Emprestimo SelectEmprestimoByIdLeitor(int id)
+        public List<Emprestimo> SelectEmprestimosByIdLeitor(int id)
         {
             try
             {
@@ -195,10 +195,10 @@ namespace DAL
                 _conexao.Open();
                 SqlDataReader dr;
                 dr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
-                Emprestimo emprestimo = null;
-                if (dr.Read())
+                List<Emprestimo> aux = new List<Emprestimo>();
+                while (dr.Read())
                 {
-                    emprestimo = new Emprestimo(
+                    Emprestimo emprestimo = new Emprestimo(
                     (int)dr["idEmprestimo"],
                     (int)dr["idLivro"],
                     (int)dr["idLeitor"],
@@ -206,8 +206,9 @@ namespace DAL
                     (DateTime)dr["dataDevolucaoPrevista"],
                     (DateTime)dr["dataDevolucaoReal"]
                     );
+                    aux.Add(emprestimo);
                 }
-                return emprestimo;
+                return aux;
             }
             catch (Exception erro)
             {
@@ -215,7 +216,7 @@ namespace DAL
             }
         }
 
-        public Emprestimo SelectEmprestimoByIdLivro(int id)
+        public List<Emprestimo> SelectEmprestimosByIdLivro(int id)
         {
             try
             {
@@ -226,10 +227,10 @@ namespace DAL
                 _conexao.Open();
                 SqlDataReader dr;
                 dr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
-                Emprestimo emprestimo = null;
-                if (dr.Read())
+                List<Emprestimo> aux = new List<Emprestimo>();
+                while (dr.Read())
                 {
-                    emprestimo = new Emprestimo(
+                    Emprestimo emprestimo = new Emprestimo(
                     (int)dr["idEmprestimo"],
                     (int)dr["idLivro"],
                     (int)dr["idLeitor"],
@@ -237,8 +238,9 @@ namespace DAL
                     (DateTime)dr["dataDevolucaoPrevista"],
                     (DateTime)dr["dataDevolucaoReal"]
                     );
+                    aux.Add(emprestimo);
                 }
-                return emprestimo;
+                return aux;
             }
             catch (Exception erro)
             {
