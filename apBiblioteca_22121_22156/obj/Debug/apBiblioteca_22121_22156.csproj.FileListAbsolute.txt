@@ -83,3 +83,18 @@ Z:\GITHUB\chico 3\Library-Management-System\apBiblioteca_22121_22156\obj\Debug\a
 Z:\GITHUB\chico 3\Library-Management-System\apBiblioteca_22121_22156\obj\Debug\apBiblioteca_22121_22156.csproj.CoreCompileInputs.cache
 Z:\GITHUB\chico 3\Library-Management-System\apBiblioteca_22121_22156\obj\Debug\apBiblioteca_22121_22156.exe
 Z:\GITHUB\chico 3\Library-Management-System\apBiblioteca_22121_22156\obj\Debug\apBiblioteca_22121_22156.pdb
+C:\temp\Library-Management-System\apBiblioteca_22121_22156\bin\Debug\apBiblioteca_22121_22156.exe.config
+C:\temp\Library-Management-System\apBiblioteca_22121_22156\bin\Debug\apBiblioteca_22121_22156.exe
+C:\temp\Library-Management-System\apBiblioteca_22121_22156\bin\Debug\apBiblioteca_22121_22156.pdb
+C:\temp\Library-Management-System\apBiblioteca_22121_22156\obj\Debug\apBiblioteca_22121_22156.csproj.AssemblyReference.cache
+C:\temp\Library-Management-System\apBiblioteca_22121_22156\obj\Debug\apBiblioteca_22121_22156.csproj.SuggestedBindingRedirects.cache
+C:\temp\Library-Management-System\apBiblioteca_22121_22156\obj\Debug\apBiblioteca_22121_22156.FrmPrincipal.resources
+C:\temp\Library-Management-System\apBiblioteca_22121_22156\obj\Debug\apBiblioteca_22121_22156.Properties.Resources.resources
+C:\temp\Library-Management-System\apBiblioteca_22121_22156\obj\Debug\apBiblioteca_22121_22156.UI.FrmLeitor.resources
+C:\temp\Library-Management-System\apBiblioteca_22121_22156\obj\Debug\apBiblioteca_22121_22156.UI.FrmLivro.resources
+C:\temp\Library-Management-System\apBiblioteca_22121_22156\obj\Debug\apBiblioteca_22121_22156.UI.FrmOperacoes.resources
+C:\temp\Library-Management-System\apBiblioteca_22121_22156\obj\Debug\apBiblioteca_22121_22156.UI.FrmRelatorio.resources
+C:\temp\Library-Management-System\apBiblioteca_22121_22156\obj\Debug\apBiblioteca_22121_22156.csproj.GenerateResource.cache
+C:\temp\Library-Management-System\apBiblioteca_22121_22156\obj\Debug\apBiblioteca_22121_22156.csproj.CoreCompileInputs.cache
+C:\temp\Library-Management-System\apBiblioteca_22121_22156\obj\Debug\apBiblioteca_22121_22156.exe
+C:\temp\Library-Management-System\apBiblioteca_22121_22156\obj\Debug\apBiblioteca_22121_22156.pdb

@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Text;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,46 +25,6 @@ namespace apBiblioteca_22121_22156.UI
 
         private void btnProcurar_Click(object sender, EventArgs e)
         {
-            // verificar se o idLivro ou idLeitor pelo qual vai procurar existe
-            //if (txtIdLeitor.Text != "")
-            //{
-            //    int idLeitor = int.Parse(txtIdLeitor.Text);
-            //    Emprestimo emprestimo = null;
-            //    try
-            //    {
-            //        EmprestimoBLL bll = new EmprestimoBLL(banco, usuario, senha);
-            //        //emprestimo = bll.SelecionarEmprestimoPorIdLeitor(idLeitor);
-            //        txtIdEmprestimo.Text = emprestimo.IdEmprestimo + "";
-            //        txtIdLivro.Text = emprestimo.IdLivro + "";
-            //        dtpDataEmprestimo.Value = emprestimo.DataEmprestimo;
-            //        dtpDataDevPrevista.Value = emprestimo.DataDevolucaoPrevista;
-            //    }
-            //    catch (Exception erro)
-            //    {
-            //        MessageBox.Show("Erro: " + erro.Message.ToString());
-            //    }
-            //}
-            //else if (txtIdLeitor.Text == "" && txtIdLivro.Text != "")
-            //{
-            //    int idLivro = int.Parse(txtIdLivro.Text);
-            //    Emprestimo emprestimo = null;
-            //    try
-            //    {
-            //        EmprestimoBLL bll = new EmprestimoBLL(banco, usuario, senha);
-            //        //emprestimo = bll.SelecionarEmprestimoPorIdLivro(idLivro);
-            //        txtIdEmprestimo.Text = emprestimo.IdEmprestimo + "";
-            //        txtIdLeitor.Text = emprestimo.IdLeitor + "";
-            //        dtpDataEmprestimo.Value = emprestimo.DataEmprestimo;
-            //        dtpDataDevPrevista.Value = emprestimo.DataDevolucaoPrevista;
-            //    }
-            //    catch (Exception erro)
-            //    {
-            //        MessageBox.Show("Erro: " + erro.Message.ToString());
-            //    }
-            //}
-            //else
-            //    MessageBox.Show("Erro: Dados de emprestimo inválidos!");
-
             /*
                 Podemos dividir a procura em 3 casos:
                 1 - Quer procurar por IdLivro
@@ -216,16 +177,16 @@ namespace apBiblioteca_22121_22156.UI
             if (txtIdEmprestimo.Text != "" || txtIdLeitor.Text != "" || txtIdLivro.Text != "" || dtpDataDevPrevista.Value != null || dtpDataEmprestimo.Value != null)
             {
                 Emprestimo emprestimo = new Emprestimo(int.Parse(txtIdEmprestimo.Text),
-                                                    int.Parse(txtIdLeitor.Text),
                                                     int.Parse(txtIdLivro.Text),
+                                                    int.Parse(txtIdLeitor.Text),
                                                     dtpDataEmprestimo.Value,
                                                     dtpDataDevPrevista.Value,
-                                                    new DateTime());
+                                                    DateTime.MaxValue);
                 try
                 {
                     EmprestimoBLL bll = new EmprestimoBLL(banco, usuario, senha);
                     bll.AlterarEmprestimo(emprestimo);
-                    MessageBox.Show("Empréstimo alterado com sucesso!");
+                    MessageBox.Show("Alteração feita com sucesso!");
                 }
                 catch (Exception erro)
                 {
@@ -238,6 +199,8 @@ namespace apBiblioteca_22121_22156.UI
 
         private void btnRegistarDevolucao_Click(object sender, EventArgs e)
         {
+            Boolean emprestimoExistente = false;
+
             if (txtIdDevolucao.Text != "")
             {
                 try
@@ -256,9 +219,13 @@ namespace apBiblioteca_22121_22156.UI
                                                    dtpDataDevReal.Value);
 
                             bll.AlterarEmprestimo(emprestimo);
+
+                            MessageBox.Show("Devolução feita com sucesso!");
+                            emprestimoExistente = true;
                         }
                     }
-                    MessageBox.Show("Devolução feita com sucesso!");
+                    if (emprestimoExistente == false)  // se o emprestimo que o usuário deseja registrar a devolução não existir, uma mensagem será exibida
+                        MessageBox.Show("Empréstimo inexistente");
                 }
                 catch (Exception erro)
                 {
@@ -379,8 +346,8 @@ namespace apBiblioteca_22121_22156.UI
             // os dados referentes ao emprestimo nos textboxes (e tambem na aba de devolucao)
             txtIdEmprestimo.Text = dgvOperacoes.CurrentRow.Cells[0].Value.ToString();
             txtIdDevolucao.Text  = dgvOperacoes.CurrentRow.Cells[0].Value.ToString();
-            txtIdLeitor.Text     = dgvOperacoes.CurrentRow.Cells[1].Value.ToString();
-            txtIdLivro.Text      = dgvOperacoes.CurrentRow.Cells[2].Value.ToString();
+            txtIdLivro.Text      = dgvOperacoes.CurrentRow.Cells[1].Value.ToString();
+            txtIdLeitor.Text     = dgvOperacoes.CurrentRow.Cells[2].Value.ToString();
             dtpDataEmprestimo.Value  = (DateTime) dgvOperacoes.CurrentRow.Cells[3].Value;
             dtpDataDevPrevista.Value = (DateTime) dgvOperacoes.CurrentRow.Cells[4].Value;
 
