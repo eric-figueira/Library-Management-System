@@ -25,44 +25,44 @@ namespace apBiblioteca_22121_22156.UI
         private void btnProcurar_Click(object sender, EventArgs e)
         {
             // verificar se o idLivro ou idLeitor pelo qual vai procurar existe
-            if (txtIdLeitor.Text != "")
-            {
-                int idLeitor = int.Parse(txtIdLeitor.Text);
-                Emprestimo emprestimo = null;
-                try
-                {
-                    EmprestimoBLL bll = new EmprestimoBLL(banco, usuario, senha);
-                    //emprestimo = bll.SelecionarEmprestimoPorIdLeitor(idLeitor);
-                    txtIdEmprestimo.Text = emprestimo.IdEmprestimo + "";
-                    txtIdLivro.Text = emprestimo.IdLivro + "";
-                    dtpDataEmprestimo.Value = emprestimo.DataEmprestimo;
-                    dtpDataDevPrevista.Value = emprestimo.DataDevolucaoPrevista;
-                }
-                catch (Exception erro)
-                {
-                    MessageBox.Show("Erro: " + erro.Message.ToString());
-                }
-            }
-            else if (txtIdLeitor.Text == "" && txtIdLivro.Text != "")
-            {
-                int idLivro = int.Parse(txtIdLivro.Text);
-                Emprestimo emprestimo = null;
-                try
-                {
-                    EmprestimoBLL bll = new EmprestimoBLL(banco, usuario, senha);
-                    //emprestimo = bll.SelecionarEmprestimoPorIdLivro(idLivro);
-                    txtIdEmprestimo.Text = emprestimo.IdEmprestimo + "";
-                    txtIdLeitor.Text = emprestimo.IdLeitor + "";
-                    dtpDataEmprestimo.Value = emprestimo.DataEmprestimo;
-                    dtpDataDevPrevista.Value = emprestimo.DataDevolucaoPrevista;
-                }
-                catch (Exception erro)
-                {
-                    MessageBox.Show("Erro: " + erro.Message.ToString());
-                }
-            }
-            else
-                MessageBox.Show("Erro: Dados de emprestimo inválidos!");
+            //if (txtIdLeitor.Text != "")
+            //{
+            //    int idLeitor = int.Parse(txtIdLeitor.Text);
+            //    Emprestimo emprestimo = null;
+            //    try
+            //    {
+            //        EmprestimoBLL bll = new EmprestimoBLL(banco, usuario, senha);
+            //        //emprestimo = bll.SelecionarEmprestimoPorIdLeitor(idLeitor);
+            //        txtIdEmprestimo.Text = emprestimo.IdEmprestimo + "";
+            //        txtIdLivro.Text = emprestimo.IdLivro + "";
+            //        dtpDataEmprestimo.Value = emprestimo.DataEmprestimo;
+            //        dtpDataDevPrevista.Value = emprestimo.DataDevolucaoPrevista;
+            //    }
+            //    catch (Exception erro)
+            //    {
+            //        MessageBox.Show("Erro: " + erro.Message.ToString());
+            //    }
+            //}
+            //else if (txtIdLeitor.Text == "" && txtIdLivro.Text != "")
+            //{
+            //    int idLivro = int.Parse(txtIdLivro.Text);
+            //    Emprestimo emprestimo = null;
+            //    try
+            //    {
+            //        EmprestimoBLL bll = new EmprestimoBLL(banco, usuario, senha);
+            //        //emprestimo = bll.SelecionarEmprestimoPorIdLivro(idLivro);
+            //        txtIdEmprestimo.Text = emprestimo.IdEmprestimo + "";
+            //        txtIdLeitor.Text = emprestimo.IdLeitor + "";
+            //        dtpDataEmprestimo.Value = emprestimo.DataEmprestimo;
+            //        dtpDataDevPrevista.Value = emprestimo.DataDevolucaoPrevista;
+            //    }
+            //    catch (Exception erro)
+            //    {
+            //        MessageBox.Show("Erro: " + erro.Message.ToString());
+            //    }
+            //}
+            //else
+            //    MessageBox.Show("Erro: Dados de emprestimo inválidos!");
 
             /*
                 Podemos dividir a procura em 3 casos:
@@ -78,19 +78,20 @@ namespace apBiblioteca_22121_22156.UI
                 {
                     EmprestimoBLL bll = new EmprestimoBLL(banco, usuario, senha);
                     emprestimos = bll.SelecionarEmprestimosPorIdLivro(idLivro);
-                    if (emprestimos.Count == 0)
+                    if (emprestimos.Count == 0) // Não foi encontrado nenhum emprestimo com esse IdLivro
                         MessageBox.Show("Erro: Nenhum empréstimo com o IdLivro informado foi encontrado no banco de dados");
-                    else if (emprestimos.Count == 1)
-                    {
-                        txtIdEmprestimo.Text = emprestimos[0].IdEmprestimo.ToString();
-                        txtIdLeitor.Text     = emprestimos[0].IdLeitor.ToString();
-                        txtIdLivro.Text      = emprestimos[0].IdLivro.ToString();
-                        dtpDataEmprestimo.Value  = emprestimos[0].DataEmprestimo;
-                        dtpDataDevPrevista.Value = emprestimos[0].DataDevolucaoPrevista;
-                    }
+                    //else if (emprestimos.Count == 1) // Encontramos apenas 1, podemos colocá-lo no formulário em si
+                    //{
+                    //    txtIdEmprestimo.Text = emprestimos[0].IdEmprestimo.ToString();
+                    //    txtIdLeitor.Text     = emprestimos[0].IdLeitor.ToString();
+                    //    txtIdLivro.Text      = emprestimos[0].IdLivro.ToString();
+                    //    dtpDataEmprestimo.Value  = emprestimos[0].DataEmprestimo;
+                    //    dtpDataDevPrevista.Value = emprestimos[0].DataDevolucaoPrevista;
+                    //}
                     else
                     {
-
+                        tcOperacoes.SelectTab(tpLista);
+                        fill_dgvEmprestimo_with_full_data(false, emprestimos); // Encontramos 1 ou mais emprestimos com o Idlivro passado
                     }
                 }
                 catch (Exception erro)
@@ -98,15 +99,49 @@ namespace apBiblioteca_22121_22156.UI
                     MessageBox.Show("Erro: " + erro.Message);
                 }
             }
-            else if (txtIdLivro.Text == "" || txtIdLeitor.Text != "") // 2
+            else if (txtIdLivro.Text == "" && txtIdLeitor.Text != "") // 2
             {
-            
+                int idLeitor = int.Parse(txtIdLeitor.Text);
+                List<Emprestimo> emprestimos = null;
+                try
+                {
+                    EmprestimoBLL bll = new EmprestimoBLL(banco, usuario, senha);
+                    emprestimos = bll.SelecionarEmprestimosPorIdLeitor(idLeitor);
+                    if (emprestimos.Count == 0) // Não foi encontrado nenhum emprestimo com esse IdLeitor
+                        MessageBox.Show("Erro: Nenhum empréstimo com o IdLeitor informado foi encontrado no banco de dados");
+                    else
+                    {
+                        tcOperacoes.SelectTab(tpLista);
+                        fill_dgvEmprestimo_with_full_data(false, emprestimos);
+                    }
+                }
+                catch (Exception erro)
+                {
+                    MessageBox.Show("Erro: " + erro.Message);
+                }
             }
             else // 3
             {
-
+                int idLivro = int.Parse(txtIdLivro.Text);
+                int idLeitor = int.Parse(txtIdLeitor.Text);
+                List<Emprestimo> emprestimos = null;
+                try
+                {
+                    EmprestimoBLL bll = new EmprestimoBLL(banco, usuario, senha);
+                    emprestimos = bll.SelecionarEmprestimosPorIdLivroIdLeitor(idLivro, idLeitor);
+                    if (emprestimos.Count == 0) // Não foi encontrado nenhum emprestimo com esse IdLeitor
+                        MessageBox.Show("Erro: Nenhum empréstimo com o IdLivro e IdLeitor informados foi encontrado no banco de dados");
+                    else
+                    {
+                        tcOperacoes.SelectTab(tpLista);
+                        fill_dgvEmprestimo_with_full_data(false, emprestimos);
+                    }
+                }
+                catch (Exception erro)
+                {
+                    MessageBox.Show("Erro: " + erro.Message);
+                }
             }
-
         }
 
         private void btnNovo_Click(object sender, EventArgs e)
@@ -328,12 +363,12 @@ namespace apBiblioteca_22121_22156.UI
                     if (i != emprestimos.Count - 1) // Adicionamos uma linha ao final caso nao seja o ultimo registro
                         dgvOperacoes.Rows.Add();
 
-                    dgvOperacoes[0, i].Value = emprestimos[i]; // Id Emprestimo
-                    dgvOperacoes[1, i].Value = emprestimos[i]; // Id Livro
-                    dgvOperacoes[2, i].Value = emprestimos[i]; // Id Leitor
-                    dgvOperacoes[3, i].Value = emprestimos[i]; // Data do emprestimo
-                    dgvOperacoes[4, i].Value = emprestimos[i]; // Data devolucao prevista
-                    dgvOperacoes[5, i].Value = emprestimos[i]; // Data devolucao real
+                    dgvOperacoes[0, i].Value = emprestimos[i].IdEmprestimo; // Id Emprestimo
+                    dgvOperacoes[1, i].Value = emprestimos[i].IdLivro; // Id Livro
+                    dgvOperacoes[2, i].Value = emprestimos[i].IdLeitor; // Id Leitor
+                    dgvOperacoes[3, i].Value = emprestimos[i].DataEmprestimo; // Data do emprestimo
+                    dgvOperacoes[4, i].Value = emprestimos[i].DataDevolucaoPrevista; // Data devolucao prevista
+                    dgvOperacoes[5, i].Value = emprestimos[i].DataDevolucaoReal; // Data devolucao real
                 }
             }
         }
@@ -350,7 +385,7 @@ namespace apBiblioteca_22121_22156.UI
             dtpDataDevPrevista.Value = (DateTime) dgvOperacoes.CurrentRow.Cells[4].Value;
 
             
-            if (dgvOperacoes.CurrentRow.Cells[5].Value == "---")
+            if (dgvOperacoes.CurrentRow.Cells[5].Value == "---" || ((DateTime)dgvOperacoes.CurrentRow.Cells[5].Value).Year == 9999)
             {
                 dtpDataDevReal.Value = DateTime.Today;
                 lbDevolucaoObs.Visible = true;

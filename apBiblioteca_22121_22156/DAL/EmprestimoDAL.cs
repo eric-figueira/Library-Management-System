@@ -248,6 +248,38 @@ namespace DAL
             }
         }
 
+        public List<Emprestimo> SelectEmprestimosByIdLeitorIdLivro (int idLivro, int idLeitor)
+        {
+            try
+            {
+                String sql = "SELECT * FROM bibEmprestimo WHERE idLivro = @idLivro AND idLeitor = @idLeitor";
+                _conexao = new SqlConnection(_conexaoSQLServer);
+                SqlCommand cmd = new SqlCommand(sql, _conexao);
+                cmd.Parameters.AddWithValue("@idLivro", idLivro);
+                cmd.Parameters.AddWithValue("@idLeitor", idLeitor);
+                _conexao.Open();
+                SqlDataReader dr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+                List<Emprestimo> aux = new List<Emprestimo>();
+                while (dr.Read())
+                {
+                    Emprestimo emprestimo = new Emprestimo(
+                        (int)dr["idEmprestimo"],
+                        (int)dr["idLivro"],
+                        (int)dr["idLeitor"],
+                        (DateTime)dr["dataEmprestimo"],
+                        (DateTime)dr["dataDevolucaoPrevista"],
+                        (DateTime)dr["dataDevolucaoReal"]
+                        );
+                    aux.Add(emprestimo);
+                }
+                return aux;
+            }
+            catch (Exception erro)
+            {
+                throw erro;
+            }
+        }
+
         public bool VerificarEmprestimoUsuario(int id)
         {
             try

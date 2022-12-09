@@ -122,5 +122,18 @@ namespace BLL
                 throw ex;
             }
         }
+
+        public List<Emprestimo> SelecionarEmprestimosPorIdLivroIdLeitor (int idLivro, int idLeitor)
+        {
+            try
+            {
+                dal = new DAL.EmprestimoDAL(bd, user, password);
+                return dal.SelectEmprestimosByIdLeitorIdLivro(idLivro, idLeitor);
+            }
+            catch (Exception erro)
+            {
+                throw erro;
+            }
+        }
     }
 }
