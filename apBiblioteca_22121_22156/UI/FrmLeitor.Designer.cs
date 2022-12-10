@@ -47,12 +47,12 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.tpLista = new System.Windows.Forms.TabPage();
-            this.label1 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.dgvLeitor = new System.Windows.Forms.DataGridView();
             this.IdLeitor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NomeLeitor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EmailLeitor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TelefoneLeitor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EmailLeitor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EnderecoLeitor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tcLeitor.SuspendLayout();
             this.tpCadastro.SuspendLayout();
@@ -247,28 +247,27 @@
             // 
             // tpLista
             // 
-            this.tpLista.Controls.Add(this.label1);
+            this.tpLista.Controls.Add(this.label7);
             this.tpLista.Controls.Add(this.dgvLeitor);
-            this.tpLista.Location = new System.Drawing.Point(4, 22);
+            this.tpLista.Location = new System.Drawing.Point(4, 29);
             this.tpLista.Name = "tpLista";
             this.tpLista.Padding = new System.Windows.Forms.Padding(3);
-            this.tpLista.Size = new System.Drawing.Size(663, 386);
+            this.tpLista.Size = new System.Drawing.Size(663, 379);
             this.tpLista.TabIndex = 1;
             this.tpLista.Text = "Lista";
             this.tpLista.UseVisualStyleBackColor = true;
             this.tpLista.Enter += new System.EventHandler(this.tpLista_Enter);
             // 
-            // label1
+            // label7
             // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(61, 347);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(521, 25);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Obs: Clique duas vezes em um registro para alterá-lo";
+            this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(138, 347);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(380, 20);
+            this.label7.TabIndex = 28;
+            this.label7.Text = "Obs: Clique duas vezes em um registro para alterá-lo";
             // 
             // dgvLeitor
             // 
@@ -279,13 +278,13 @@
             this.dgvLeitor.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.IdLeitor,
             this.NomeLeitor,
-            this.EmailLeitor,
             this.TelefoneLeitor,
+            this.EmailLeitor,
             this.EnderecoLeitor});
             this.dgvLeitor.Location = new System.Drawing.Point(0, 0);
             this.dgvLeitor.Name = "dgvLeitor";
             this.dgvLeitor.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvLeitor.Size = new System.Drawing.Size(663, 344);
+            this.dgvLeitor.Size = new System.Drawing.Size(663, 330);
             this.dgvLeitor.TabIndex = 0;
             this.dgvLeitor.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLeitor_CellDoubleClick);
             // 
@@ -304,19 +303,19 @@
             this.NomeLeitor.Name = "NomeLeitor";
             this.NomeLeitor.Width = 110;
             // 
-            // EmailLeitor
-            // 
-            this.EmailLeitor.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.EmailLeitor.HeaderText = "Email";
-            this.EmailLeitor.MaxInputLength = 50;
-            this.EmailLeitor.Name = "EmailLeitor";
-            // 
             // TelefoneLeitor
             // 
             this.TelefoneLeitor.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.TelefoneLeitor.HeaderText = "Telefone";
             this.TelefoneLeitor.MaxInputLength = 50;
             this.TelefoneLeitor.Name = "TelefoneLeitor";
+            // 
+            // EmailLeitor
+            // 
+            this.EmailLeitor.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.EmailLeitor.HeaderText = "Email";
+            this.EmailLeitor.MaxInputLength = 50;
+            this.EmailLeitor.Name = "EmailLeitor";
             // 
             // EnderecoLeitor
             // 
@@ -364,12 +363,12 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TabPage tpLista;
         private System.Windows.Forms.DataGridView dgvLeitor;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.DataGridViewTextBoxColumn IdLeitor;
         private System.Windows.Forms.DataGridViewTextBoxColumn NomeLeitor;
-        private System.Windows.Forms.DataGridViewTextBoxColumn EmailLeitor;
         private System.Windows.Forms.DataGridViewTextBoxColumn TelefoneLeitor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EmailLeitor;
         private System.Windows.Forms.DataGridViewTextBoxColumn EnderecoLeitor;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label6;
     }
 }

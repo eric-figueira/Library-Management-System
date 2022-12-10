@@ -29,6 +29,9 @@ namespace apBiblioteca_22121_22156
             Close();
         }
 
+        // Em todos os tratadores de evento abaixo, tentamos fazer uma conexão com o banco de dados para assegurar que 
+        // o usuário pode usar o programa, realizar operações, etc
+
         private void livrosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (txtBanco.Text == "" || txtUsuario.Text == "" || txtSenha.Text == "")

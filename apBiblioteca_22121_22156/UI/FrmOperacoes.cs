@@ -41,15 +41,7 @@ namespace apBiblioteca_22121_22156.UI
                     emprestimos = bll.SelecionarEmprestimosPorIdLivro(idLivro);
                     if (emprestimos.Count == 0) // Não foi encontrado nenhum emprestimo com esse IdLivro
                         MessageBox.Show("Erro: Nenhum empréstimo com o IdLivro informado foi encontrado no banco de dados");
-                    //else if (emprestimos.Count == 1) // Encontramos apenas 1, podemos colocá-lo no formulário em si
-                    //{
-                    //    txtIdEmprestimo.Text = emprestimos[0].IdEmprestimo.ToString();
-                    //    txtIdLeitor.Text     = emprestimos[0].IdLeitor.ToString();
-                    //    txtIdLivro.Text      = emprestimos[0].IdLivro.ToString();
-                    //    dtpDataEmprestimo.Value  = emprestimos[0].DataEmprestimo;
-                    //    dtpDataDevPrevista.Value = emprestimos[0].DataDevolucaoPrevista;
-                    //}
-                    else
+                    else // Estamos colocando os dados encontrados no dgvOperacoes independentemente se foram encontrados 1 ou 40 registros
                     {
                         tcOperacoes.SelectTab(tpLista);
                         fill_dgvEmprestimo_with_full_data(false, emprestimos); // Encontramos 1 ou mais emprestimos com o Idlivro passado

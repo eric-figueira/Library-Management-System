@@ -65,7 +65,7 @@ namespace apBiblioteca_22121_22156.UI
                 MessageBox.Show("Preencha os campos corretamente para realizar as alterações!");                  
         }
 
-        private void btnExcluir_Click(object sender, EventArgs e)  // dando erro se nao passa o codigo
+        private void btnExcluir_Click(object sender, EventArgs e) 
         {
             if (txtCodLivro.Text != "")
             {
@@ -107,15 +107,6 @@ namespace apBiblioteca_22121_22156.UI
                     {
                         MessageBox.Show("Erro: Livro não encontrado no banco de dados");
                         LimparTela();
-                        /*
-                            ou pegar os dados do livro que ja esta ali? 
-                        
-                        Livro aux = bll.SelecionarLivroPorId(int.Parse(txtIdLivro.Text));
-                        txtIdLivro.Text     = aux.IdLivro + "";
-                        txtCodLivro.Text    = aux.CodigoLivro;
-                        txtTituloLivro.Text = aux.TituloLivro;
-                        txtAutorLivro.Text  = aux.AutorLivro;
-                        */
                     }
                 }
                 catch (Exception erro)

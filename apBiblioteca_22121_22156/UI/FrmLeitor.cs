@@ -193,8 +193,8 @@ namespace apBiblioteca_22121_22156.UI
 
                         dgvLeitor[0, i].Value = aux.Rows[i][0]; // Na coluna 0 da linha i do dgvLeitor adicionamos o valor que esta em aux na linha i coluna 0 (Id Leitor)
                         dgvLeitor[1, i].Value = aux.Rows[i][1]; // Nome Leitor
-                        dgvLeitor[2, i].Value = aux.Rows[i][2]; // Email Leitor
-                        dgvLeitor[3, i].Value = aux.Rows[i][3]; // Telefone  Leitor
+                        dgvLeitor[2, i].Value = aux.Rows[i][2]; // Telefone Leitor
+                        dgvLeitor[3, i].Value = aux.Rows[i][3]; // Email  Leitor
                         dgvLeitor[4, i].Value = aux.Rows[i][4]; // Endereco Leitor
                     }
                 }
@@ -213,8 +213,8 @@ namespace apBiblioteca_22121_22156.UI
 
                     dgvLeitor[0, i].Value = leitores[i].IdLeitor; // Na coluna 0 da linha i do dgvLeitor adicionamos o valor que esta em aux na linha i coluna 0 (Id Leitor)
                     dgvLeitor[1, i].Value = leitores[i].NomeLeitor; // Nome Leitor
-                    dgvLeitor[2, i].Value = leitores[i].EmailLeitor; // Email Leitor
-                    dgvLeitor[3, i].Value = leitores[i].TelefoneLeitor; // Telefone Leitor
+                    dgvLeitor[2, i].Value = leitores[i].TelefoneLeitor; // Telefone Leitor
+                    dgvLeitor[3, i].Value = leitores[i].EmailLeitor; // Email Leitor
                     dgvLeitor[4, i].Value = leitores[i].EnderecoLeitor; // Endereco Leitor
                 }
             }

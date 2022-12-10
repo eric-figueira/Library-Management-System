@@ -46,12 +46,14 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.tpDevolucao = new System.Windows.Forms.TabPage();
+            this.lbDevolucaoObs = new System.Windows.Forms.Label();
             this.btnRegistarDevolucao = new System.Windows.Forms.Button();
             this.dtpDataDevReal = new System.Windows.Forms.DateTimePicker();
             this.label6 = new System.Windows.Forms.Label();
             this.txtIdDevolucao = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tpLista = new System.Windows.Forms.TabPage();
+            this.label7 = new System.Windows.Forms.Label();
             this.dgvOperacoes = new System.Windows.Forms.DataGridView();
             this.IdEmprestimo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idLivro = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -59,8 +61,6 @@
             this.dataEmprestimo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataDevPrevista = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataDev = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label7 = new System.Windows.Forms.Label();
-            this.lbDevolucaoObs = new System.Windows.Forms.Label();
             this.tcOperacoes.SuspendLayout();
             this.tpEmprestimo.SuspendLayout();
             this.tpDevolucao.SuspendLayout();
@@ -261,6 +261,19 @@
             this.tpDevolucao.Text = "Devoluções";
             this.tpDevolucao.UseVisualStyleBackColor = true;
             // 
+            // lbDevolucaoObs
+            // 
+            this.lbDevolucaoObs.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbDevolucaoObs.AutoSize = true;
+            this.lbDevolucaoObs.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbDevolucaoObs.Location = new System.Drawing.Point(20, 201);
+            this.lbDevolucaoObs.Name = "lbDevolucaoObs";
+            this.lbDevolucaoObs.Size = new System.Drawing.Size(296, 24);
+            this.lbDevolucaoObs.TabIndex = 47;
+            this.lbDevolucaoObs.Text = "* Este livro ainda não foi devolvido";
+            this.lbDevolucaoObs.Visible = false;
+            // 
             // btnRegistarDevolucao
             // 
             this.btnRegistarDevolucao.Location = new System.Drawing.Point(24, 141);
@@ -317,6 +330,18 @@
             this.tpLista.Text = "Lista";
             this.tpLista.UseVisualStyleBackColor = true;
             this.tpLista.Enter += new System.EventHandler(this.tpLista_Enter);
+            // 
+            // label7
+            // 
+            this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(74, 307);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(521, 25);
+            this.label7.TabIndex = 3;
+            this.label7.Text = "Obs: Clique duas vezes em um registro para alterá-lo";
             // 
             // dgvOperacoes
             // 
@@ -380,31 +405,6 @@
             this.dataDev.MaxInputLength = 10;
             this.dataDev.Name = "dataDev";
             // 
-            // label7
-            // 
-            this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(74, 307);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(521, 25);
-            this.label7.TabIndex = 3;
-            this.label7.Text = "Obs: Clique duas vezes em um registro para alterá-lo";
-            // 
-            // lbDevolucaoObs
-            // 
-            this.lbDevolucaoObs.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lbDevolucaoObs.AutoSize = true;
-            this.lbDevolucaoObs.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbDevolucaoObs.Location = new System.Drawing.Point(20, 201);
-            this.lbDevolucaoObs.Name = "lbDevolucaoObs";
-            this.lbDevolucaoObs.Size = new System.Drawing.Size(296, 24);
-            this.lbDevolucaoObs.TabIndex = 47;
-            this.lbDevolucaoObs.Text = "* Este livro ainda não foi devolvido";
-            this.lbDevolucaoObs.Visible = false;
-            // 
             // FrmOperacoes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -414,7 +414,7 @@
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "FrmOperacoes";
-            this.Text = "FrmOperacoes";
+            this.Text = "Manutenção de Empréstimos e Devoluções";
             this.tcOperacoes.ResumeLayout(false);
             this.tpEmprestimo.ResumeLayout(false);
             this.tpEmprestimo.PerformLayout();

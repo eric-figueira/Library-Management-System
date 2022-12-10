@@ -280,7 +280,7 @@ namespace DAL
             }
         }
 
-        public bool VerificarEmprestimoUsuario(int id)
+        public bool VerificarEmprestimoLeitor(int id) // Verifica se o id do leitor passado esta em algum emprestimo
         {
             try
             {
@@ -291,6 +291,27 @@ namespace DAL
                 _conexao.Open();
                 SqlDataReader dr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
                 if (dr.Read()) // Se conseguimos ler pelo menos 1 registro, significa que o leitor tem pelo menos 1 livro emprestado, nao precisamos criar uma lista para isso
+                    return true;
+
+                return false;
+            }
+            catch (Exception erro)
+            {
+                throw erro;
+            }
+        }
+
+        public bool VerificarEmprestimoLivro(int id) // Verifica se o id do livro passado esta em algum emprestimo
+        {
+            try
+            {
+                String sql = "SELECT * FROM bibEmprestimo WHERE idLivro = @idLivro";
+                _conexao = new SqlConnection(_conexaoSQLServer);
+                SqlCommand cmd = new SqlCommand(sql, _conexao);
+                cmd.Parameters.AddWithValue("@idLivro", id);
+                _conexao.Open();
+                SqlDataReader dr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+                if (dr.Read()) // Se conseguimos ler pelo menos 1 registro, significa que o livro esta em pelo menos 1 emprestimo, nao precisamos criar uma lista para isso
                     return true;
 
                 return false;

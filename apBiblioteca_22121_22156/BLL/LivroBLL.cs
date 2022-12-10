@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using DAL;
 using DTO;
 
 
@@ -72,10 +73,11 @@ namespace BLL
             }
 
         }
-        public void ExcluirLivro(Livro livro)  // Precisa se regra de negócio
+        public void ExcluirLivro(Livro livro)
         {
             try
             {
+                EmprestimoDAL aux = new EmprestimoDAL(bd, user, password);
                 dal = new DAL.LivroDAL(bd, user, password);
                 dal.DeleteLivro(livro);
             }

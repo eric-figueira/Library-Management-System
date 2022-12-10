@@ -81,7 +81,7 @@ namespace BLL
             try
             {
                 EmprestimoDAL aux = new EmprestimoDAL(banco, usuario, senha);
-                if (aux.VerificarEmprestimoUsuario(leitor.IdLeitor)) // Regra de negócio
+                if (aux.VerificarEmprestimoLeitor(leitor.IdLeitor)) // Regra de negócio
                     // Esse usuario tem emprestimos pendentes, nao podemos exlui-lo ate que ele devolva o(s) livro(s)
                     throw new Exception("Usuário tem empréstimos pendentes. Para excluí-lo é necessário fazer a devolução dos livros emprestados");
                 else
