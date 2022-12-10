@@ -1,4 +1,10 @@
-﻿using System;
+﻿/*
+    PARTICIPANTES:
+    1 - Beatriz Juliato Coutinho - RA: 22121
+    2 - Éric Carvalho Figueira   - RA: 22156
+*/
+
+using System;
 using System.Collections.Generic;
 using System.Data;
 using DAL;
@@ -78,8 +84,14 @@ namespace BLL
             try
             {
                 EmprestimoDAL aux = new EmprestimoDAL(bd, user, password);
-                dal = new DAL.LivroDAL(bd, user, password);
-                dal.DeleteLivro(livro);
+                if (aux.VerificarEmprestimoLivro(livro.IdLivro)) // Regra de negócio
+                    // Esse livro esta em algum emprestimo, nao podemos exclui-lo ate que esse emprestimo seja devolvido
+                    throw new Exception("Livro presente em empréstimo(s). Para excluí-lo é necessário que o empréstimo seja devolvido");
+                else
+                {
+                    dal = new DAL.LivroDAL(bd, user, password);
+                    dal.DeleteLivro(livro);
+                }
             }
             catch (Exception ex)
             {

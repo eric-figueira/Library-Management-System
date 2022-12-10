@@ -45,12 +45,12 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tpLista = new System.Windows.Forms.TabPage();
+            this.label7 = new System.Windows.Forms.Label();
             this.dgvLivro = new System.Windows.Forms.DataGridView();
             this.IdLivro = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CodLivro = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TituloLivro = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AutorLivro = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label7 = new System.Windows.Forms.Label();
             this.tcLivro.SuspendLayout();
             this.tpCadastro.SuspendLayout();
             this.tpLista.SuspendLayout();
@@ -227,14 +227,25 @@
             // 
             this.tpLista.Controls.Add(this.label7);
             this.tpLista.Controls.Add(this.dgvLivro);
-            this.tpLista.Location = new System.Drawing.Point(4, 29);
+            this.tpLista.Location = new System.Drawing.Point(4, 22);
             this.tpLista.Name = "tpLista";
             this.tpLista.Padding = new System.Windows.Forms.Padding(3);
-            this.tpLista.Size = new System.Drawing.Size(666, 334);
+            this.tpLista.Size = new System.Drawing.Size(666, 341);
             this.tpLista.TabIndex = 1;
             this.tpLista.Text = "Lista";
             this.tpLista.UseVisualStyleBackColor = true;
             this.tpLista.Enter += new System.EventHandler(this.btnExibir_Click);
+            // 
+            // label7
+            // 
+            this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(156, 302);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(380, 20);
+            this.label7.TabIndex = 29;
+            this.label7.Text = "Obs: Clique duas vezes em um registro para alterá-lo";
             // 
             // dgvLivro
             // 
@@ -284,17 +295,6 @@
             this.AutorLivro.MaxInputLength = 50;
             this.AutorLivro.Name = "AutorLivro";
             this.AutorLivro.Width = 200;
-            // 
-            // label7
-            // 
-            this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(156, 302);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(380, 20);
-            this.label7.TabIndex = 29;
-            this.label7.Text = "Obs: Clique duas vezes em um registro para alterá-lo";
             // 
             // FrmLivro
             // 

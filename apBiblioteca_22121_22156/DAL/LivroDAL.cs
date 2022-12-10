@@ -1,4 +1,10 @@
-﻿using System;
+﻿/*
+    PARTICIPANTES:
+    1 - Beatriz Juliato Coutinho - RA: 22121
+    2 - Éric Carvalho Figueira   - RA: 22156
+*/
+
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -38,7 +44,7 @@ namespace DAL
             }
         }
 
-        public DataTable LivroOuterJoinEmprestimo()
+        public DataTable LivroOuterJoinEmprestimo() // Usado na hora de fazer o relatorio
         {
             try
             {

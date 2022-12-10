@@ -1,4 +1,10 @@
-﻿using BLL;
+﻿/*
+    PARTICIPANTES:
+    1 - Beatriz Juliato Coutinho - RA: 22121
+    2 - Éric Carvalho Figueira   - RA: 22156
+*/
+
+using BLL;
 using DTO;
 using System;
 using System.Collections.Generic;
